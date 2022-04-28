@@ -30,7 +30,7 @@ namespace QLDSV_TC
         {
             rbDangNhap.Visible = false; // Ẩn nút đăng nhập
             rbTaiKhoan.Visible = true; // Hiển thị tạo mới và đăng xuất
-            if (Program.tenNhom.Equals("PGV") || Program.tenNhom.Equals("PKT"))
+            if (Program.tenNhom.Equals("PGV") || Program.tenNhom.Equals("KHOA"))
             {
                 rbPageNghiepVu.Visible = true;
                 rbPageBaoCao.Visible = true;
@@ -39,7 +39,7 @@ namespace QLDSV_TC
                 rbSV.Visible = true;
                 rbBDTK.Visible = true;
             }
-            else if (Program.tenNhom.Equals("KHOA"))
+            else if (Program.tenNhom.Equals("PKT"))
             {
                 rbPageNghiepVu.Visible = true;
                 rbPageBaoCao.Visible = true;
@@ -55,6 +55,7 @@ namespace QLDSV_TC
 
         public void dangXuat()
         {
+            // Reset ribbons
             rbPageNghiepVu.Visible = false;
             rbPageBaoCao.Visible = false;
             rbTaiKhoan.Visible = false;
