@@ -67,6 +67,10 @@ namespace QLDSV_TC
             rbSV.Visible = false;
             rbDSDongHocPhi.Visible = false;
             rbBDTK.Visible = false;
+            // Reset status bar
+            barMa.Caption = "Mã";
+            barHoTen.Caption = "Họ tên";
+            bartenNhom.Caption = "Nhóm";
         }
 
         private void barButtonItem4_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

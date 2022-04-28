@@ -404,7 +404,7 @@
             this.IsMdiContainer = true;
             this.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.Name = "frmMain";
-            this.Text = "frmMain";
+            this.Text = "PHẦN MỀM QUẢN LÝ ĐIỂM SINH VIÊN HỆ TÍN CHỈ - PTITHCM";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmMain_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).EndInit();

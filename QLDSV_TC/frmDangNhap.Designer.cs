@@ -67,7 +67,7 @@
             // 
             this.lblKhoa.Appearance.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblKhoa.Appearance.Options.UseFont = true;
-            this.lblKhoa.Location = new System.Drawing.Point(227, 219);
+            this.lblKhoa.Location = new System.Drawing.Point(231, 238);
             this.lblKhoa.Name = "lblKhoa";
             this.lblKhoa.Size = new System.Drawing.Size(55, 23);
             this.lblKhoa.TabIndex = 1;
@@ -77,7 +77,7 @@
             // 
             this.lblTaiKhoan.Appearance.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTaiKhoan.Appearance.Options.UseFont = true;
-            this.lblTaiKhoan.Location = new System.Drawing.Point(227, 266);
+            this.lblTaiKhoan.Location = new System.Drawing.Point(231, 274);
             this.lblTaiKhoan.Name = "lblTaiKhoan";
             this.lblTaiKhoan.Size = new System.Drawing.Size(105, 23);
             this.lblTaiKhoan.TabIndex = 2;
@@ -87,7 +87,7 @@
             // 
             this.lblMatKhau.Appearance.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMatKhau.Appearance.Options.UseFont = true;
-            this.lblMatKhau.Location = new System.Drawing.Point(227, 319);
+            this.lblMatKhau.Location = new System.Drawing.Point(231, 310);
             this.lblMatKhau.Name = "lblMatKhau";
             this.lblMatKhau.Size = new System.Drawing.Size(100, 23);
             this.lblMatKhau.TabIndex = 3;
@@ -100,7 +100,7 @@
             this.cmbKhoa.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbKhoa.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbKhoa.FormattingEnabled = true;
-            this.cmbKhoa.Location = new System.Drawing.Point(357, 216);
+            this.cmbKhoa.Location = new System.Drawing.Point(357, 230);
             this.cmbKhoa.Name = "cmbKhoa";
             this.cmbKhoa.Size = new System.Drawing.Size(532, 31);
             this.cmbKhoa.TabIndex = 4;
@@ -118,7 +118,7 @@
             // 
             // teTaiKhoan
             // 
-            this.teTaiKhoan.Location = new System.Drawing.Point(357, 263);
+            this.teTaiKhoan.Location = new System.Drawing.Point(357, 267);
             this.teTaiKhoan.Name = "teTaiKhoan";
             this.teTaiKhoan.Properties.Appearance.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.teTaiKhoan.Properties.Appearance.Options.UseFont = true;
@@ -127,7 +127,7 @@
             // 
             // teMatKhau
             // 
-            this.teMatKhau.Location = new System.Drawing.Point(357, 316);
+            this.teMatKhau.Location = new System.Drawing.Point(357, 303);
             this.teMatKhau.Name = "teMatKhau";
             this.teMatKhau.Properties.Appearance.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.teMatKhau.Properties.Appearance.Options.UseFont = true;
@@ -140,7 +140,7 @@
             this.simpleButton1.Appearance.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.simpleButton1.Appearance.Options.UseFont = true;
             this.simpleButton1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
-            this.simpleButton1.Location = new System.Drawing.Point(357, 352);
+            this.simpleButton1.Location = new System.Drawing.Point(357, 339);
             this.simpleButton1.Name = "simpleButton1";
             this.simpleButton1.Size = new System.Drawing.Size(169, 39);
             this.simpleButton1.TabIndex = 7;
@@ -152,11 +152,12 @@
             this.simpleButton2.Appearance.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.simpleButton2.Appearance.Options.UseFont = true;
             this.simpleButton2.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton2.ImageOptions.Image")));
-            this.simpleButton2.Location = new System.Drawing.Point(720, 352);
+            this.simpleButton2.Location = new System.Drawing.Point(720, 339);
             this.simpleButton2.Name = "simpleButton2";
             this.simpleButton2.Size = new System.Drawing.Size(169, 39);
             this.simpleButton2.TabIndex = 8;
             this.simpleButton2.Text = "THOÁT";
+            this.simpleButton2.Click += new System.EventHandler(this.simpleButton2_Click);
             // 
             // dSBindingSource
             // 

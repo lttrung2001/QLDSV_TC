@@ -61,5 +61,10 @@ namespace QLDSV_TC
                 MessageBox.Show("Đã có lỗi xảy ra!");
             }
         }
+
+        private void simpleButton2_Click(object sender, EventArgs e)
+        {
+            Program.frmChinh.Close();
+        }
     }
 }
