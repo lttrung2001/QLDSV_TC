@@ -10,15 +10,18 @@ namespace QLDSV_TC
 {
     internal static class Program
     {
-        /// <summary>
-        /// The main entry point for the application.
-        /// </summary>
+        public static frmMain frmChinh;
+        public static String tenPhanManh;
+        public static String ma;
+        public static String hoTen;
+        public static String tenNhom;
         [STAThread]
         static void Main()
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmMain());
+            frmChinh = new frmMain();
+            Application.Run(frmChinh);
         }
     }
 }

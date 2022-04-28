@@ -94,3 +94,4 @@ C:\Users\THANHTRUNG\OneDrive - student.ptithcm.edu.vn\Desktop\repos\QLDSV_TC\QLD
 C:\Users\THANHTRUNG\OneDrive - student.ptithcm.edu.vn\Desktop\repos\QLDSV_TC\QLDSV_TC\bin\Debug\ja\DevExpress.Office.v21.2.Core.resources.dll
 C:\Users\THANHTRUNG\OneDrive - student.ptithcm.edu.vn\Desktop\repos\QLDSV_TC\QLDSV_TC\bin\Debug\ru\DevExpress.Office.v21.2.Core.resources.dll
 C:\Users\THANHTRUNG\OneDrive - student.ptithcm.edu.vn\Desktop\repos\QLDSV_TC\QLDSV_TC\obj\Debug\QLDSV_TC.frmMain.resources
+C:\Users\THANHTRUNG\OneDrive - student.ptithcm.edu.vn\Desktop\repos\QLDSV_TC\QLDSV_TC\obj\Debug\QLDSV_TC.frmDangNhap.resources
