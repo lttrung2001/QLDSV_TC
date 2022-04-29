@@ -118,6 +118,7 @@
             this.btnSV.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnSV.ImageOptions.Image")));
             this.btnSV.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnSV.ImageOptions.LargeImage")));
             this.btnSV.Name = "btnSV";
+            this.btnSV.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnSV_ItemClick);
             // 
             // btnMonHoc
             // 
@@ -126,6 +127,7 @@
             this.btnMonHoc.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnMonHoc.ImageOptions.Image")));
             this.btnMonHoc.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnMonHoc.ImageOptions.LargeImage")));
             this.btnMonHoc.Name = "btnMonHoc";
+            this.btnMonHoc.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnMonHoc_ItemClick);
             // 
             // btnLTC
             // 
@@ -134,6 +136,7 @@
             this.btnLTC.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnLTC.ImageOptions.Image")));
             this.btnLTC.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnLTC.ImageOptions.LargeImage")));
             this.btnLTC.Name = "btnLTC";
+            this.btnLTC.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnLTC_ItemClick);
             // 
             // btnDongHocPhi
             // 
@@ -142,7 +145,7 @@
             this.btnDongHocPhi.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnDongHocPhi.ImageOptions.Image")));
             this.btnDongHocPhi.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnDongHocPhi.ImageOptions.LargeImage")));
             this.btnDongHocPhi.Name = "btnDongHocPhi";
-            this.btnDongHocPhi.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem4_ItemClick);
+            this.btnDongHocPhi.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDongHocPhi_ItemClick);
             // 
             // barButtonItem5
             // 
@@ -159,6 +162,7 @@
             this.btnLop.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnLop.ImageOptions.Image")));
             this.btnLop.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnLop.ImageOptions.LargeImage")));
             this.btnLop.Name = "btnLop";
+            this.btnLop.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnLop_ItemClick);
             // 
             // btnTaoTaiKhoan
             // 
@@ -167,7 +171,7 @@
             this.btnTaoTaiKhoan.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnTaoTaiKhoan.ImageOptions.Image")));
             this.btnTaoTaiKhoan.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnTaoTaiKhoan.ImageOptions.LargeImage")));
             this.btnTaoTaiKhoan.Name = "btnTaoTaiKhoan";
-            this.btnTaoTaiKhoan.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem7_ItemClick);
+            this.btnTaoTaiKhoan.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnTaoTaiKhoan_ItemClick);
             // 
             // btnDangXuat
             // 
@@ -176,7 +180,7 @@
             this.btnDangXuat.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnDangXuat.ImageOptions.Image")));
             this.btnDangXuat.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnDangXuat.ImageOptions.LargeImage")));
             this.btnDangXuat.Name = "btnDangXuat";
-            this.btnDangXuat.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem8_ItemClick);
+            this.btnDangXuat.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDangXuat_ItemClick);
             // 
             // btnDangKyMon
             // 
@@ -185,7 +189,7 @@
             this.btnDangKyMon.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnDangKyMon.ImageOptions.Image")));
             this.btnDangKyMon.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnDangKyMon.ImageOptions.LargeImage")));
             this.btnDangKyMon.Name = "btnDangKyMon";
-            this.btnDangKyMon.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem9_ItemClick);
+            this.btnDangKyMon.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDangKyMon_ItemClick);
             // 
             // btnDSLTC
             // 
@@ -194,7 +198,7 @@
             this.btnDSLTC.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnDSLTC.ImageOptions.Image")));
             this.btnDSLTC.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnDSLTC.ImageOptions.LargeImage")));
             this.btnDSLTC.Name = "btnDSLTC";
-            this.btnDSLTC.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem10_ItemClick);
+            this.btnDSLTC.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDSLTC_ItemClick);
             // 
             // btnDSSVDK
             // 
@@ -203,6 +207,7 @@
             this.btnDSSVDK.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnDSSVDK.ImageOptions.Image")));
             this.btnDSSVDK.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnDSSVDK.ImageOptions.LargeImage")));
             this.btnDSSVDK.Name = "btnDSSVDK";
+            this.btnDSSVDK.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDSSVDK_ItemClick);
             // 
             // btnBDLTC
             // 
@@ -211,6 +216,7 @@
             this.btnBDLTC.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnBDLTC.ImageOptions.Image")));
             this.btnBDLTC.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnBDLTC.ImageOptions.LargeImage")));
             this.btnBDLTC.Name = "btnBDLTC";
+            this.btnBDLTC.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnBDLTC_ItemClick);
             // 
             // btnPhieuDiem
             // 
@@ -219,6 +225,7 @@
             this.btnPhieuDiem.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnPhieuDiem.ImageOptions.Image")));
             this.btnPhieuDiem.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnPhieuDiem.ImageOptions.LargeImage")));
             this.btnPhieuDiem.Name = "btnPhieuDiem";
+            this.btnPhieuDiem.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnPhieuDiem_ItemClick);
             // 
             // btnDSDongHocPhi
             // 
@@ -227,6 +234,7 @@
             this.btnDSDongHocPhi.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnDSDongHocPhi.ImageOptions.Image")));
             this.btnDSDongHocPhi.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnDSDongHocPhi.ImageOptions.LargeImage")));
             this.btnDSDongHocPhi.Name = "btnDSDongHocPhi";
+            this.btnDSDongHocPhi.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDSDongHocPhi_ItemClick);
             // 
             // barButtonItem1
             // 
@@ -275,15 +283,16 @@
             this.btnShowDangNhap.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnShowDangNhap.ImageOptions.Image")));
             this.btnShowDangNhap.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnShowDangNhap.ImageOptions.LargeImage")));
             this.btnShowDangNhap.Name = "btnShowDangNhap";
-            this.btnShowDangNhap.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem3_ItemClick);
+            this.btnShowDangNhap.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnShowDangNhap_ItemClick);
             // 
             // btnBDTK
             // 
             this.btnBDTK.Caption = "BẢNG ĐIỂM TỔNG KẾT";
             this.btnBDTK.Id = 23;
-            this.btnBDTK.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem3.ImageOptions.Image")));
-            this.btnBDTK.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem3.ImageOptions.LargeImage")));
+            this.btnBDTK.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnBDTK.ImageOptions.Image")));
+            this.btnBDTK.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnBDTK.ImageOptions.LargeImage")));
             this.btnBDTK.Name = "btnBDTK";
+            this.btnBDTK.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnBDTK_ItemClick);
             // 
             // rbPageTaiKhoan
             // 

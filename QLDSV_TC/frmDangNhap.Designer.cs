@@ -39,8 +39,8 @@
             this.dS = new QLDSV_TC.DS();
             this.teTaiKhoan = new DevExpress.XtraEditors.TextEdit();
             this.teMatKhau = new DevExpress.XtraEditors.TextEdit();
-            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
+            this.btnDangNhap = new DevExpress.XtraEditors.SimpleButton();
+            this.btnThoat = new DevExpress.XtraEditors.SimpleButton();
             this.dSBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.v_DS_PHANMANHTableAdapter = new QLDSV_TC.DSTableAdapters.V_DS_PHANMANHTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.vDSPHANMANHBindingSource)).BeginInit();
@@ -135,29 +135,29 @@
             this.teMatKhau.Size = new System.Drawing.Size(532, 30);
             this.teMatKhau.TabIndex = 6;
             // 
-            // simpleButton1
+            // btnDangNhap
             // 
-            this.simpleButton1.Appearance.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.simpleButton1.Appearance.Options.UseFont = true;
-            this.simpleButton1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
-            this.simpleButton1.Location = new System.Drawing.Point(357, 339);
-            this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(169, 39);
-            this.simpleButton1.TabIndex = 7;
-            this.simpleButton1.Text = "ĐĂNG NHẬP";
-            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
+            this.btnDangNhap.Appearance.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDangNhap.Appearance.Options.UseFont = true;
+            this.btnDangNhap.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnDangNhap.ImageOptions.Image")));
+            this.btnDangNhap.Location = new System.Drawing.Point(357, 339);
+            this.btnDangNhap.Name = "btnDangNhap";
+            this.btnDangNhap.Size = new System.Drawing.Size(169, 39);
+            this.btnDangNhap.TabIndex = 7;
+            this.btnDangNhap.Text = "ĐĂNG NHẬP";
+            this.btnDangNhap.Click += new System.EventHandler(this.btnDangNhap_Click);
             // 
-            // simpleButton2
+            // btnThoat
             // 
-            this.simpleButton2.Appearance.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.simpleButton2.Appearance.Options.UseFont = true;
-            this.simpleButton2.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton2.ImageOptions.Image")));
-            this.simpleButton2.Location = new System.Drawing.Point(720, 339);
-            this.simpleButton2.Name = "simpleButton2";
-            this.simpleButton2.Size = new System.Drawing.Size(169, 39);
-            this.simpleButton2.TabIndex = 8;
-            this.simpleButton2.Text = "THOÁT";
-            this.simpleButton2.Click += new System.EventHandler(this.simpleButton2_Click);
+            this.btnThoat.Appearance.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnThoat.Appearance.Options.UseFont = true;
+            this.btnThoat.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnThoat.ImageOptions.Image")));
+            this.btnThoat.Location = new System.Drawing.Point(720, 339);
+            this.btnThoat.Name = "btnThoat";
+            this.btnThoat.Size = new System.Drawing.Size(169, 39);
+            this.btnThoat.TabIndex = 8;
+            this.btnThoat.Text = "THOÁT";
+            this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
             // 
             // dSBindingSource
             // 
@@ -173,8 +173,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1100, 647);
-            this.Controls.Add(this.simpleButton2);
-            this.Controls.Add(this.simpleButton1);
+            this.Controls.Add(this.btnThoat);
+            this.Controls.Add(this.btnDangNhap);
             this.Controls.Add(this.teMatKhau);
             this.Controls.Add(this.teTaiKhoan);
             this.Controls.Add(this.cmbKhoa);
@@ -206,8 +206,8 @@
         private System.Windows.Forms.ComboBox cmbKhoa;
         private DevExpress.XtraEditors.TextEdit teTaiKhoan;
         private DevExpress.XtraEditors.TextEdit teMatKhau;
-        private DevExpress.XtraEditors.SimpleButton simpleButton1;
-        private DevExpress.XtraEditors.SimpleButton simpleButton2;
+        private DevExpress.XtraEditors.SimpleButton btnDangNhap;
+        private DevExpress.XtraEditors.SimpleButton btnThoat;
         private System.Windows.Forms.BindingSource dSBindingSource;
         private DS dS;
         private System.Windows.Forms.BindingSource vDSPHANMANHBindingSource;

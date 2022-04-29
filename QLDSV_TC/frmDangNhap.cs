@@ -11,16 +11,6 @@ namespace QLDSV_TC
             InitializeComponent();
         }
 
-        private void labelControl1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnDangNhap_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void frmDangNhap_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'dS.V_DS_PHANMANH' table. You can move, or remove it, as needed.
@@ -28,7 +18,7 @@ namespace QLDSV_TC
 
         }
 
-        private void simpleButton1_Click(object sender, EventArgs e)
+        private void btnDangNhap_Click(object sender, EventArgs e)
         {
             String connectionString = @String.Format("Data Source={0};" +
                                                     "Initial Catalog=QLDSV_TC;" +
@@ -62,7 +52,7 @@ namespace QLDSV_TC
             }
         }
 
-        private void simpleButton2_Click(object sender, EventArgs e)
+        private void btnThoat_Click(object sender, EventArgs e)
         {
             Program.frmChinh.Close();
         }
