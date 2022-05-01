@@ -32,6 +32,8 @@ namespace QLDSV_TC
             rbTaiKhoan.Visible = true; // Hiển thị tạo mới và đăng xuất
             if (Program.tenNhom.Equals("PGV") || Program.tenNhom.Equals("KHOA"))
             {
+                // Nếu là phòng giáo vụ thì cho chọn khoa để làm việc
+                if (Program.tenNhom.Equals("PGV")) pnlKhoa.Visible = true;
                 rbPageNghiepVu.Visible = true;
                 rbPageBaoCao.Visible = true;
                 rbPGV.Visible = true;
@@ -100,8 +102,10 @@ namespace QLDSV_TC
 
         private void frmMain_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'dS.V_DS_PHANMANH' table. You can move, or remove it, as needed.
+            this.v_DS_PHANMANHTableAdapter.Fill(this.dS.V_DS_PHANMANH);
             // TODO: This line of code loads data into the 'qLDSV_TCDataSet.V_DS_PHANMANH' table. You can move, or remove it, as needed.
-            
+
         }
 
         private void barThongTin_Click(object sender, EventArgs e)
@@ -144,7 +148,15 @@ namespace QLDSV_TC
 
         private void btnSV_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-
+            Form frm = this.checkExist(typeof(frmSinhVien));
+            if (frm != null)
+                frm.Activate();
+            else
+            {
+                frmSinhVien f = new frmSinhVien();
+                f.MdiParent = this;
+                f.Show();
+            }
         }
 
         private void btnMonHoc_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

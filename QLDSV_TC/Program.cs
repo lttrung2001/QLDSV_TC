@@ -10,6 +10,7 @@ namespace QLDSV_TC
 {
     internal static class Program
     {
+        public static String connectionString;
         public static frmMain frmChinh;
         public static String tenPhanManh;
         public static String ma;

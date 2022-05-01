@@ -20,7 +20,7 @@ namespace QLDSV_TC
 
         private void btnDangNhap_Click(object sender, EventArgs e)
         {
-            String connectionString = @String.Format("Data Source={0};" +
+            Program.connectionString = @String.Format("Data Source={0};" +
                                                     "Initial Catalog=QLDSV_TC;" +
                                                     "User ID={1};Password={2}",
                                                     cmbKhoa.SelectedValue.ToString(), 
@@ -28,7 +28,7 @@ namespace QLDSV_TC
                                                     teMatKhau.Text);
             try
             {
-                SqlConnection cnn = new SqlConnection(connectionString);
+                SqlConnection cnn = new SqlConnection(Program.connectionString);
                 cnn.Open(); // Mở kết nối tới site chủ
                 // Execute lấy thông tin mã, họ tên, nhóm của user
                 string sql = String.Format("EXEC SP_DANGNHAP @TENLOGIN = '{0}'", teTaiKhoan.Text);
