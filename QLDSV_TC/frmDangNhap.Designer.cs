@@ -35,15 +35,11 @@
             this.lblTaiKhoan = new DevExpress.XtraEditors.LabelControl();
             this.lblMatKhau = new DevExpress.XtraEditors.LabelControl();
             this.cmbKhoa = new System.Windows.Forms.ComboBox();
-            this.vDSPHANMANHBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dS = new QLDSV_TC.DS();
             this.teTaiKhoan = new DevExpress.XtraEditors.TextEdit();
             this.teMatKhau = new DevExpress.XtraEditors.TextEdit();
             this.btnDangNhap = new DevExpress.XtraEditors.SimpleButton();
-            this.btnThoat = new DevExpress.XtraEditors.SimpleButton();
             this.dSBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.v_DS_PHANMANHTableAdapter = new QLDSV_TC.DSTableAdapters.V_DS_PHANMANHTableAdapter();
-            ((System.ComponentModel.ISupportInitialize)(this.vDSPHANMANHBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.teTaiKhoan.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.teMatKhau.Properties)).BeginInit();
@@ -95,8 +91,6 @@
             // 
             // cmbKhoa
             // 
-            this.cmbKhoa.DataSource = this.vDSPHANMANHBindingSource;
-            this.cmbKhoa.DisplayMember = "TENCN";
             this.cmbKhoa.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbKhoa.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbKhoa.FormattingEnabled = true;
@@ -105,11 +99,7 @@
             this.cmbKhoa.Size = new System.Drawing.Size(532, 31);
             this.cmbKhoa.TabIndex = 4;
             this.cmbKhoa.ValueMember = "TENSERVER";
-            // 
-            // vDSPHANMANHBindingSource
-            // 
-            this.vDSPHANMANHBindingSource.DataMember = "V_DS_PHANMANH";
-            this.vDSPHANMANHBindingSource.DataSource = this.dS;
+            this.cmbKhoa.SelectedIndexChanged += new System.EventHandler(this.cmbKhoa_SelectedIndexChanged);
             // 
             // dS
             // 
@@ -147,33 +137,16 @@
             this.btnDangNhap.Text = "ĐĂNG NHẬP";
             this.btnDangNhap.Click += new System.EventHandler(this.btnDangNhap_Click);
             // 
-            // btnThoat
-            // 
-            this.btnThoat.Appearance.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnThoat.Appearance.Options.UseFont = true;
-            this.btnThoat.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnThoat.ImageOptions.Image")));
-            this.btnThoat.Location = new System.Drawing.Point(720, 339);
-            this.btnThoat.Name = "btnThoat";
-            this.btnThoat.Size = new System.Drawing.Size(169, 39);
-            this.btnThoat.TabIndex = 8;
-            this.btnThoat.Text = "THOÁT";
-            this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
-            // 
             // dSBindingSource
             // 
             this.dSBindingSource.DataSource = this.dS;
             this.dSBindingSource.Position = 0;
-            // 
-            // v_DS_PHANMANHTableAdapter
-            // 
-            this.v_DS_PHANMANHTableAdapter.ClearBeforeFill = true;
             // 
             // frmDangNhap
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1100, 647);
-            this.Controls.Add(this.btnThoat);
             this.Controls.Add(this.btnDangNhap);
             this.Controls.Add(this.teMatKhau);
             this.Controls.Add(this.teTaiKhoan);
@@ -188,7 +161,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "ĐĂNG NHẬP";
             this.Load += new System.EventHandler(this.frmDangNhap_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.vDSPHANMANHBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.teTaiKhoan.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.teMatKhau.Properties)).EndInit();
@@ -207,10 +179,7 @@
         private DevExpress.XtraEditors.TextEdit teTaiKhoan;
         private DevExpress.XtraEditors.TextEdit teMatKhau;
         private DevExpress.XtraEditors.SimpleButton btnDangNhap;
-        private DevExpress.XtraEditors.SimpleButton btnThoat;
         private System.Windows.Forms.BindingSource dSBindingSource;
         private DS dS;
-        private System.Windows.Forms.BindingSource vDSPHANMANHBindingSource;
-        private DSTableAdapters.V_DS_PHANMANHTableAdapter v_DS_PHANMANHTableAdapter;
     }
 }

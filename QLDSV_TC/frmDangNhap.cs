@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
 
@@ -6,55 +7,83 @@ namespace QLDSV_TC
 {
     public partial class frmDangNhap : Form
     {
+        private SqlConnection conn = new SqlConnection();
         public frmDangNhap()
         {
             InitializeComponent();
         }
 
+        private bool ketNoiSiteChu()
+        {
+            if (conn != null || conn.State == ConnectionState.Open)
+                conn.Close();
+            try
+            {
+                conn.ConnectionString = "Data Source=DESKTOP-4UNL892\\SERVER0;Initial Catalog=QLDSV_TC;Integrated Security=True";
+                conn.Open();
+                return true;
+            }
+            catch
+            {
+                MessageBox.Show("Lỗi kết nối CSDL. Vui lòng xem lại tên server và chuỗi kết nối!");
+                return false;
+            }
+        }
+
         private void frmDangNhap_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'dS.V_DS_PHANMANH' table. You can move, or remove it, as needed.
-            this.v_DS_PHANMANHTableAdapter.Fill(this.dS.V_DS_PHANMANH);
-
+            DataTable dt = new DataTable(); // Dùng để lưu dữ liệu
+            if (ketNoiSiteChu()) // Kết nối với site chủ để lấy danh sách phân mảnh
+            {
+                try
+                {
+                    SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM V_DS_PHANMANH", conn);
+                    da.Fill(dt);
+                    conn.Close(); // Đóng kết nối
+                    Program.bdsDSPM.DataSource = dt;
+                    cmbKhoa.DataSource = Program.bdsDSPM;
+                    cmbKhoa.DisplayMember = "TENCN";
+                    cmbKhoa.ValueMember = "TENSERVER";
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Đã xảy ra lỗi: " + ex.Message);
+                }
+            }
         }
 
         private void btnDangNhap_Click(object sender, EventArgs e)
         {
-            Program.connectionString = @String.Format("Data Source={0};" +
-                                                    "Initial Catalog=QLDSV_TC;" +
-                                                    "User ID={1};Password={2}",
-                                                    cmbKhoa.SelectedValue.ToString(), 
-                                                    teTaiKhoan.Text, 
-                                                    teMatKhau.Text);
-            try
+            Program.index = cmbKhoa.SelectedIndex;
+            Program.servername = cmbKhoa.SelectedValue.ToString();
+            Program.loginName = teTaiKhoan.Text;
+            Program.password = teMatKhau.Text;
+            Program.KetNoi(); // Mở kết nối
+            // Đọc thông tin tài khoản đăng nhập
+            Program.myReader = Program.ExecSqlDataReader(String.Format("EXEC SP_DANGNHAP @TENLOGIN = '{0}'", 
+                                                        Program.loginName), 
+                                                        Program.connectionString);
+            if (Program.myReader != null)
             {
-                SqlConnection cnn = new SqlConnection(Program.connectionString);
-                cnn.Open(); // Mở kết nối tới site chủ
-                // Execute lấy thông tin mã, họ tên, nhóm của user
-                string sql = String.Format("EXEC SP_DANGNHAP @TENLOGIN = '{0}'", teTaiKhoan.Text);
-                SqlCommand cmd = new SqlCommand(sql, cnn); 
-                SqlDataReader reader = cmd.ExecuteReader(); // Thực thi câu lệnh sql tại kết nối cnn
-                reader.Read(); // Đọc kết quả trả về (lệnh Read tương đương với việc đọc 1 dòng)
-                // Lưu các thuộc tính vào các biến trong Program.cs để dùng
-                Program.tenPhanManh = cmbKhoa.SelectedValue.ToString();
-                Program.ma = reader["USERNAME"].ToString();
-                Program.hoTen = reader["HOTEN"].ToString();
-                Program.tenNhom = reader["TENNHOM"].ToString(); 
-                cnn.Close(); // Đóng kết nối
-                this.Close(); // Đóng form đăng nhập
+                Program.myReader.Read(); // Đọc kết quả trả về (lệnh Read tương đương với việc đọc 1 dòng)
+                // Lưu các thuộc tính vào các biến trong Program.cs
+                Program.mMaGV = Program.myReader["USERNAME"].ToString();
+                Program.mHoten = Program.myReader["HOTEN"].ToString();
+                Program.mTenNhom = Program.myReader["TENNHOM"].ToString();
+                Close(); // Đóng form đăng nhập
                 Program.frmChinh.hienThiStatusBar(); // Cập nhật thông tin trên status bar
                 Program.frmChinh.phanQuyen(); // Phân quyền trên ứng dụng
-
-            }
-            catch
-            {
-                MessageBox.Show("Đã có lỗi xảy ra!");
             }
         }
 
         private void btnThoat_Click(object sender, EventArgs e)
         {
             Program.frmChinh.Close();
+        }
+
+        private void cmbKhoa_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

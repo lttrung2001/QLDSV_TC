@@ -3,6 +3,8 @@ using DevExpress.Skins;
 using DevExpress.UserSkins;
 using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -10,12 +12,104 @@ namespace QLDSV_TC
 {
     internal static class Program
     {
-        public static String connectionString;
+        public static SqlConnection conn = new SqlConnection();
+        public static String connectionString; // Chuỗi kết nối
+        public static SqlDataAdapter da;
+        public static SqlDataReader myReader;
+        // Tên server hiện tại
+        public static String servername = ""; 
+        public static int index = 0; // Vị trí
+        // Tài khoản đăng nhập
+        public static String loginName;
+        public static String password;
+        // Tên database
+        public static String database = "QLDSV_TC";
+        // Tài khoản remote
+        public static String remoteLogin = "HTKN";
+        public static String remotePassword = "HTKN";
+        // Form main
         public static frmMain frmChinh;
-        public static String tenPhanManh;
-        public static String ma;
-        public static String hoTen;
-        public static String tenNhom;
+        // Hiển thị bar dưới cùng
+        public static String mMaGV; // Mã GV
+        public static String mHoten; // Họ tên
+        public static String mTenNhom; // Tên nhóm
+        // Binding source danh sách phân mảnh
+        public static BindingSource bdsDSPM = new BindingSource();
+
+        public static int KetNoi()
+        {
+            if (Program.conn != null && Program.conn.State == ConnectionState.Open) Program.conn.Close();
+            try
+            {
+                Program.connectionString = "Data Source=" + Program.servername + ";Initial Catalog=" + Program.database + ";User ID=" +
+                      Program.loginName + ";password=" + Program.password;
+                Program.conn.ConnectionString = Program.connectionString;
+                Program.conn.Open();
+                return 1;
+            }
+
+            catch (Exception e)
+            {
+                MessageBox.Show("Lỗi kết nối cơ sở dữ liệu.\nBạn xem lại user name và password.\n " + e.Message, "", MessageBoxButtons.OK);
+                return 0;
+            }
+        }
+
+        public static SqlDataReader ExecSqlDataReader(String cmd, String connectionstring)
+        {
+            SqlDataReader myreader;
+
+            SqlCommand sqlcmd = new SqlCommand();
+            sqlcmd.Connection = Program.conn;
+            sqlcmd.CommandText = cmd;
+            sqlcmd.CommandType = CommandType.Text;
+
+            if (Program.conn.State == ConnectionState.Closed) Program.conn.Open();
+            try
+            {
+                myreader = sqlcmd.ExecuteReader();
+                return myreader;
+            }
+            catch (SqlException ex)
+            {
+                Program.conn.Close();
+                MessageBox.Show(ex.Message);
+                return null;
+            }
+        }
+
+        public static DataTable ExecSqlQuery(String cmd, String connectionstring)
+        {
+            DataTable dt1 = new DataTable();
+            conn = new SqlConnection(connectionstring);
+            da = new SqlDataAdapter(cmd, conn);
+            da.Fill(dt1);
+            return dt1;
+
+        }
+
+        public static int ExecSqlNonQuery(String cmd, String connectionstring)
+        {
+            conn = new SqlConnection(connectionstring);
+            SqlCommand Sqlcmd = new SqlCommand();
+            Sqlcmd.Connection = conn;
+            Sqlcmd.CommandText = cmd;
+            Sqlcmd.CommandType = CommandType.Text;
+            Sqlcmd.CommandTimeout = 300;
+            if (conn.State == ConnectionState.Closed) conn.Open();
+            try
+            {
+
+                Sqlcmd.ExecuteNonQuery(); conn.Close(); return 1;
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+                conn.Close();
+                return 0;
+            }
+        }
+
         [STAThread]
         static void Main()
         {

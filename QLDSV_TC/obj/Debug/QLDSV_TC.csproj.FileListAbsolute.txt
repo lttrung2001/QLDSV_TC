@@ -96,3 +96,5 @@ C:\Users\THANHTRUNG\OneDrive - student.ptithcm.edu.vn\Desktop\repos\QLDSV_TC\QLD
 C:\Users\THANHTRUNG\OneDrive - student.ptithcm.edu.vn\Desktop\repos\QLDSV_TC\QLDSV_TC\obj\Debug\QLDSV_TC.frmMain.resources
 C:\Users\THANHTRUNG\OneDrive - student.ptithcm.edu.vn\Desktop\repos\QLDSV_TC\QLDSV_TC\obj\Debug\QLDSV_TC.frmDangNhap.resources
 C:\Users\THANHTRUNG\OneDrive - student.ptithcm.edu.vn\Desktop\repos\QLDSV_TC\QLDSV_TC\obj\Debug\QLDSV_TC.frmSinhVien.resources
+C:\Users\THANHTRUNG\OneDrive - student.ptithcm.edu.vn\Desktop\repos\QLDSV_TC\QLDSV_TC\bin\Debug\DevExpress.Mvvm.v21.2.dll
+C:\Users\THANHTRUNG\OneDrive - student.ptithcm.edu.vn\Desktop\repos\QLDSV_TC\QLDSV_TC\bin\Debug\DevExpress.Mvvm.v21.2.xml

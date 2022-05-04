@@ -21,19 +21,17 @@ namespace QLDSV_TC
 
         public void hienThiStatusBar()
         {
-            barMa.Caption = "Mã: " + Program.ma;
-            barHoTen.Caption = "Họ tên: " + Program.hoTen;
-            bartenNhom.Caption = "Nhóm: " + Program.tenNhom;
+            barMa.Caption = "Mã: " + Program.mMaGV;
+            barHoTen.Caption = "Họ tên: " + Program.mHoten;
+            bartenNhom.Caption = "Nhóm: " + Program.mTenNhom;
         }
 
         public void phanQuyen()
         {
             rbDangNhap.Visible = false; // Ẩn nút đăng nhập
             rbTaiKhoan.Visible = true; // Hiển thị tạo mới và đăng xuất
-            if (Program.tenNhom.Equals("PGV") || Program.tenNhom.Equals("KHOA"))
+            if (Program.mTenNhom.Equals("PGV") || Program.mTenNhom.Equals("KHOA"))
             {
-                // Nếu là phòng giáo vụ thì cho chọn khoa để làm việc
-                if (Program.tenNhom.Equals("PGV")) pnlKhoa.Visible = true;
                 rbPageNghiepVu.Visible = true;
                 rbPageBaoCao.Visible = true;
                 rbPGV.Visible = true;
@@ -41,14 +39,14 @@ namespace QLDSV_TC
                 rbSV.Visible = true;
                 rbBDTK.Visible = true;
             }
-            else if (Program.tenNhom.Equals("PKT"))
+            else if (Program.mTenNhom.Equals("PKT"))
             {
                 rbPageNghiepVu.Visible = true;
                 rbPageBaoCao.Visible = true;
                 rbPKT.Visible = true;
                 rbDSDongHocPhi.Visible = true;
             }
-            else if (Program.tenNhom.Equals("SINHVIEN"))
+            else if (Program.mTenNhom.Equals("SINHVIEN"))
             {
                 rbPageNghiepVu.Visible = true;
                 rbDangKyMon.Visible = true;
@@ -69,10 +67,15 @@ namespace QLDSV_TC
             rbSV.Visible = false;
             rbDSDongHocPhi.Visible = false;
             rbBDTK.Visible = false;
+
             // Reset status bar
             barMa.Caption = "Mã";
             barHoTen.Caption = "Họ tên";
             bartenNhom.Caption = "Nhóm";
+
+            // Đóng tất cả form con
+            foreach (Form frm in this.MdiChildren)
+                if (frm.Visible) frm.Close();
         }
 
         private void btnDongHocPhi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -102,9 +105,6 @@ namespace QLDSV_TC
 
         private void frmMain_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'dS.V_DS_PHANMANH' table. You can move, or remove it, as needed.
-            this.v_DS_PHANMANHTableAdapter.Fill(this.dS.V_DS_PHANMANH);
-            // TODO: This line of code loads data into the 'qLDSV_TCDataSet.V_DS_PHANMANH' table. You can move, or remove it, as needed.
 
         }
 
@@ -192,6 +192,16 @@ namespace QLDSV_TC
         private void btnBDTK_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
 
+        }
+
+        private void cmbPhanManh_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void btnThoatCT_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            this.Close();
         }
     }
 }

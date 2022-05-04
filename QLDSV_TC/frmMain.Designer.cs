@@ -67,17 +67,10 @@
             this.rbBDTK = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.barThongTin = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.xtraTabbedMdiManager1 = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
-            this.pnlKhoa = new DevExpress.XtraEditors.PanelControl();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.vDSPHANMANHBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dS = new QLDSV_TC.DS();
-            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.v_DS_PHANMANHTableAdapter = new QLDSV_TC.DSTableAdapters.V_DS_PHANMANHTableAdapter();
+            this.btnThoatCT = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabbedMdiManager1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pnlKhoa)).BeginInit();
-            this.pnlKhoa.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.vDSPHANMANHBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dS)).BeginInit();
             this.SuspendLayout();
             // 
@@ -109,9 +102,10 @@
             this.btnDangNhap,
             this.barButtonItem2,
             this.btnShowDangNhap,
-            this.btnBDTK});
+            this.btnBDTK,
+            this.btnThoatCT});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl1.MaxItemId = 24;
+            this.ribbonControl1.MaxItemId = 25;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rbPageTaiKhoan,
@@ -315,6 +309,7 @@
             // rbDangNhap
             // 
             this.rbDangNhap.ItemLinks.Add(this.btnShowDangNhap);
+            this.rbDangNhap.ItemLinks.Add(this.btnThoatCT);
             this.rbDangNhap.Name = "rbDangNhap";
             // 
             // rbTaiKhoan
@@ -411,54 +406,19 @@
             // 
             this.xtraTabbedMdiManager1.MdiParent = this;
             // 
-            // pnlKhoa
-            // 
-            this.pnlKhoa.AutoSize = true;
-            this.pnlKhoa.Controls.Add(this.comboBox1);
-            this.pnlKhoa.Controls.Add(this.labelControl1);
-            this.pnlKhoa.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlKhoa.Location = new System.Drawing.Point(0, 183);
-            this.pnlKhoa.Name = "pnlKhoa";
-            this.pnlKhoa.Size = new System.Drawing.Size(1260, 48);
-            this.pnlKhoa.TabIndex = 27;
-            this.pnlKhoa.Visible = false;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.DataSource = this.vDSPHANMANHBindingSource;
-            this.comboBox1.DisplayMember = "TENCN";
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(66, 10);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(393, 31);
-            this.comboBox1.TabIndex = 1;
-            this.comboBox1.ValueMember = "TENSERVER";
-            // 
-            // vDSPHANMANHBindingSource
-            // 
-            this.vDSPHANMANHBindingSource.DataMember = "V_DS_PHANMANH";
-            this.vDSPHANMANHBindingSource.DataSource = this.dS;
-            // 
             // dS
             // 
             this.dS.DataSetName = "DS";
             this.dS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // labelControl1
+            // btnThoatCT
             // 
-            this.labelControl1.Appearance.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl1.Appearance.Options.UseFont = true;
-            this.labelControl1.Location = new System.Drawing.Point(5, 13);
-            this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(55, 23);
-            this.labelControl1.TabIndex = 0;
-            this.labelControl1.Text = "KHOA";
-            // 
-            // v_DS_PHANMANHTableAdapter
-            // 
-            this.v_DS_PHANMANHTableAdapter.ClearBeforeFill = true;
+            this.btnThoatCT.Caption = "THOÁT CHƯƠNG TRÌNH";
+            this.btnThoatCT.Id = 24;
+            this.btnThoatCT.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnThoatCT.ImageOptions.Image")));
+            this.btnThoatCT.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnThoatCT.ImageOptions.LargeImage")));
+            this.btnThoatCT.Name = "btnThoatCT";
+            this.btnThoatCT.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnThoatCT_ItemClick);
             // 
             // frmMain
             // 
@@ -466,7 +426,6 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1260, 649);
-            this.Controls.Add(this.pnlKhoa);
             this.Controls.Add(this.barThongTin);
             this.Controls.Add(this.ribbonControl1);
             this.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -478,10 +437,6 @@
             this.Load += new System.EventHandler(this.frmMain_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabbedMdiManager1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pnlKhoa)).EndInit();
-            this.pnlKhoa.ResumeLayout(false);
-            this.pnlKhoa.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.vDSPHANMANHBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dS)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -527,11 +482,7 @@
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rbDangNhap;
         private DevExpress.XtraBars.BarButtonItem btnBDTK;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rbBDTK;
-        private DevExpress.XtraEditors.PanelControl pnlKhoa;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private DevExpress.XtraEditors.LabelControl labelControl1;
         private DS dS;
-        private System.Windows.Forms.BindingSource vDSPHANMANHBindingSource;
-        private DSTableAdapters.V_DS_PHANMANHTableAdapter v_DS_PHANMANHTableAdapter;
+        private DevExpress.XtraBars.BarButtonItem btnThoatCT;
     }
 }
