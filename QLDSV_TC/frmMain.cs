@@ -170,6 +170,15 @@ namespace QLDSV_TC
         private void btnMonHoc_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
 
+            Form frm = this.checkExist(typeof(frmMonHoc));
+            if (frm != null)
+                frm.Activate();
+            else
+            {
+                frmMonHoc f = new frmMonHoc();
+                f.MdiParent = this;
+                f.Show();
+            }
         }
 
         private void btnLTC_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
