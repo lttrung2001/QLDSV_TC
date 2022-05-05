@@ -113,7 +113,7 @@ namespace QLDSV_TC
 
         private void frmMain_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         private void barThongTin_Click(object sender, EventArgs e)

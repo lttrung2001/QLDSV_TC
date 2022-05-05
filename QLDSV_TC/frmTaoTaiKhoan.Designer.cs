@@ -140,6 +140,7 @@
             this.btnTaoTaiKhoan.Size = new System.Drawing.Size(120, 36);
             this.btnTaoTaiKhoan.TabIndex = 11;
             this.btnTaoTaiKhoan.Text = "Tạo";
+            this.btnTaoTaiKhoan.Click += new System.EventHandler(this.btnTaoTaiKhoan_Click);
             // 
             // teHoTen
             // 
@@ -164,7 +165,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1449, 753);
+            this.ClientSize = new System.Drawing.Size(1449, 761);
             this.Controls.Add(this.lblHoTen);
             this.Controls.Add(this.teHoTen);
             this.Controls.Add(this.btnTaoTaiKhoan);
