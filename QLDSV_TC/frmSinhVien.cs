@@ -234,7 +234,7 @@ namespace QLDSV_TC
         private void thêmSinhViênToolStripMenuItem_Click(object sender, EventArgs e)
         {
             bdsSinhVienLop.AddNew();
-            ((DataRowView)bdsSinhVienLop[bdsSinhVienLop.Position])["MALOP"] = teMaLop.Text;
+            ((DataRowView)bdsSinhVienLop.Current)["MALOP"] = teMaLop.Text;
         }
 
         private void ghiVàoCSDLToolStripMenuItem_Click(object sender, EventArgs e)

@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace QLDSV_TC
@@ -26,11 +20,17 @@ namespace QLDSV_TC
                 cmbGiangVien.DataSource = dt;
                 cmbGiangVien.DisplayMember = "MAGV";
                 cmbGiangVien.ValueMember = "MAGV";
+                // Họ tên
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Đã xảy ra lỗi: " + ex.Message);
             }
+        }
+
+        private void btnTaoTaiKhoan_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
