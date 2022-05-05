@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
 
@@ -7,48 +6,23 @@ namespace QLDSV_TC
 {
     public partial class frmDangNhap : Form
     {
-        private SqlConnection conn = new SqlConnection();
         public frmDangNhap()
         {
             InitializeComponent();
         }
 
-        private bool ketNoiSiteChu()
-        {
-            if (conn != null || conn.State == ConnectionState.Open)
-                conn.Close();
-            try
-            {
-                conn.ConnectionString = "Data Source=DESKTOP-4UNL892\\SERVER0;Initial Catalog=QLDSV_TC;Integrated Security=True";
-                conn.Open();
-                return true;
-            }
-            catch
-            {
-                MessageBox.Show("Lỗi kết nối CSDL. Vui lòng xem lại tên server và chuỗi kết nối!");
-                return false;
-            }
-        }
-
         private void frmDangNhap_Load(object sender, EventArgs e)
         {
-            DataTable dt = new DataTable(); // Dùng để lưu dữ liệu
-            if (ketNoiSiteChu()) // Kết nối với site chủ để lấy danh sách phân mảnh
+            try
             {
-                try
-                {
-                    SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM V_DS_PHANMANH", conn);
-                    da.Fill(dt);
-                    conn.Close(); // Đóng kết nối
-                    Program.bdsDSPM.DataSource = dt;
-                    cmbKhoa.DataSource = Program.bdsDSPM;
-                    cmbKhoa.DisplayMember = "TENCN";
-                    cmbKhoa.ValueMember = "TENSERVER";
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Đã xảy ra lỗi: " + ex.Message);
-                }
+                Program.bdsDSPM.DataSource = Program.ExecSqlQuery("SELECT * FROM V_DS_PHANMANH", Program.connStrSiteChu);
+                cmbKhoa.DataSource = Program.bdsDSPM;
+                cmbKhoa.DisplayMember = "TENCN";
+                cmbKhoa.ValueMember = "TENSERVER";
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("Đã xảy ra lỗi: " + ex.State);
             }
         }
 
@@ -74,11 +48,6 @@ namespace QLDSV_TC
                 Program.frmChinh.hienThiStatusBar(); // Cập nhật thông tin trên status bar
                 Program.frmChinh.phanQuyen(); // Phân quyền trên ứng dụng
             }
-        }
-
-        private void btnThoat_Click(object sender, EventArgs e)
-        {
-            Program.frmChinh.Close();
         }
 
         private void cmbKhoa_SelectedIndexChanged(object sender, EventArgs e)

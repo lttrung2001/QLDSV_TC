@@ -58,6 +58,16 @@ namespace QLDSV_TC
             // Code here
             return true;
         }
+
+        private bool kiemTraInputSinhVien()
+        {
+            // Kiểm tra các field không để trống
+            // Code here
+            // Kiểm tra trùng mã sinh viên trong database ở cả 2 phân mảnh
+            // Code here
+            return true;
+        }
+
         public frmSinhVien()
         {
             InitializeComponent();
@@ -95,7 +105,7 @@ namespace QLDSV_TC
             gbThongTinLop.Enabled = true;
 
             // Lưu mã khoa vào biến
-            String maKhoa = ((DataRowView)bdsLop[bdsLop.Position])["MAKHOA"].ToString();
+            String maKhoa = ((DataRowView)bdsLop.Current)["MAKHOA"].ToString();
             bdsLop.AddNew(); // Thêm dòng mới vào bảng
             teMaKhoa.Text = maKhoa;
 
@@ -117,7 +127,7 @@ namespace QLDSV_TC
                 try
                 {
                     // Lưu lại mã lớp ban đầu
-                    String maLop = ((DataRowView)bdsLop[bdsLop.Position])["MALOP"].ToString();
+                    String maLop = ((DataRowView)bdsLop.Current)["MALOP"].ToString();
                     bdsLop.EndEdit(); // Dừng edit và lưu data vào DS
                     taLop.Update(dS); // Update về DB
                     // Nếu chỉnh sửa mã lớp thì load lại sinh viên (vì mã lớp đã thay đổi)
@@ -175,6 +185,7 @@ namespace QLDSV_TC
             {
                 saveDataWhenChangeSiteOrExitForm();
                 // Nếu giá trị được chọn là site giống với site được chọn khi đăng nhập
+                // Dùng tài khoản đăng nhập
                 if (cmbKhoa.SelectedValue.ToString().Equals(Program.servername))
                 {
                     Program.KetNoi();
@@ -194,6 +205,7 @@ namespace QLDSV_TC
                     }
                 }
                 // Nếu giá trị được chọn là site khác với site được chọn khi đăng nhập
+                // Dùng tài khoản remote
                 else
                 {
                     try
@@ -227,14 +239,17 @@ namespace QLDSV_TC
 
         private void ghiVàoCSDLToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            try
+            if (kiemTraInputSinhVien())
             {
-                bdsSinhVienLop.EndEdit();
-                taSinhVienLop.Update(dS);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Đã xảy ra lỗi: " + ex.Message);
+                try
+                {
+                    bdsSinhVienLop.EndEdit();
+                    taSinhVienLop.Update(dS);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Đã xảy ra lỗi: " + ex.Message);
+                }
             }
         }
 
@@ -267,8 +282,10 @@ namespace QLDSV_TC
 
         private void btnHuy_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            // Nếu là insert, khi hủy remove dòng vừa thêm
             if (option.Equals("INSERT"))
                 bdsLop.RemoveCurrent();
+            // Nếu là update, khi hủy set lại giá trị cũ
             else if (option.Equals("UPDATE"))
             {
                 teMaLop.Text = tmpMaLop;
