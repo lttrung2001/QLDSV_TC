@@ -2,7 +2,7 @@
 <xs:schema id="DS" targetNamespace="http://tempuri.org/DS.xsd" xmlns:mstns="http://tempuri.org/DS.xsd" xmlns="http://tempuri.org/DS.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
   <xs:annotation>
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
-      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="KIEMTRAMALOPTableAdapter" GeneratorFunctionsComponentClassName="KIEMTRAMALOPTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" UserFunctionsComponentName="KIEMTRAMALOPTableAdapter" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
         <Connections>
           <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="QLDSV_TCConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="QLDSV_TCConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.QLDSV_TC.Properties.Settings.GlobalReference.Default.QLDSV_TCConnectionString" Provider="System.Data.SqlClient" />
         </Connections>
@@ -1106,39 +1106,39 @@ SELECT MASV, HO, TEN, PHAI, DIACHI, NGAYSINH, MALOP, DANGHIHOC, PASSWORD FROM SI
       <xs:selector xpath=".//mstns:SINHVIEN" />
       <xs:field xpath="mstns:MASV" />
     </xs:unique>
-    <xs:keyref name="FK_SINHVIEN_LOP" refer="LOP_Constraint1" msprop:rel_Generator_UserParentTable="LOP" msprop:rel_Generator_UserChildTable="SINHVIEN" msprop:rel_Generator_RelationVarName="relationFK_SINHVIEN_LOP" msprop:rel_Generator_ChildPropName="GetSINHVIENRows" msprop:rel_Generator_UserRelationName="FK_SINHVIEN_LOP" msprop:rel_Generator_ParentPropName="LOPRow" msdata:DeleteRule="None">
+    <xs:keyref name="FK_SINHVIEN_LOP" refer="LOP_Constraint1" msprop:rel_Generator_UserParentTable="LOP" msprop:rel_Generator_UserChildTable="SINHVIEN" msprop:rel_Generator_RelationVarName="relationFK_SINHVIEN_LOP" msprop:rel_Generator_ChildPropName="GetSINHVIENRows" msprop:rel_Generator_ParentPropName="LOPRow" msprop:rel_Generator_UserRelationName="FK_SINHVIEN_LOP" msdata:DeleteRule="None">
       <xs:selector xpath=".//mstns:SINHVIEN" />
       <xs:field xpath="mstns:MALOP" />
     </xs:keyref>
-    <xs:keyref name="FK_LOPTINCHI_KHOA" refer="KHOA_Constraint1" msprop:rel_Generator_UserParentTable="KHOA" msprop:rel_Generator_UserChildTable="LOPTINCHI" msprop:rel_Generator_RelationVarName="relationFK_LOPTINCHI_KHOA" msprop:rel_Generator_ChildPropName="GetLOPTINCHIRows" msprop:rel_Generator_UserRelationName="FK_LOPTINCHI_KHOA" msprop:rel_Generator_ParentPropName="KHOARow" msdata:UpdateRule="None" msdata:DeleteRule="None">
-      <xs:selector xpath=".//mstns:LOPTINCHI" />
-      <xs:field xpath="mstns:MAKHOA" />
-    </xs:keyref>
-    <xs:keyref name="FK_LOPTINCHI_GIANGVIEN" refer="GIANGVIEN_Constraint1" msprop:rel_Generator_UserParentTable="GIANGVIEN" msprop:rel_Generator_UserChildTable="LOPTINCHI" msprop:rel_Generator_RelationVarName="relationFK_LOPTINCHI_GIANGVIEN" msprop:rel_Generator_ChildPropName="GetLOPTINCHIRows" msprop:rel_Generator_UserRelationName="FK_LOPTINCHI_GIANGVIEN" msprop:rel_Generator_ParentPropName="GIANGVIENRow" msdata:DeleteRule="None">
-      <xs:selector xpath=".//mstns:LOPTINCHI" />
-      <xs:field xpath="mstns:MAGV" />
-    </xs:keyref>
-    <xs:keyref name="FK_LOPTINCHI_MONHOC" refer="MONHOC_Constraint1" msprop:rel_Generator_UserParentTable="MONHOC" msprop:rel_Generator_UserChildTable="LOPTINCHI" msprop:rel_Generator_RelationVarName="relationFK_LOPTINCHI_MONHOC" msprop:rel_Generator_ChildPropName="GetLOPTINCHIRows" msprop:rel_Generator_ParentPropName="MONHOCRow" msprop:rel_Generator_UserRelationName="FK_LOPTINCHI_MONHOC" msdata:DeleteRule="None">
+    <xs:keyref name="FK_LOPTINCHI_MONHOC" refer="MONHOC_Constraint1" msprop:rel_Generator_UserParentTable="MONHOC" msprop:rel_Generator_UserChildTable="LOPTINCHI" msprop:rel_Generator_RelationVarName="relationFK_LOPTINCHI_MONHOC" msprop:rel_Generator_ChildPropName="GetLOPTINCHIRows" msprop:rel_Generator_UserRelationName="FK_LOPTINCHI_MONHOC" msprop:rel_Generator_ParentPropName="MONHOCRow" msdata:DeleteRule="None">
       <xs:selector xpath=".//mstns:LOPTINCHI" />
       <xs:field xpath="mstns:MAMH" />
     </xs:keyref>
-    <xs:keyref name="FK_HOCPHI_SINHVIEN" refer="SINHVIEN_Constraint1" msprop:rel_Generator_UserParentTable="SINHVIEN" msprop:rel_Generator_UserChildTable="HOCPHI" msprop:rel_Generator_RelationVarName="relationFK_HOCPHI_SINHVIEN" msprop:rel_Generator_ChildPropName="GetHOCPHIRows" msprop:rel_Generator_ParentPropName="SINHVIENRow" msprop:rel_Generator_UserRelationName="FK_HOCPHI_SINHVIEN" msdata:DeleteRule="None">
+    <xs:keyref name="FK_LOPTINCHI_GIANGVIEN" refer="GIANGVIEN_Constraint1" msprop:rel_Generator_UserParentTable="GIANGVIEN" msprop:rel_Generator_UserChildTable="LOPTINCHI" msprop:rel_Generator_RelationVarName="relationFK_LOPTINCHI_GIANGVIEN" msprop:rel_Generator_ChildPropName="GetLOPTINCHIRows" msprop:rel_Generator_ParentPropName="GIANGVIENRow" msprop:rel_Generator_UserRelationName="FK_LOPTINCHI_GIANGVIEN" msdata:DeleteRule="None">
+      <xs:selector xpath=".//mstns:LOPTINCHI" />
+      <xs:field xpath="mstns:MAGV" />
+    </xs:keyref>
+    <xs:keyref name="FK_LOPTINCHI_KHOA" refer="KHOA_Constraint1" msprop:rel_Generator_UserParentTable="KHOA" msprop:rel_Generator_UserChildTable="LOPTINCHI" msprop:rel_Generator_RelationVarName="relationFK_LOPTINCHI_KHOA" msprop:rel_Generator_ChildPropName="GetLOPTINCHIRows" msprop:rel_Generator_ParentPropName="KHOARow" msprop:rel_Generator_UserRelationName="FK_LOPTINCHI_KHOA" msdata:UpdateRule="None" msdata:DeleteRule="None">
+      <xs:selector xpath=".//mstns:LOPTINCHI" />
+      <xs:field xpath="mstns:MAKHOA" />
+    </xs:keyref>
+    <xs:keyref name="FK_HOCPHI_SINHVIEN" refer="SINHVIEN_Constraint1" msprop:rel_Generator_UserParentTable="SINHVIEN" msprop:rel_Generator_UserChildTable="HOCPHI" msprop:rel_Generator_RelationVarName="relationFK_HOCPHI_SINHVIEN" msprop:rel_Generator_ChildPropName="GetHOCPHIRows" msprop:rel_Generator_UserRelationName="FK_HOCPHI_SINHVIEN" msprop:rel_Generator_ParentPropName="SINHVIENRow" msdata:DeleteRule="None">
       <xs:selector xpath=".//mstns:HOCPHI" />
       <xs:field xpath="mstns:MASV" />
     </xs:keyref>
-    <xs:keyref name="FK_GIANGVIEN_KHOA" refer="KHOA_Constraint1" msprop:rel_Generator_UserParentTable="KHOA" msprop:rel_Generator_UserChildTable="GIANGVIEN" msprop:rel_Generator_RelationVarName="relationFK_GIANGVIEN_KHOA" msprop:rel_Generator_ChildPropName="GetGIANGVIENRows" msprop:rel_Generator_ParentPropName="KHOARow" msprop:rel_Generator_UserRelationName="FK_GIANGVIEN_KHOA" msdata:UpdateRule="None" msdata:DeleteRule="None">
+    <xs:keyref name="FK_GIANGVIEN_KHOA" refer="KHOA_Constraint1" msprop:rel_Generator_UserParentTable="KHOA" msprop:rel_Generator_UserChildTable="GIANGVIEN" msprop:rel_Generator_RelationVarName="relationFK_GIANGVIEN_KHOA" msprop:rel_Generator_ChildPropName="GetGIANGVIENRows" msprop:rel_Generator_UserRelationName="FK_GIANGVIEN_KHOA" msprop:rel_Generator_ParentPropName="KHOARow" msdata:UpdateRule="None" msdata:DeleteRule="None">
       <xs:selector xpath=".//mstns:GIANGVIEN" />
       <xs:field xpath="mstns:MAKHOA" />
     </xs:keyref>
-    <xs:keyref name="FK_DANGKY_LOPTINCHI" refer="LOPTINCHI_Constraint1" msprop:rel_Generator_UserParentTable="LOPTINCHI" msprop:rel_Generator_UserChildTable="DANGKY" msprop:rel_Generator_RelationVarName="relationFK_DANGKY_LOPTINCHI" msprop:rel_Generator_ChildPropName="GetDANGKYRows" msprop:rel_Generator_ParentPropName="LOPTINCHIRow" msprop:rel_Generator_UserRelationName="FK_DANGKY_LOPTINCHI" msdata:UpdateRule="None" msdata:DeleteRule="None">
-      <xs:selector xpath=".//mstns:DANGKY" />
-      <xs:field xpath="mstns:MALTC" />
-    </xs:keyref>
-    <xs:keyref name="FK_CTLTC_SINHVIEN" refer="SINHVIEN_Constraint1" msprop:rel_Generator_UserParentTable="SINHVIEN" msprop:rel_Generator_UserChildTable="DANGKY" msprop:rel_Generator_RelationVarName="relationFK_CTLTC_SINHVIEN" msprop:rel_Generator_ChildPropName="GetDANGKYRows" msprop:rel_Generator_ParentPropName="SINHVIENRow" msprop:rel_Generator_UserRelationName="FK_CTLTC_SINHVIEN" msdata:DeleteRule="None">
+    <xs:keyref name="FK_CTLTC_SINHVIEN" refer="SINHVIEN_Constraint1" msprop:rel_Generator_UserParentTable="SINHVIEN" msprop:rel_Generator_UserChildTable="DANGKY" msprop:rel_Generator_RelationVarName="relationFK_CTLTC_SINHVIEN" msprop:rel_Generator_ChildPropName="GetDANGKYRows" msprop:rel_Generator_UserRelationName="FK_CTLTC_SINHVIEN" msprop:rel_Generator_ParentPropName="SINHVIENRow" msdata:DeleteRule="None">
       <xs:selector xpath=".//mstns:DANGKY" />
       <xs:field xpath="mstns:MASV" />
     </xs:keyref>
-    <xs:keyref name="FK_CT_DONGHOCPHI_HOCPHI" refer="HOCPHI_Constraint1" msprop:rel_Generator_UserParentTable="HOCPHI" msprop:rel_Generator_UserChildTable="CT_DONGHOCPHI" msprop:rel_Generator_RelationVarName="relationFK_CT_DONGHOCPHI_HOCPHI" msprop:rel_Generator_ChildPropName="GetCT_DONGHOCPHIRows" msprop:rel_Generator_ParentPropName="HOCPHIRowParent" msprop:rel_Generator_UserRelationName="FK_CT_DONGHOCPHI_HOCPHI" msdata:UpdateRule="None" msdata:DeleteRule="None">
+    <xs:keyref name="FK_DANGKY_LOPTINCHI" refer="LOPTINCHI_Constraint1" msprop:rel_Generator_UserParentTable="LOPTINCHI" msprop:rel_Generator_UserChildTable="DANGKY" msprop:rel_Generator_RelationVarName="relationFK_DANGKY_LOPTINCHI" msprop:rel_Generator_ChildPropName="GetDANGKYRows" msprop:rel_Generator_UserRelationName="FK_DANGKY_LOPTINCHI" msprop:rel_Generator_ParentPropName="LOPTINCHIRow" msdata:UpdateRule="None" msdata:DeleteRule="None">
+      <xs:selector xpath=".//mstns:DANGKY" />
+      <xs:field xpath="mstns:MALTC" />
+    </xs:keyref>
+    <xs:keyref name="FK_CT_DONGHOCPHI_HOCPHI" refer="HOCPHI_Constraint1" msprop:rel_Generator_UserParentTable="HOCPHI" msprop:rel_Generator_UserChildTable="CT_DONGHOCPHI" msprop:rel_Generator_RelationVarName="relationFK_CT_DONGHOCPHI_HOCPHI" msprop:rel_Generator_ChildPropName="GetCT_DONGHOCPHIRows" msprop:rel_Generator_UserRelationName="FK_CT_DONGHOCPHI_HOCPHI" msprop:rel_Generator_ParentPropName="HOCPHIRowParent" msdata:UpdateRule="None" msdata:DeleteRule="None">
       <xs:selector xpath=".//mstns:CT_DONGHOCPHI" />
       <xs:field xpath="mstns:MASV" />
       <xs:field xpath="mstns:NIENKHOA" />
@@ -1147,7 +1147,7 @@ SELECT MASV, HO, TEN, PHAI, DIACHI, NGAYSINH, MALOP, DANGHIHOC, PASSWORD FROM SI
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
-      <msdata:Relationship name="FK_LOP_KHOA" msdata:parent="KHOA" msdata:child="LOP" msdata:parentkey="MAKHOA" msdata:childkey="MAKHOA" msprop:Generator_UserParentTable="KHOA" msprop:Generator_UserChildTable="LOP" msprop:Generator_RelationVarName="relationFK_LOP_KHOA" msprop:Generator_ChildPropName="GetLOPRows" msprop:Generator_UserRelationName="FK_LOP_KHOA" msprop:Generator_ParentPropName="KHOARow" />
+      <msdata:Relationship name="FK_LOP_KHOA" msdata:parent="KHOA" msdata:child="LOP" msdata:parentkey="MAKHOA" msdata:childkey="MAKHOA" msprop:Generator_UserParentTable="KHOA" msprop:Generator_UserChildTable="LOP" msprop:Generator_RelationVarName="relationFK_LOP_KHOA" msprop:Generator_ChildPropName="GetLOPRows" msprop:Generator_ParentPropName="KHOARow" msprop:Generator_UserRelationName="FK_LOP_KHOA" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>

@@ -39,13 +39,12 @@ namespace QLDSV_TC
             // Note: Đã xử lý tạo tài khoản trên site đang đăng nhập
             // Mở kết nối
             if (Program.KetNoi() == 0) return; // Không kết nối được ==> dừng
-            int res1 = Program.ExecSqlNonQuery(String.Format("EXEC SP_TAOLOGIN '{0}','{1}','{2}','{3}'",
+            // Tạo login ở site hiện tại. res lưu trạng thái execute thành công hay thất bại
+            int res = Program.ExecSqlNonQuery(String.Format("EXEC SP_TAOLOGIN '{0}','{1}','{2}','{3}'",
                                                             teTaiKhoan.Text,teMatKhau.Text,
                                                             cmbGiangVien.SelectedValue.ToString(),
                                                             cmbTenNhom.SelectedValue.ToString()),
                                             Program.connectionString);
-            if (res1 == 1) MessageBox.Show("Tạo tài khoản thành công!");
-            
         }
     }
 }

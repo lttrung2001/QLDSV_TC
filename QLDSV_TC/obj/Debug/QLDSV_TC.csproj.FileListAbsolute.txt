@@ -99,3 +99,4 @@ C:\Users\THANHTRUNG\OneDrive - student.ptithcm.edu.vn\Desktop\repos\QLDSV_TC\QLD
 C:\Users\THANHTRUNG\OneDrive - student.ptithcm.edu.vn\Desktop\repos\QLDSV_TC\QLDSV_TC\bin\Debug\DevExpress.Mvvm.v21.2.dll
 C:\Users\THANHTRUNG\OneDrive - student.ptithcm.edu.vn\Desktop\repos\QLDSV_TC\QLDSV_TC\bin\Debug\DevExpress.Mvvm.v21.2.xml
 C:\Users\THANHTRUNG\OneDrive - student.ptithcm.edu.vn\Desktop\repos\QLDSV_TC\QLDSV_TC\obj\Debug\QLDSV_TC.frmTaoTaiKhoan.resources
+C:\Users\THANHTRUNG\OneDrive - student.ptithcm.edu.vn\Desktop\repos\QLDSV_TC\QLDSV_TC\obj\Debug\QLDSV_TC.frmMonHoc.resources

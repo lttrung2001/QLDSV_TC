@@ -562,7 +562,9 @@
             this.gvSinhVienLop.Name = "gvSinhVienLop";
             this.gvSinhVienLop.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.False;
             this.gvSinhVienLop.OptionsBehavior.AllowDeleteRows = DevExpress.Utils.DefaultBoolean.False;
-            this.gvSinhVienLop.OptionsNavigation.AutoFocusNewRow = true;
+            this.gvSinhVienLop.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.gvSinhVienLop_InitNewRow);
+            this.gvSinhVienLop.ValidateRow += new DevExpress.XtraGrid.Views.Base.ValidateRowEventHandler(this.gvSinhVienLop_ValidateRow);
+            this.gvSinhVienLop.InvalidRowException += new DevExpress.XtraGrid.Views.Base.InvalidRowExceptionEventHandler(this.gvSinhVienLop_InvalidRowException);
             // 
             // colMASV
             // 

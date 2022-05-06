@@ -1,4 +1,6 @@
-﻿using System;
+﻿using DevExpress.XtraEditors.Controls;
+using DevExpress.XtraGrid.Views.Grid;
+using System;
 using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
@@ -12,6 +14,9 @@ namespace QLDSV_TC
         private static String tmpTenLop;
         private static String tmpKhoaHoc;
         private static String tmpMaKhoa;
+        private static String tmpMaSV;
+        private static bool dangThemSV;
+        private static bool dangSuaSV;
 
         private void saveDataWhenChangeSiteOrExitForm()
         {
@@ -61,14 +66,23 @@ namespace QLDSV_TC
             if (res == 1) return true;
             else return false;
         }
-
-        private bool kiemTraInputSinhVien()
+        private bool kiemTraInputSinhVien(int position)
         {
-            // Kiểm tra các field không để trống
-            // Code here
-            // Kiểm tra trùng mã sinh viên trong database ở cả 2 phân mảnh
-            // Code here
-            return true;
+            string maSV = this.gvSinhVienLop.GetRowCellValue(position, "MASV").ToString();
+
+            if (maSV == tmpMaSV)
+            {
+                return true;
+            }
+            if (string.IsNullOrEmpty(maSV))
+            {
+                MessageBox.Show("Mã sinh viên không được để trống", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+            //TODO: Check mã sinh viên có tồn tại chưa
+            int res = Program.ExecSqlNonQuery(String.Format("EXEC SP_KIEMTRAMASV '{0}'", maSV), Program.connectionString);
+            if (res == 1) return true;
+            else return false;
         }
 
         public frmSinhVien()
@@ -100,7 +114,7 @@ namespace QLDSV_TC
         {
             option = "INSERT";
             // Thay đổi trạng thái các button
-            btnThemLop.Enabled = btnXoaLop.Enabled = btnSuaLop.Enabled = false;
+            btnThemLop.Enabled = btnXoaLop.Enabled = btnSuaLop.Enabled = btnThoat.Enabled = false;
             btnGhiLop.Enabled = btnHuy.Enabled = true; // Active nút ghi và nút hủy
 
             // Thay đổi trạng thái các grid
@@ -122,7 +136,7 @@ namespace QLDSV_TC
             if (flag)
             {
                 // Thay đổi trạng thái các button
-                btnThemLop.Enabled = btnXoaLop.Enabled = btnSuaLop.Enabled = true;
+                btnThemLop.Enabled = btnXoaLop.Enabled = btnSuaLop.Enabled = btnThoat.Enabled = true;
                 btnGhiLop.Enabled = btnHuy.Enabled = false; // Active nút ghi và nút hủy
 
                 // Thay đổi trạng thái các grid
@@ -166,7 +180,7 @@ namespace QLDSV_TC
             tmpMaKhoa = ((DataRowView)bdsLop.Current)["MAKHOA"].ToString();
             option = "UPDATE";
             // Thay đổi trạng thái các button
-            btnThemLop.Enabled = btnXoaLop.Enabled = btnSuaLop.Enabled = false;
+            btnThemLop.Enabled = btnXoaLop.Enabled = btnSuaLop.Enabled = btnThoat.Enabled = false;
             btnGhiLop.Enabled = btnHuy.Enabled = true; // Active nút ghi và nút hủy
 
             // Thay đổi trạng thái các grid
@@ -182,6 +196,7 @@ namespace QLDSV_TC
             Close();
         }
 
+        // Note: Cần sửa lại hàm này (PGV có tài khoản trên 2 site -> Xử lý lại code)
         private void cmbKhoa_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cmbKhoa.SelectedValue == null) return; // Dùng để fix lỗi khi nhấn nút thoát (NULL)
@@ -239,22 +254,19 @@ namespace QLDSV_TC
         private void thêmSinhViênToolStripMenuItem_Click(object sender, EventArgs e)
         {
             bdsSinhVienLop.AddNew();
-            ((DataRowView)bdsSinhVienLop.Current)["MALOP"] = teMaLop.Text;
+            dangThemSV = true;
         }
 
         private void ghiVàoCSDLToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (kiemTraInputSinhVien())
+            try
             {
-                try
-                {
-                    bdsSinhVienLop.EndEdit();
-                    taSinhVienLop.Update(dS);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Đã xảy ra lỗi: " + ex.Message);
-                }
+                bdsSinhVienLop.EndEdit();
+                taSinhVienLop.Update(dS);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Đã xảy ra lỗi: " + ex.Message);
             }
         }
 
@@ -298,6 +310,37 @@ namespace QLDSV_TC
             // Set trạng thái các nút chức năng
             btnThemLop.Enabled = btnXoaLop.Enabled = btnSuaLop.Enabled = true;
             btnHuy.Enabled = btnGhiLop.Enabled = false;
+        }
+
+        // Hàm tham khảo
+        private void gvSinhVienLop_InitNewRow(object sender, InitNewRowEventArgs e)
+        {
+            GridView view = sender as GridView;
+            // Set giá trị cho dòng mới
+            view.SetRowCellValue(e.RowHandle, view.Columns["DANGHIHOC"], 0);
+            view.SetRowCellValue(e.RowHandle, view.Columns["PHAI"], 1);
+            view.SetRowCellValue(e.RowHandle, view.Columns["MALOP"], teMaLop.Text);
+        }
+
+        // Hàm này kiểm tra ràng buộc đối với các giá trị nhập vào của dòng hiện tại
+        private void gvSinhVienLop_ValidateRow(object sender, DevExpress.XtraGrid.Views.Base.ValidateRowEventArgs e)
+        {
+            if (dangThemSV)
+            {
+                GridView view = sender as GridView;
+                bool check = kiemTraInputSinhVien(view.FocusedRowHandle);
+                if (!check)
+                {
+                    e.Valid = false;
+                    view.SetColumnError(this.colMASV, "Mã sinh viên bị trùng!");
+                }
+            }
+        }
+
+        // Tắt lỗi mặc định của gridview
+        private void gvSinhVienLop_InvalidRowException(object sender, DevExpress.XtraGrid.Views.Base.InvalidRowExceptionEventArgs e)
+        {
+            e.ExceptionMode = ExceptionMode.NoAction;
         }
     }
 }
