@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmTaoTaiKhoan));
             this.cmbGiangVien = new System.Windows.Forms.ComboBox();
             this.lblGiangVien = new System.Windows.Forms.Label();
@@ -39,8 +40,10 @@
             this.teMatKhau = new DevExpress.XtraEditors.TextEdit();
             this.cmbTenNhom = new System.Windows.Forms.ComboBox();
             this.btnTaoTaiKhoan = new DevExpress.XtraEditors.SimpleButton();
+            this.dS = new QLDSV_TC.DS();
             ((System.ComponentModel.ISupportInitialize)(this.teTaiKhoan.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.teMatKhau.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dS)).BeginInit();
             this.SuspendLayout();
             // 
             // cmbGiangVien
@@ -100,7 +103,7 @@
             // 
             // teTaiKhoan
             // 
-            this.teTaiKhoan.Location = new System.Drawing.Point(277, 201);
+            this.teTaiKhoan.Location = new System.Drawing.Point(277, 161);
             this.teTaiKhoan.Margin = new System.Windows.Forms.Padding(5);
             this.teTaiKhoan.Name = "teTaiKhoan";
             this.teTaiKhoan.Properties.Appearance.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -110,11 +113,12 @@
             // 
             // teMatKhau
             // 
-            this.teMatKhau.Location = new System.Drawing.Point(277, 161);
+            this.teMatKhau.Location = new System.Drawing.Point(277, 201);
             this.teMatKhau.Margin = new System.Windows.Forms.Padding(5);
             this.teMatKhau.Name = "teMatKhau";
             this.teMatKhau.Properties.Appearance.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.teMatKhau.Properties.Appearance.Options.UseFont = true;
+            this.teMatKhau.Properties.PasswordChar = '*';
             this.teMatKhau.Size = new System.Drawing.Size(537, 30);
             this.teMatKhau.TabIndex = 7;
             // 
@@ -140,6 +144,11 @@
             this.btnTaoTaiKhoan.Text = "Tạo";
             this.btnTaoTaiKhoan.Click += new System.EventHandler(this.btnTaoTaiKhoan_Click);
             // 
+            // dS
+            // 
+            this.dS.DataSetName = "DS";
+            this.dS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // frmTaoTaiKhoan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 23F);
@@ -162,6 +171,7 @@
             this.Load += new System.EventHandler(this.frmTaoTaiKhoan_Load);
             ((System.ComponentModel.ISupportInitialize)(this.teTaiKhoan.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.teMatKhau.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dS)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -179,5 +189,6 @@
         private DevExpress.XtraEditors.TextEdit teMatKhau;
         private System.Windows.Forms.ComboBox cmbTenNhom;
         private DevExpress.XtraEditors.SimpleButton btnTaoTaiKhoan;
+        private DS dS;
     }
 }

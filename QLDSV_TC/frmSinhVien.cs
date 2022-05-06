@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data;
+using System.Data.SqlClient;
 using System.Windows.Forms;
 
 namespace QLDSV_TC
@@ -56,7 +57,9 @@ namespace QLDSV_TC
             }
             // Kiểm tra trùng mã lớp trong database ở cả 2 phân mảnh
             // Code here
-            return true;
+            int res = Program.ExecSqlNonQuery(String.Format("EXEC SP_KIEMTRAMALOP '{0}'",teMaLop.Text), Program.connectionString);
+            if (res == 1) return true;
+            else return false;
         }
 
         private bool kiemTraInputSinhVien()
@@ -115,7 +118,8 @@ namespace QLDSV_TC
         private void btnGhiLop_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             // Kiểm tra input
-            if (kiemTraInputLop())
+            bool flag = kiemTraInputLop();
+            if (flag)
             {
                 // Thay đổi trạng thái các button
                 btnThemLop.Enabled = btnXoaLop.Enabled = btnSuaLop.Enabled = true;
@@ -147,8 +151,9 @@ namespace QLDSV_TC
                 MessageBox.Show("Lớp có sinh viên. Không thể xóa!");
             else
             {
-                bdsLop.RemoveCurrent();
-                btnGhiLop.Enabled = true;
+                bdsLop.RemoveCurrent(); // Xóa dòng hiện tại
+                bdsLop.EndEdit(); // Lưu dữ liệu về DS
+                taLop.Update(dS); // Update dữ liệu DS về DB
             }
         }
 
@@ -268,11 +273,6 @@ namespace QLDSV_TC
             {
                 MessageBox.Show("Đã xảy ra lỗi: " + ex.Message);
             }
-        }
-
-        private void pnlKhoa_Paint(object sender, PaintEventArgs e)
-        {
-
         }
 
         private void btnPhucHoiLop_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

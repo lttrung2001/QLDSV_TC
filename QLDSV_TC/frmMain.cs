@@ -215,10 +215,5 @@ namespace QLDSV_TC
         {
             
         }
-
-        private void btnThoatCT_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            this.Close();
-        }
     }
 }

@@ -68,7 +68,6 @@
             this.barThongTin = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.xtraTabbedMdiManager1 = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
             this.dS = new QLDSV_TC.DS();
-            this.btnThoatCT = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabbedMdiManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dS)).BeginInit();
@@ -102,8 +101,7 @@
             this.btnDangNhap,
             this.barButtonItem2,
             this.btnShowDangNhap,
-            this.btnBDTK,
-            this.btnThoatCT});
+            this.btnBDTK});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
             this.ribbonControl1.MaxItemId = 25;
             this.ribbonControl1.Name = "ribbonControl1";
@@ -309,7 +307,6 @@
             // rbDangNhap
             // 
             this.rbDangNhap.ItemLinks.Add(this.btnShowDangNhap);
-            this.rbDangNhap.ItemLinks.Add(this.btnThoatCT);
             this.rbDangNhap.Name = "rbDangNhap";
             // 
             // rbTaiKhoan
@@ -411,15 +408,6 @@
             this.dS.DataSetName = "DS";
             this.dS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // btnThoatCT
-            // 
-            this.btnThoatCT.Caption = "THOÁT CHƯƠNG TRÌNH";
-            this.btnThoatCT.Id = 24;
-            this.btnThoatCT.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnThoatCT.ImageOptions.Image")));
-            this.btnThoatCT.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnThoatCT.ImageOptions.LargeImage")));
-            this.btnThoatCT.Name = "btnThoatCT";
-            this.btnThoatCT.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnThoatCT_ItemClick);
-            // 
             // frmMain
             // 
             this.Appearance.Options.UseFont = true;
@@ -483,6 +471,5 @@
         private DevExpress.XtraBars.BarButtonItem btnBDTK;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rbBDTK;
         private DS dS;
-        private DevExpress.XtraBars.BarButtonItem btnThoatCT;
     }
 }

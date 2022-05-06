@@ -33,7 +33,6 @@
             System.Windows.Forms.Label lblTenLop;
             System.Windows.Forms.Label lblKhoaHoc;
             System.Windows.Forms.Label lblMaKhoa;
-            DevExpress.XtraGrid.GridLevelNode gridLevelNode2 = new DevExpress.XtraGrid.GridLevelNode();
             this.pnlKhoa = new DevExpress.XtraEditors.PanelControl();
             this.cmbKhoa = new System.Windows.Forms.ComboBox();
             this.lblKhoa = new System.Windows.Forms.Label();
@@ -68,6 +67,13 @@
             this.teKhoaHoc = new DevExpress.XtraEditors.TextEdit();
             this.teMaKhoa = new DevExpress.XtraEditors.TextEdit();
             this.bdsSinhVienLop = new System.Windows.Forms.BindingSource(this.components);
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.thêmSinhViênToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.xóaSinhViênToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ghiVàoCSDLToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.phụcHồiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bdsDangKy = new System.Windows.Forms.BindingSource(this.components);
+            this.taDangKy = new QLDSV_TC.DSTableAdapters.DANGKYTableAdapter();
             this.gcSinhVienLop = new DevExpress.XtraGrid.GridControl();
             this.gvSinhVienLop = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colMASV = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -79,13 +85,6 @@
             this.colMALOP1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDANGHIHOC = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colPASSWORD = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.thêmSinhViênToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.xóaSinhViênToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ghiVàoCSDLToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.phụcHồiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.bdsDangKy = new System.Windows.Forms.BindingSource(this.components);
-            this.taDangKy = new QLDSV_TC.DSTableAdapters.DANGKYTableAdapter();
             lblMaLop = new System.Windows.Forms.Label();
             lblTenLop = new System.Windows.Forms.Label();
             lblKhoaHoc = new System.Windows.Forms.Label();
@@ -103,10 +102,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.teKhoaHoc.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.teMaKhoa.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsSinhVienLop)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gcSinhVienLop)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gvSinhVienLop)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bdsDangKy)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gcSinhVienLop)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvSinhVienLop)).BeginInit();
             this.SuspendLayout();
             // 
             // lblMaLop
@@ -159,7 +158,6 @@
             this.pnlKhoa.Name = "pnlKhoa";
             this.pnlKhoa.Size = new System.Drawing.Size(1447, 55);
             this.pnlKhoa.TabIndex = 0;
-            this.pnlKhoa.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlKhoa_Paint);
             // 
             // cmbKhoa
             // 
@@ -432,7 +430,7 @@
             this.gbThongTinLop.Enabled = false;
             this.gbThongTinLop.Location = new System.Drawing.Point(0, 345);
             this.gbThongTinLop.Name = "gbThongTinLop";
-            this.gbThongTinLop.Size = new System.Drawing.Size(514, 389);
+            this.gbThongTinLop.Size = new System.Drawing.Size(510, 389);
             this.gbThongTinLop.TabIndex = 6;
             this.gbThongTinLop.TabStop = false;
             this.gbThongTinLop.Text = "THÔNG TIN LỚP";
@@ -487,129 +485,6 @@
             this.bdsSinhVienLop.DataMember = "FK_SINHVIEN_LOP";
             this.bdsSinhVienLop.DataSource = this.bdsLop;
             // 
-            // gcSinhVienLop
-            // 
-            this.gcSinhVienLop.ContextMenuStrip = this.contextMenuStrip1;
-            this.gcSinhVienLop.DataSource = this.bdsSinhVienLop;
-            this.gcSinhVienLop.Dock = System.Windows.Forms.DockStyle.Fill;
-            gridLevelNode2.RelationName = "Danh sách đăng ký lớp tín chỉ của sinh viên";
-            this.gcSinhVienLop.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
-            gridLevelNode2});
-            this.gcSinhVienLop.Location = new System.Drawing.Point(514, 345);
-            this.gcSinhVienLop.MainView = this.gvSinhVienLop;
-            this.gcSinhVienLop.MenuManager = this.barChucNangLop;
-            this.gcSinhVienLop.Name = "gcSinhVienLop";
-            this.gcSinhVienLop.Size = new System.Drawing.Size(933, 389);
-            this.gcSinhVienLop.TabIndex = 7;
-            this.gcSinhVienLop.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gvSinhVienLop});
-            // 
-            // gvSinhVienLop
-            // 
-            this.gvSinhVienLop.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.colMASV,
-            this.colHO,
-            this.colTEN,
-            this.colPHAI,
-            this.colDIACHI,
-            this.colNGAYSINH,
-            this.colMALOP1,
-            this.colDANGHIHOC,
-            this.colPASSWORD});
-            this.gvSinhVienLop.GridControl = this.gcSinhVienLop;
-            this.gvSinhVienLop.Name = "gvSinhVienLop";
-            // 
-            // colMASV
-            // 
-            this.colMASV.Caption = "Mã sinh viên";
-            this.colMASV.FieldName = "MASV";
-            this.colMASV.MinWidth = 25;
-            this.colMASV.Name = "colMASV";
-            this.colMASV.Visible = true;
-            this.colMASV.VisibleIndex = 0;
-            this.colMASV.Width = 100;
-            // 
-            // colHO
-            // 
-            this.colHO.Caption = "Họ";
-            this.colHO.FieldName = "HO";
-            this.colHO.MinWidth = 25;
-            this.colHO.Name = "colHO";
-            this.colHO.Visible = true;
-            this.colHO.VisibleIndex = 1;
-            this.colHO.Width = 100;
-            // 
-            // colTEN
-            // 
-            this.colTEN.Caption = "Tên";
-            this.colTEN.FieldName = "TEN";
-            this.colTEN.MinWidth = 25;
-            this.colTEN.Name = "colTEN";
-            this.colTEN.Visible = true;
-            this.colTEN.VisibleIndex = 2;
-            this.colTEN.Width = 100;
-            // 
-            // colPHAI
-            // 
-            this.colPHAI.Caption = "Phái";
-            this.colPHAI.FieldName = "PHAI";
-            this.colPHAI.MinWidth = 25;
-            this.colPHAI.Name = "colPHAI";
-            this.colPHAI.Visible = true;
-            this.colPHAI.VisibleIndex = 3;
-            this.colPHAI.Width = 100;
-            // 
-            // colDIACHI
-            // 
-            this.colDIACHI.Caption = "Địa chỉ";
-            this.colDIACHI.FieldName = "DIACHI";
-            this.colDIACHI.MinWidth = 25;
-            this.colDIACHI.Name = "colDIACHI";
-            this.colDIACHI.Visible = true;
-            this.colDIACHI.VisibleIndex = 4;
-            this.colDIACHI.Width = 100;
-            // 
-            // colNGAYSINH
-            // 
-            this.colNGAYSINH.Caption = "Ngày sinh";
-            this.colNGAYSINH.FieldName = "NGAYSINH";
-            this.colNGAYSINH.MinWidth = 25;
-            this.colNGAYSINH.Name = "colNGAYSINH";
-            this.colNGAYSINH.Visible = true;
-            this.colNGAYSINH.VisibleIndex = 5;
-            this.colNGAYSINH.Width = 100;
-            // 
-            // colMALOP1
-            // 
-            this.colMALOP1.Caption = "Mã lớp";
-            this.colMALOP1.FieldName = "MALOP";
-            this.colMALOP1.MinWidth = 25;
-            this.colMALOP1.Name = "colMALOP1";
-            this.colMALOP1.OptionsColumn.ReadOnly = true;
-            this.colMALOP1.Visible = true;
-            this.colMALOP1.VisibleIndex = 6;
-            this.colMALOP1.Width = 98;
-            // 
-            // colDANGHIHOC
-            // 
-            this.colDANGHIHOC.Caption = "Đã nghỉ học";
-            this.colDANGHIHOC.FieldName = "DANGHIHOC";
-            this.colDANGHIHOC.MinWidth = 25;
-            this.colDANGHIHOC.Name = "colDANGHIHOC";
-            this.colDANGHIHOC.Visible = true;
-            this.colDANGHIHOC.VisibleIndex = 7;
-            this.colDANGHIHOC.Width = 100;
-            // 
-            // colPASSWORD
-            // 
-            this.colPASSWORD.Caption = "Mật khẩu";
-            this.colPASSWORD.FieldName = "PASSWORD";
-            this.colPASSWORD.MinWidth = 25;
-            this.colPASSWORD.Name = "colPASSWORD";
-            this.colPASSWORD.Visible = true;
-            this.colPASSWORD.VisibleIndex = 8;
-            this.colPASSWORD.Width = 105;
-            // 
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
@@ -657,6 +532,128 @@
             // 
             this.taDangKy.ClearBeforeFill = true;
             // 
+            // gcSinhVienLop
+            // 
+            this.gcSinhVienLop.ContextMenuStrip = this.contextMenuStrip1;
+            this.gcSinhVienLop.DataSource = this.bdsSinhVienLop;
+            this.gcSinhVienLop.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gcSinhVienLop.Location = new System.Drawing.Point(510, 345);
+            this.gcSinhVienLop.MainView = this.gvSinhVienLop;
+            this.gcSinhVienLop.MenuManager = this.barChucNangLop;
+            this.gcSinhVienLop.Name = "gcSinhVienLop";
+            this.gcSinhVienLop.Size = new System.Drawing.Size(937, 389);
+            this.gcSinhVienLop.TabIndex = 16;
+            this.gcSinhVienLop.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gvSinhVienLop});
+            // 
+            // gvSinhVienLop
+            // 
+            this.gvSinhVienLop.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colMASV,
+            this.colHO,
+            this.colTEN,
+            this.colPHAI,
+            this.colDIACHI,
+            this.colNGAYSINH,
+            this.colMALOP1,
+            this.colDANGHIHOC,
+            this.colPASSWORD});
+            this.gvSinhVienLop.GridControl = this.gcSinhVienLop;
+            this.gvSinhVienLop.Name = "gvSinhVienLop";
+            this.gvSinhVienLop.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.False;
+            this.gvSinhVienLop.OptionsBehavior.AllowDeleteRows = DevExpress.Utils.DefaultBoolean.False;
+            this.gvSinhVienLop.OptionsNavigation.AutoFocusNewRow = true;
+            // 
+            // colMASV
+            // 
+            this.colMASV.Caption = "Mã sinh viên";
+            this.colMASV.FieldName = "MASV";
+            this.colMASV.MinWidth = 25;
+            this.colMASV.Name = "colMASV";
+            this.colMASV.Visible = true;
+            this.colMASV.VisibleIndex = 0;
+            this.colMASV.Width = 94;
+            // 
+            // colHO
+            // 
+            this.colHO.Caption = "Họ";
+            this.colHO.FieldName = "HO";
+            this.colHO.MinWidth = 25;
+            this.colHO.Name = "colHO";
+            this.colHO.Visible = true;
+            this.colHO.VisibleIndex = 1;
+            this.colHO.Width = 94;
+            // 
+            // colTEN
+            // 
+            this.colTEN.Caption = "Tên";
+            this.colTEN.FieldName = "TEN";
+            this.colTEN.MinWidth = 25;
+            this.colTEN.Name = "colTEN";
+            this.colTEN.Visible = true;
+            this.colTEN.VisibleIndex = 2;
+            this.colTEN.Width = 94;
+            // 
+            // colPHAI
+            // 
+            this.colPHAI.Caption = "Phái";
+            this.colPHAI.FieldName = "PHAI";
+            this.colPHAI.MinWidth = 25;
+            this.colPHAI.Name = "colPHAI";
+            this.colPHAI.Visible = true;
+            this.colPHAI.VisibleIndex = 3;
+            this.colPHAI.Width = 94;
+            // 
+            // colDIACHI
+            // 
+            this.colDIACHI.Caption = "Địa chỉ";
+            this.colDIACHI.FieldName = "DIACHI";
+            this.colDIACHI.MinWidth = 25;
+            this.colDIACHI.Name = "colDIACHI";
+            this.colDIACHI.Visible = true;
+            this.colDIACHI.VisibleIndex = 4;
+            this.colDIACHI.Width = 94;
+            // 
+            // colNGAYSINH
+            // 
+            this.colNGAYSINH.Caption = "Ngày sinh";
+            this.colNGAYSINH.FieldName = "NGAYSINH";
+            this.colNGAYSINH.MinWidth = 25;
+            this.colNGAYSINH.Name = "colNGAYSINH";
+            this.colNGAYSINH.Visible = true;
+            this.colNGAYSINH.VisibleIndex = 5;
+            this.colNGAYSINH.Width = 94;
+            // 
+            // colMALOP1
+            // 
+            this.colMALOP1.Caption = "Mã lớp";
+            this.colMALOP1.FieldName = "MALOP";
+            this.colMALOP1.MinWidth = 25;
+            this.colMALOP1.Name = "colMALOP1";
+            this.colMALOP1.Visible = true;
+            this.colMALOP1.VisibleIndex = 6;
+            this.colMALOP1.Width = 94;
+            // 
+            // colDANGHIHOC
+            // 
+            this.colDANGHIHOC.Caption = "Đã nghỉ học";
+            this.colDANGHIHOC.FieldName = "DANGHIHOC";
+            this.colDANGHIHOC.MinWidth = 25;
+            this.colDANGHIHOC.Name = "colDANGHIHOC";
+            this.colDANGHIHOC.Visible = true;
+            this.colDANGHIHOC.VisibleIndex = 7;
+            this.colDANGHIHOC.Width = 94;
+            // 
+            // colPASSWORD
+            // 
+            this.colPASSWORD.Caption = "Mật khẩu";
+            this.colPASSWORD.FieldName = "PASSWORD";
+            this.colPASSWORD.MinWidth = 25;
+            this.colPASSWORD.Name = "colPASSWORD";
+            this.colPASSWORD.Visible = true;
+            this.colPASSWORD.VisibleIndex = 8;
+            this.colPASSWORD.Width = 94;
+            // 
             // frmSinhVien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 23F);
@@ -690,10 +687,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.teKhoaHoc.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.teMaKhoa.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsSinhVienLop)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gcSinhVienLop)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gvSinhVienLop)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.bdsDangKy)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gcSinhVienLop)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvSinhVienLop)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -730,17 +727,6 @@
         private System.Windows.Forms.GroupBox gbThongTinLop;
         private DSTableAdapters.SINHVIENTableAdapter taSinhVienLop;
         private System.Windows.Forms.BindingSource bdsSinhVienLop;
-        private DevExpress.XtraGrid.GridControl gcSinhVienLop;
-        private DevExpress.XtraGrid.Views.Grid.GridView gvSinhVienLop;
-        private DevExpress.XtraGrid.Columns.GridColumn colMASV;
-        private DevExpress.XtraGrid.Columns.GridColumn colHO;
-        private DevExpress.XtraGrid.Columns.GridColumn colTEN;
-        private DevExpress.XtraGrid.Columns.GridColumn colPHAI;
-        private DevExpress.XtraGrid.Columns.GridColumn colDIACHI;
-        private DevExpress.XtraGrid.Columns.GridColumn colNGAYSINH;
-        private DevExpress.XtraGrid.Columns.GridColumn colMALOP1;
-        private DevExpress.XtraGrid.Columns.GridColumn colDANGHIHOC;
-        private DevExpress.XtraGrid.Columns.GridColumn colPASSWORD;
         private DevExpress.XtraEditors.TextEdit teMaLop;
         private DevExpress.XtraEditors.TextEdit teTenLop;
         private DevExpress.XtraEditors.TextEdit teKhoaHoc;
@@ -753,5 +739,16 @@
         private System.Windows.Forms.BindingSource bdsDangKy;
         private DSTableAdapters.DANGKYTableAdapter taDangKy;
         private DevExpress.XtraBars.BarButtonItem btnHuy;
+        private DevExpress.XtraGrid.GridControl gcSinhVienLop;
+        private DevExpress.XtraGrid.Views.Grid.GridView gvSinhVienLop;
+        private DevExpress.XtraGrid.Columns.GridColumn colMASV;
+        private DevExpress.XtraGrid.Columns.GridColumn colHO;
+        private DevExpress.XtraGrid.Columns.GridColumn colTEN;
+        private DevExpress.XtraGrid.Columns.GridColumn colPHAI;
+        private DevExpress.XtraGrid.Columns.GridColumn colDIACHI;
+        private DevExpress.XtraGrid.Columns.GridColumn colNGAYSINH;
+        private DevExpress.XtraGrid.Columns.GridColumn colMALOP1;
+        private DevExpress.XtraGrid.Columns.GridColumn colDANGHIHOC;
+        private DevExpress.XtraGrid.Columns.GridColumn colPASSWORD;
     }
 }
