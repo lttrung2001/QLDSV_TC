@@ -16,11 +16,9 @@ namespace QLDSV_TC
             try
             {
                 Program.KetNoi();
-                DataTable dt = Program.ExecSqlQuery("SELECT * FROM GIANGVIEN", Program.connectionString);
-                cmbGiangVien.DataSource = dt;
-                cmbGiangVien.DisplayMember = "MAGV";
+                cmbGiangVien.DataSource = Program.ExecSqlQuery("EXEC SP_LAYTHONGTINGIANGVIEN", Program.connStrSiteChu);
+                cmbGiangVien.DisplayMember = "THONGTIN";
                 cmbGiangVien.ValueMember = "MAGV";
-                // Họ tên
             }
             catch (Exception ex)
             {

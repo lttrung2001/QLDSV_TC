@@ -39,11 +39,8 @@
             this.teMatKhau = new DevExpress.XtraEditors.TextEdit();
             this.cmbTenNhom = new System.Windows.Forms.ComboBox();
             this.btnTaoTaiKhoan = new DevExpress.XtraEditors.SimpleButton();
-            this.teHoTen = new DevExpress.XtraEditors.TextEdit();
-            this.lblHoTen = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.teTaiKhoan.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.teMatKhau.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.teHoTen.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // cmbGiangVien
@@ -77,7 +74,7 @@
             // lblTaiKhoan
             // 
             this.lblTaiKhoan.AutoSize = true;
-            this.lblTaiKhoan.Location = new System.Drawing.Point(96, 207);
+            this.lblTaiKhoan.Location = new System.Drawing.Point(96, 164);
             this.lblTaiKhoan.Name = "lblTaiKhoan";
             this.lblTaiKhoan.Size = new System.Drawing.Size(95, 23);
             this.lblTaiKhoan.TabIndex = 3;
@@ -86,7 +83,7 @@
             // lblMatKhau
             // 
             this.lblMatKhau.AutoSize = true;
-            this.lblMatKhau.Location = new System.Drawing.Point(96, 247);
+            this.lblMatKhau.Location = new System.Drawing.Point(96, 204);
             this.lblMatKhau.Name = "lblMatKhau";
             this.lblMatKhau.Size = new System.Drawing.Size(91, 23);
             this.lblMatKhau.TabIndex = 4;
@@ -95,7 +92,7 @@
             // lblTenNhom
             // 
             this.lblTenNhom.AutoSize = true;
-            this.lblTenNhom.Location = new System.Drawing.Point(96, 285);
+            this.lblTenNhom.Location = new System.Drawing.Point(96, 242);
             this.lblTenNhom.Name = "lblTenNhom";
             this.lblTenNhom.Size = new System.Drawing.Size(96, 23);
             this.lblTenNhom.TabIndex = 5;
@@ -103,7 +100,7 @@
             // 
             // teTaiKhoan
             // 
-            this.teTaiKhoan.Location = new System.Drawing.Point(277, 244);
+            this.teTaiKhoan.Location = new System.Drawing.Point(277, 201);
             this.teTaiKhoan.Margin = new System.Windows.Forms.Padding(5);
             this.teTaiKhoan.Name = "teTaiKhoan";
             this.teTaiKhoan.Properties.Appearance.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -113,7 +110,7 @@
             // 
             // teMatKhau
             // 
-            this.teMatKhau.Location = new System.Drawing.Point(277, 204);
+            this.teMatKhau.Location = new System.Drawing.Point(277, 161);
             this.teMatKhau.Margin = new System.Windows.Forms.Padding(5);
             this.teMatKhau.Name = "teMatKhau";
             this.teMatKhau.Properties.Appearance.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -124,8 +121,9 @@
             // cmbTenNhom
             // 
             this.cmbTenNhom.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbTenNhom.Enabled = false;
             this.cmbTenNhom.FormattingEnabled = true;
-            this.cmbTenNhom.Location = new System.Drawing.Point(277, 282);
+            this.cmbTenNhom.Location = new System.Drawing.Point(277, 239);
             this.cmbTenNhom.Name = "cmbTenNhom";
             this.cmbTenNhom.Size = new System.Drawing.Size(537, 31);
             this.cmbTenNhom.TabIndex = 10;
@@ -135,39 +133,18 @@
             this.btnTaoTaiKhoan.Appearance.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTaoTaiKhoan.Appearance.Options.UseFont = true;
             this.btnTaoTaiKhoan.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnTaoTaiKhoan.ImageOptions.Image")));
-            this.btnTaoTaiKhoan.Location = new System.Drawing.Point(277, 319);
+            this.btnTaoTaiKhoan.Location = new System.Drawing.Point(277, 276);
             this.btnTaoTaiKhoan.Name = "btnTaoTaiKhoan";
             this.btnTaoTaiKhoan.Size = new System.Drawing.Size(120, 36);
             this.btnTaoTaiKhoan.TabIndex = 11;
             this.btnTaoTaiKhoan.Text = "Tạo";
             this.btnTaoTaiKhoan.Click += new System.EventHandler(this.btnTaoTaiKhoan_Click);
             // 
-            // teHoTen
-            // 
-            this.teHoTen.Enabled = false;
-            this.teHoTen.Location = new System.Drawing.Point(277, 164);
-            this.teHoTen.Name = "teHoTen";
-            this.teHoTen.Properties.Appearance.Font = new System.Drawing.Font("Arial", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.teHoTen.Properties.Appearance.Options.UseFont = true;
-            this.teHoTen.Size = new System.Drawing.Size(537, 32);
-            this.teHoTen.TabIndex = 12;
-            // 
-            // lblHoTen
-            // 
-            this.lblHoTen.AutoSize = true;
-            this.lblHoTen.Location = new System.Drawing.Point(96, 168);
-            this.lblHoTen.Name = "lblHoTen";
-            this.lblHoTen.Size = new System.Drawing.Size(67, 23);
-            this.lblHoTen.TabIndex = 13;
-            this.lblHoTen.Text = "Họ tên";
-            // 
             // frmTaoTaiKhoan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1449, 761);
-            this.Controls.Add(this.lblHoTen);
-            this.Controls.Add(this.teHoTen);
             this.Controls.Add(this.btnTaoTaiKhoan);
             this.Controls.Add(this.cmbTenNhom);
             this.Controls.Add(this.teMatKhau);
@@ -185,7 +162,6 @@
             this.Load += new System.EventHandler(this.frmTaoTaiKhoan_Load);
             ((System.ComponentModel.ISupportInitialize)(this.teTaiKhoan.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.teMatKhau.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.teHoTen.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -203,7 +179,5 @@
         private DevExpress.XtraEditors.TextEdit teMatKhau;
         private System.Windows.Forms.ComboBox cmbTenNhom;
         private DevExpress.XtraEditors.SimpleButton btnTaoTaiKhoan;
-        private DevExpress.XtraEditors.TextEdit teHoTen;
-        private System.Windows.Forms.Label lblHoTen;
     }
 }
