@@ -85,6 +85,7 @@
             this.colMALOP1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDANGHIHOC = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colPASSWORD = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.sửaSinhViênToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             lblMaLop = new System.Windows.Forms.Label();
             lblTenLop = new System.Windows.Forms.Label();
             lblKhoaHoc = new System.Windows.Forms.Label();
@@ -491,36 +492,37 @@
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.thêmSinhViênToolStripMenuItem,
             this.xóaSinhViênToolStripMenuItem,
+            this.sửaSinhViênToolStripMenuItem,
             this.ghiVàoCSDLToolStripMenuItem,
             this.phụcHồiToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(177, 100);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(211, 152);
             // 
             // thêmSinhViênToolStripMenuItem
             // 
             this.thêmSinhViênToolStripMenuItem.Name = "thêmSinhViênToolStripMenuItem";
-            this.thêmSinhViênToolStripMenuItem.Size = new System.Drawing.Size(176, 24);
+            this.thêmSinhViênToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
             this.thêmSinhViênToolStripMenuItem.Text = "Thêm sinh viên";
             this.thêmSinhViênToolStripMenuItem.Click += new System.EventHandler(this.thêmSinhViênToolStripMenuItem_Click);
             // 
             // xóaSinhViênToolStripMenuItem
             // 
             this.xóaSinhViênToolStripMenuItem.Name = "xóaSinhViênToolStripMenuItem";
-            this.xóaSinhViênToolStripMenuItem.Size = new System.Drawing.Size(176, 24);
+            this.xóaSinhViênToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
             this.xóaSinhViênToolStripMenuItem.Text = "Xóa sinh viên";
             this.xóaSinhViênToolStripMenuItem.Click += new System.EventHandler(this.xóaSinhViênToolStripMenuItem_Click);
             // 
             // ghiVàoCSDLToolStripMenuItem
             // 
             this.ghiVàoCSDLToolStripMenuItem.Name = "ghiVàoCSDLToolStripMenuItem";
-            this.ghiVàoCSDLToolStripMenuItem.Size = new System.Drawing.Size(176, 24);
+            this.ghiVàoCSDLToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
             this.ghiVàoCSDLToolStripMenuItem.Text = "Ghi vào CSDL";
             this.ghiVàoCSDLToolStripMenuItem.Click += new System.EventHandler(this.ghiVàoCSDLToolStripMenuItem_Click);
             // 
             // phụcHồiToolStripMenuItem
             // 
             this.phụcHồiToolStripMenuItem.Name = "phụcHồiToolStripMenuItem";
-            this.phụcHồiToolStripMenuItem.Size = new System.Drawing.Size(176, 24);
+            this.phụcHồiToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
             this.phụcHồiToolStripMenuItem.Text = "Phục hồi";
             // 
             // bdsDangKy
@@ -563,8 +565,9 @@
             this.gvSinhVienLop.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.False;
             this.gvSinhVienLop.OptionsBehavior.AllowDeleteRows = DevExpress.Utils.DefaultBoolean.False;
             this.gvSinhVienLop.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.gvSinhVienLop_InitNewRow);
-            this.gvSinhVienLop.ValidateRow += new DevExpress.XtraGrid.Views.Base.ValidateRowEventHandler(this.gvSinhVienLop_ValidateRow);
             this.gvSinhVienLop.InvalidRowException += new DevExpress.XtraGrid.Views.Base.InvalidRowExceptionEventHandler(this.gvSinhVienLop_InvalidRowException);
+            this.gvSinhVienLop.ValidateRow += new DevExpress.XtraGrid.Views.Base.ValidateRowEventHandler(this.gvSinhVienLop_ValidateRow);
+            this.gvSinhVienLop.ShowingEditor += new System.ComponentModel.CancelEventHandler(this.gvSinhVienLop_ShowingEditor);
             // 
             // colMASV
             // 
@@ -655,6 +658,13 @@
             this.colPASSWORD.Visible = true;
             this.colPASSWORD.VisibleIndex = 8;
             this.colPASSWORD.Width = 94;
+            // 
+            // sửaSinhViênToolStripMenuItem
+            // 
+            this.sửaSinhViênToolStripMenuItem.Name = "sửaSinhViênToolStripMenuItem";
+            this.sửaSinhViênToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
+            this.sửaSinhViênToolStripMenuItem.Text = "Sửa sinh viên";
+            this.sửaSinhViênToolStripMenuItem.Click += new System.EventHandler(this.sửaSinhViênToolStripMenuItem_Click);
             // 
             // frmSinhVien
             // 
@@ -752,5 +762,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn colMALOP1;
         private DevExpress.XtraGrid.Columns.GridColumn colDANGHIHOC;
         private DevExpress.XtraGrid.Columns.GridColumn colPASSWORD;
+        private System.Windows.Forms.ToolStripMenuItem sửaSinhViênToolStripMenuItem;
     }
 }

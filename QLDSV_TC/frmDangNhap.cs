@@ -28,7 +28,6 @@ namespace QLDSV_TC
 
         private void btnDangNhap_Click(object sender, EventArgs e)
         {
-            Program.index = cmbKhoa.SelectedIndex;
             Program.servername = cmbKhoa.SelectedValue.ToString();
             Program.loginName = teTaiKhoan.Text;
             Program.password = teMatKhau.Text;

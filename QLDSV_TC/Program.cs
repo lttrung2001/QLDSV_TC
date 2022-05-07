@@ -13,7 +13,6 @@ namespace QLDSV_TC
         public static SqlDataReader myReader;
         // Tên server hiện tại
         public static String servername = ""; 
-        public static int index = 0; // Vị trí
         // Tài khoản đăng nhập
         public static String loginName;
         public static String password;
