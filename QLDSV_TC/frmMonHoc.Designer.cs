@@ -53,6 +53,11 @@
             this.MONHOCTableAdapter = new QLDSV_TC.DSTableAdapters.MONHOCTableAdapter();
             this.tableAdapterManager = new QLDSV_TC.DSTableAdapters.TableAdapterManager();
             this.MONHOCGridControl = new DevExpress.XtraGrid.GridControl();
+            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colMAMH = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colTENMH = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colSOTIET_LT = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colSOTIET_TH = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -62,15 +67,11 @@
             this.txbMaMonHoc = new DevExpress.XtraEditors.TextEdit();
             this.bdsLopTinChi = new System.Windows.Forms.BindingSource(this.components);
             this.lOPTINCHITableAdapter = new QLDSV_TC.DSTableAdapters.LOPTINCHITableAdapter();
-            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.colMAMH = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colTENMH = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colSOTIET_LT = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colSOTIET_TH = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsMonHoc)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MONHOCGridControl)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -79,7 +80,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txbTenMonHoc.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txbMaMonHoc.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsLopTinChi)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // mAMHLabel
@@ -163,7 +163,6 @@
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnPhucHoi, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnGhi, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnHuy, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnLamMoi, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnThoat, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
             this.bar2.OptionsBar.MultiLine = true;
             this.bar2.OptionsBar.UseWholeRow = true;
@@ -213,13 +212,6 @@
             this.btnHuy.Id = 5;
             this.btnHuy.Name = "btnHuy";
             this.btnHuy.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnHuy_ItemClick);
-            // 
-            // btnLamMoi
-            // 
-            this.btnLamMoi.Caption = "Làm mới";
-            this.btnLamMoi.Id = 6;
-            this.btnLamMoi.Name = "btnLamMoi";
-            this.btnLamMoi.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnLamMoi_ItemClick);
             // 
             // btnThoat
             // 
@@ -318,6 +310,66 @@
             this.MONHOCGridControl.TabIndex = 5;
             this.MONHOCGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
+            // 
+            // gridView1
+            // 
+            this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colMAMH,
+            this.colTENMH,
+            this.colSOTIET_LT,
+            this.colSOTIET_TH});
+            this.gridView1.DetailHeight = 284;
+            this.gridView1.GridControl = this.MONHOCGridControl;
+            this.gridView1.Name = "gridView1";
+            this.gridView1.OptionsBehavior.ReadOnly = true;
+            // 
+            // colMAMH
+            // 
+            this.colMAMH.AppearanceHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.colMAMH.AppearanceHeader.Options.UseBackColor = true;
+            this.colMAMH.Caption = "Mã môn học";
+            this.colMAMH.FieldName = "MAMH";
+            this.colMAMH.MinWidth = 21;
+            this.colMAMH.Name = "colMAMH";
+            this.colMAMH.Visible = true;
+            this.colMAMH.VisibleIndex = 0;
+            this.colMAMH.Width = 81;
+            // 
+            // colTENMH
+            // 
+            this.colTENMH.AppearanceHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.colTENMH.AppearanceHeader.Options.UseBackColor = true;
+            this.colTENMH.Caption = "Tên môn học";
+            this.colTENMH.FieldName = "TENMH";
+            this.colTENMH.MinWidth = 21;
+            this.colTENMH.Name = "colTENMH";
+            this.colTENMH.Visible = true;
+            this.colTENMH.VisibleIndex = 1;
+            this.colTENMH.Width = 81;
+            // 
+            // colSOTIET_LT
+            // 
+            this.colSOTIET_LT.AppearanceHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.colSOTIET_LT.AppearanceHeader.Options.UseBackColor = true;
+            this.colSOTIET_LT.Caption = "Số tiết lý thuyết";
+            this.colSOTIET_LT.FieldName = "SOTIET_LT";
+            this.colSOTIET_LT.MinWidth = 21;
+            this.colSOTIET_LT.Name = "colSOTIET_LT";
+            this.colSOTIET_LT.Visible = true;
+            this.colSOTIET_LT.VisibleIndex = 2;
+            this.colSOTIET_LT.Width = 81;
+            // 
+            // colSOTIET_TH
+            // 
+            this.colSOTIET_TH.AppearanceHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.colSOTIET_TH.AppearanceHeader.Options.UseBackColor = true;
+            this.colSOTIET_TH.Caption = "Số tiết thực hành";
+            this.colSOTIET_TH.FieldName = "SOTIET_TH";
+            this.colSOTIET_TH.MinWidth = 21;
+            this.colSOTIET_TH.Name = "colSOTIET_TH";
+            this.colSOTIET_TH.Visible = true;
+            this.colSOTIET_TH.VisibleIndex = 3;
+            this.colSOTIET_TH.Width = 81;
             // 
             // panelControl1
             // 
@@ -421,66 +473,6 @@
             // 
             this.lOPTINCHITableAdapter.ClearBeforeFill = true;
             // 
-            // gridView1
-            // 
-            this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.colMAMH,
-            this.colTENMH,
-            this.colSOTIET_LT,
-            this.colSOTIET_TH});
-            this.gridView1.DetailHeight = 284;
-            this.gridView1.GridControl = this.MONHOCGridControl;
-            this.gridView1.Name = "gridView1";
-            this.gridView1.OptionsBehavior.ReadOnly = true;
-            // 
-            // colMAMH
-            // 
-            this.colMAMH.AppearanceHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.colMAMH.AppearanceHeader.Options.UseBackColor = true;
-            this.colMAMH.Caption = "Mã môn học";
-            this.colMAMH.FieldName = "MAMH";
-            this.colMAMH.MinWidth = 21;
-            this.colMAMH.Name = "colMAMH";
-            this.colMAMH.Visible = true;
-            this.colMAMH.VisibleIndex = 0;
-            this.colMAMH.Width = 81;
-            // 
-            // colTENMH
-            // 
-            this.colTENMH.AppearanceHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.colTENMH.AppearanceHeader.Options.UseBackColor = true;
-            this.colTENMH.Caption = "Tên môn học";
-            this.colTENMH.FieldName = "TENMH";
-            this.colTENMH.MinWidth = 21;
-            this.colTENMH.Name = "colTENMH";
-            this.colTENMH.Visible = true;
-            this.colTENMH.VisibleIndex = 1;
-            this.colTENMH.Width = 81;
-            // 
-            // colSOTIET_LT
-            // 
-            this.colSOTIET_LT.AppearanceHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.colSOTIET_LT.AppearanceHeader.Options.UseBackColor = true;
-            this.colSOTIET_LT.Caption = "Số tiết lý thuyết";
-            this.colSOTIET_LT.FieldName = "SOTIET_LT";
-            this.colSOTIET_LT.MinWidth = 21;
-            this.colSOTIET_LT.Name = "colSOTIET_LT";
-            this.colSOTIET_LT.Visible = true;
-            this.colSOTIET_LT.VisibleIndex = 2;
-            this.colSOTIET_LT.Width = 81;
-            // 
-            // colSOTIET_TH
-            // 
-            this.colSOTIET_TH.AppearanceHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.colSOTIET_TH.AppearanceHeader.Options.UseBackColor = true;
-            this.colSOTIET_TH.Caption = "Số tiết thực hành";
-            this.colSOTIET_TH.FieldName = "SOTIET_TH";
-            this.colSOTIET_TH.MinWidth = 21;
-            this.colSOTIET_TH.Name = "colSOTIET_TH";
-            this.colSOTIET_TH.Visible = true;
-            this.colSOTIET_TH.VisibleIndex = 3;
-            this.colSOTIET_TH.Width = 81;
-            // 
             // frmMonHoc
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -500,6 +492,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.DS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsMonHoc)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MONHOCGridControl)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             this.panelControl1.PerformLayout();
@@ -509,7 +502,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txbTenMonHoc.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txbMaMonHoc.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsLopTinChi)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
