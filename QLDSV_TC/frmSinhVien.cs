@@ -1,4 +1,5 @@
-﻿using DevExpress.XtraEditors.Controls;
+﻿using DevExpress.XtraEditors;
+using DevExpress.XtraEditors.Controls;
 using DevExpress.XtraGrid.Columns;
 using DevExpress.XtraGrid.Views.Grid;
 using System;
@@ -21,6 +22,7 @@ namespace QLDSV_TC
         private static bool dangSuaLop;
         private static bool dangThemSV;
         private static bool dangSuaSV;
+        private static int tmpViTriSinhVien;
 
         private void saveDataWhenChangeSiteOrExitForm()
         {
@@ -344,21 +346,9 @@ namespace QLDSV_TC
             e.ExceptionMode = ExceptionMode.NoAction;
         }
 
-        private void sửaSinhViênToolStripMenuItem_Click(object sender, EventArgs e)
+        private void gvSinhVienLop_EditFormShowing(object sender, EditFormShowingEventArgs e)
         {
-            dangSuaSV = true;
-            MessageBox.Show(((DataRowView)bdsSinhVienLop.Current)["MASV"].ToString());
-            // Note: làm tiếp ở đây
-        }
-
-        private void gvSinhVienLop_ShowingEditor(object sender, CancelEventArgs e)
-        {
-            if (dangSuaSV)
-            {
-                int pos = gvSinhVienLop.FocusedRowHandle;
-                tmpMaSV = gvSinhVienLop.GetRowCellValue(pos,"MASV").ToString();
-                return;
-            }
+            tmpMaSV = ((DataRowView)bdsSinhVienLop.Current)["MASV"].ToString();
         }
     }
 }
