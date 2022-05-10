@@ -9,6 +9,7 @@ namespace QLDSV_TC
         public frmDangNhap()
         {
             InitializeComponent();
+            Program.bdsDSPM = new BindingSource();
         }
 
         private void frmDangNhap_Load(object sender, EventArgs e)
@@ -49,11 +50,6 @@ namespace QLDSV_TC
                 // Lọc ra 2 KHOA sau khi đăng nhập thành công
                 Program.bdsDSPM.Filter = "TENCN LIKE 'KHOA%'";
             }
-        }
-
-        private void cmbKhoa_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

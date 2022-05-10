@@ -104,7 +104,6 @@
             this.cmbKhoa.Size = new System.Drawing.Size(532, 31);
             this.cmbKhoa.TabIndex = 4;
             this.cmbKhoa.ValueMember = "TENSERVER";
-            this.cmbKhoa.SelectedIndexChanged += new System.EventHandler(this.cmbKhoa_SelectedIndexChanged);
             // 
             // dS
             // 

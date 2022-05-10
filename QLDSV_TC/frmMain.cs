@@ -75,10 +75,10 @@ namespace QLDSV_TC
 
             // Đóng tất cả form con
             foreach (Form frm in this.MdiChildren)
-                if (frm.Visible) frm.Close();
+                frm.Close();
 
             // Xóa bộ lọc của danh sách phân mảnh
-            Program.bdsDSPM.RemoveFilter();
+            Program.bdsDSPM.Dispose();
         }
 
         private void btnDongHocPhi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

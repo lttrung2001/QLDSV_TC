@@ -29,7 +29,7 @@ namespace QLDSV_TC
         public static String mHoten; // Họ tên
         public static String mTenNhom; // Tên nhóm
         // Binding source danh sách phân mảnh
-        public static BindingSource bdsDSPM = new BindingSource();
+        public static BindingSource bdsDSPM;
 
         public static int KetNoi()
         {
