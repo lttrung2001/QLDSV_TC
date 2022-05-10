@@ -114,8 +114,6 @@ namespace QLDSV_TC
 
         private void frmLopTinChi_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'dS.DANGKY' table. You can move, or remove it, as needed.
-            this.taDangKyLTC.Fill(this.dS.DANGKY);
             // Đưa danh sách khoa vào combobox Khoa
             cmbKhoa.DataSource = Program.bdsDSPM;
             cmbKhoa.DisplayMember = "TENCN";
@@ -129,6 +127,9 @@ namespace QLDSV_TC
 
             this.taLTC.Connection.ConnectionString = Program.connectionString;
             this.taLTC.Fill(this.dS.LOPTINCHI);
+
+            this.taDangKyLTC.Connection.ConnectionString = Program.connectionString;
+            this.taDangKyLTC.Fill(this.dS.DANGKY);
         }
 
         private void btnThemLTC_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -244,7 +245,7 @@ namespace QLDSV_TC
             {
                 saveDataWhenChangeSiteOrExitForm();
                 Program.servername = cmbKhoa.SelectedValue.ToString();
-                Program.KetNoi();
+                if (Program.KetNoi() == 0) return; // Không kết nối được thì dừng
                 try
                 {
                     taLTC.Connection.ConnectionString = Program.connectionString;

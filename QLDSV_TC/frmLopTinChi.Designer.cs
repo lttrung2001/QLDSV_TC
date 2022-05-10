@@ -78,8 +78,8 @@
             this.cmbMaMH = new System.Windows.Forms.ComboBox();
             this.bdsMonHoc = new System.Windows.Forms.BindingSource(this.components);
             this.gbLTC = new System.Windows.Forms.GroupBox();
-            this.tbHoTenGV = new System.Windows.Forms.TextBox();
             this.bdsGiangVien = new System.Windows.Forms.BindingSource(this.components);
+            this.tbHoTenGV = new System.Windows.Forms.TextBox();
             this.lblHoTenGV = new System.Windows.Forms.Label();
             this.tbTenMon = new System.Windows.Forms.TextBox();
             this.lblTenMon = new System.Windows.Forms.Label();
@@ -462,8 +462,8 @@
             // 
             this.gvLTC.GridControl = this.gcLTC;
             this.gvLTC.Name = "gvLTC";
-            this.gvLTC.OptionsDetail.EnableMasterViewMode = false;
             this.gvLTC.OptionsBehavior.ReadOnly = true;
+            this.gvLTC.OptionsDetail.EnableMasterViewMode = false;
             this.gvLTC.OptionsView.ShowGroupPanel = false;
             this.gvLTC.OptionsView.ShowViewCaption = true;
             this.gvLTC.ViewCaption = "DANH SÁCH LỚP TÍN CHỈ";
@@ -613,6 +613,11 @@
             this.gbLTC.TabStop = false;
             this.gbLTC.Text = "THÔNG TIN LỚP TÍN CHỈ";
             // 
+            // bdsGiangVien
+            // 
+            this.bdsGiangVien.DataMember = "GIANGVIENINFO";
+            this.bdsGiangVien.DataSource = this.dS;
+            // 
             // tbHoTenGV
             // 
             this.tbHoTenGV.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bdsGiangVien, "HOTEN", true));
@@ -621,11 +626,6 @@
             this.tbHoTenGV.ReadOnly = true;
             this.tbHoTenGV.Size = new System.Drawing.Size(647, 30);
             this.tbHoTenGV.TabIndex = 23;
-            // 
-            // bdsGiangVien
-            // 
-            this.bdsGiangVien.DataMember = "GIANGVIENINFO";
-            this.bdsGiangVien.DataSource = this.dS;
             // 
             // lblHoTenGV
             // 
