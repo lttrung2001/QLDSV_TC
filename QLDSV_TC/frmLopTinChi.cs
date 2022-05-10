@@ -161,7 +161,7 @@ namespace QLDSV_TC
                 {
                     bdsLTC.EndEdit(); // Lưu vào DS
                     taLTC.Update(dS.LOPTINCHI); // Update về DB
-                    taLTC.Fill(dS.LOPTINCHI);
+                    taLTC.Fill(dS.LOPTINCHI); // Load lại dữ liệu từ DB về
                 }
                 catch (Exception ex)
                 {
@@ -200,14 +200,18 @@ namespace QLDSV_TC
                 MessageBox.Show("Lớp tín chỉ đã có sinh viên đăng ký. Không thể xóa!");
                 return;
             }
-            try
+            DialogResult msg = MessageBox.Show("Bạn có chắc chắn muốn xóa lớp tín chỉ này?", "", MessageBoxButtons.YesNo);
+            if (msg == DialogResult.Yes)
             {
-                bdsLTC.RemoveCurrent();
-                taLTC.Update(dS.LOPTINCHI);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Đã xảy ra lỗi: " + ex.Message);
+                try
+                {
+                    bdsLTC.RemoveCurrent();
+                    taLTC.Update(dS.LOPTINCHI);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Đã xảy ra lỗi: " + ex.Message);
+                }
             }
         }
 

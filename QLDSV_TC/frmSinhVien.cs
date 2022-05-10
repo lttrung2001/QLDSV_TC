@@ -154,9 +154,20 @@ namespace QLDSV_TC
                 MessageBox.Show("Lớp có sinh viên. Không thể xóa!");
             else
             {
-                bdsLop.RemoveCurrent(); // Xóa dòng hiện tại
-                bdsLop.EndEdit(); // Lưu dữ liệu về DS
-                taLop.Update(dS); // Update dữ liệu DS về DB
+                DialogResult msg = MessageBox.Show("Bạn có chắc chắn muốn xóa lớp này?", "", MessageBoxButtons.YesNo);
+                if (msg == DialogResult.Yes)
+                {
+                    try
+                    {
+                        bdsLop.RemoveCurrent(); // Xóa dòng hiện tại
+                        bdsLop.EndEdit(); // Lưu dữ liệu về DS
+                        taLop.Update(dS); // Update dữ liệu DS về DB
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Đã xảy ra lỗi: " + ex.Message);
+                    }
+                }
             }
         }
 
@@ -233,13 +244,20 @@ namespace QLDSV_TC
                 MessageBox.Show("Sinh viên đã học. Không thể xóa!");
                 return;
             }
-            try
+            else
             {
-                bdsSinhVienLop.RemoveCurrent();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Đã xảy ra lỗi: " + ex.Message);
+                DialogResult msg = MessageBox.Show("Bạn có chắc chắn muốn xóa sinh viên này?", "", MessageBoxButtons.YesNo);
+                if (msg == DialogResult.Yes)
+                {
+                    try
+                    {
+                        bdsSinhVienLop.RemoveCurrent();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Đã xảy ra lỗi: " + ex.Message);
+                    }
+                }
             }
         }
 
