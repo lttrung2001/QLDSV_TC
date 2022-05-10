@@ -12,17 +12,12 @@ namespace QLDSV_TC
 {
     public partial class frmSinhVien : Form
     {
-        private static String option;
         private static String tmpMaLop;
-        private static String tmpTenLop;
-        private static String tmpKhoaHoc;
-        private static String tmpMaKhoa;
         private static String tmpMaSV;
         private static bool dangThemLop;
         private static bool dangSuaLop;
         private static bool dangThemSV;
         private static bool dangSuaSV;
-        private static int tmpViTriSinhVien;
 
         private void saveDataWhenChangeSiteOrExitForm()
         {
@@ -85,12 +80,10 @@ namespace QLDSV_TC
 
         private void frmSinhVien_Load(object sender, EventArgs e)
         {
+            // Đưa danh sách khoa vào combobox Khoa
             cmbKhoa.DataSource = Program.bdsDSPM;
             cmbKhoa.DisplayMember = "TENCN";
             cmbKhoa.ValueMember = "TENSERVER";
-
-            // Disable ràng buộc
-            dS.EnforceConstraints = false;
 
             taLop.Connection.ConnectionString = Program.connectionString;
             taLop.Fill(dS.LOP);
@@ -104,7 +97,6 @@ namespace QLDSV_TC
 
         private void btnThemLop_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            option = "INSERT";
             dangThemLop = true;
             // Thay đổi trạng thái các button
             btnThemLop.Enabled = btnXoaLop.Enabled = btnSuaLop.Enabled = btnThoat.Enabled = false;
@@ -172,10 +164,6 @@ namespace QLDSV_TC
         {
             // Lưu giá trị trước khi sửa vào biến tạm
             tmpMaLop = ((DataRowView)bdsLop.Current)["MALOP"].ToString();
-            tmpTenLop = ((DataRowView)bdsLop.Current)["TENLOP"].ToString();
-            tmpKhoaHoc = ((DataRowView)bdsLop.Current)["KHOAHOC"].ToString();
-            tmpMaKhoa = ((DataRowView)bdsLop.Current)["MAKHOA"].ToString();
-            option = "UPDATE";
             dangSuaLop = true;
             // Thay đổi trạng thái các button
             btnThemLop.Enabled = btnXoaLop.Enabled = btnSuaLop.Enabled = btnThoat.Enabled = false;
@@ -259,20 +247,10 @@ namespace QLDSV_TC
         {
 
         }
-
+        // Hàm này dùng để hủy thao tác hiện tại
         private void btnHuy_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            // Nếu là insert, khi hủy remove dòng vừa thêm
-            if (option.Equals("INSERT"))
-                bdsLop.RemoveCurrent();
-            // Nếu là update, khi hủy set lại giá trị cũ
-            else if (option.Equals("UPDATE"))
-            {
-                teMaLop.Text = tmpMaLop;
-                teTenLop.Text = tmpTenLop;
-                teKhoaHoc.Text = tmpKhoaHoc;
-                teMaKhoa.Text = tmpMaKhoa;
-            }
+            bdsLop.CancelEdit(); // Hủy thao tác hiện tại
             pnlKhoa.Enabled = gcLop.Enabled = gcSinhVienLop.Enabled = true;
             gbThongTinLop.Enabled = false;
             // Set trạng thái các nút chức năng
@@ -282,6 +260,7 @@ namespace QLDSV_TC
 
 
         // Hàm tham khảo
+        // Khởi tạo giá trị cho dòng mới
         private void gvSinhVienLop_InitNewRow(object sender, InitNewRowEventArgs e)
         {
             GridView view = sender as GridView;
@@ -309,6 +288,7 @@ namespace QLDSV_TC
             else // Mã sinh viên không rỗng
             {
                 int res = 1;
+                // Nếu thêm mới hoặc sửa mã sinh viên thì phải kiểm tra mã
                 if (dangThemSV || (dangSuaSV && !masv.Equals(tmpMaSV))) // Thêm hoặc sửa mã sinh viên thì kiểm tra
                     res = Program.ExecSqlNonQuery(String.Format("EXEC SP_KIEMTRAMASV '{0}'", masv), Program.connectionString);
                 if (res == 0) // Mã sinh viên bị trùng
@@ -346,6 +326,7 @@ namespace QLDSV_TC
             e.ExceptionMode = ExceptionMode.NoAction;
         }
 
+        // Hàm này lưu lại mã sinh viên trước khi sửa bổ trợ cho hàm validate
         private void gvSinhVienLop_EditFormShowing(object sender, EditFormShowingEventArgs e)
         {
             tmpMaSV = ((DataRowView)bdsSinhVienLop.Current)["MASV"].ToString();

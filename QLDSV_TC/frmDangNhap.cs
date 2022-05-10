@@ -46,6 +46,8 @@ namespace QLDSV_TC
                 Close(); // Đóng form đăng nhập
                 Program.frmChinh.hienThiStatusBar(); // Cập nhật thông tin trên status bar
                 Program.frmChinh.phanQuyen(); // Phân quyền trên ứng dụng
+                // Lọc ra 2 KHOA sau khi đăng nhập thành công
+                Program.bdsDSPM.Filter = "TENCN LIKE 'KHOA%'";
             }
         }
 

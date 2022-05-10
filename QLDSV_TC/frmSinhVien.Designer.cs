@@ -186,6 +186,7 @@
             // dS
             // 
             this.dS.DataSetName = "DS";
+            this.dS.EnforceConstraints = false;
             this.dS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // barChucNangLop
@@ -642,7 +643,6 @@
             this.colMALOP1.FieldName = "MALOP";
             this.colMALOP1.MinWidth = 25;
             this.colMALOP1.Name = "colMALOP1";
-            this.colMALOP1.OptionsColumn.ReadOnly = true;
             this.colMALOP1.Visible = true;
             this.colMALOP1.VisibleIndex = 6;
             this.colMALOP1.Width = 94;

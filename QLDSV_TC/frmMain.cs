@@ -76,6 +76,9 @@ namespace QLDSV_TC
             // Đóng tất cả form con
             foreach (Form frm in this.MdiChildren)
                 if (frm.Visible) frm.Close();
+
+            // Xóa bộ lọc của danh sách phân mảnh
+            Program.bdsDSPM.RemoveFilter();
         }
 
         private void btnDongHocPhi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -183,7 +186,15 @@ namespace QLDSV_TC
 
         private void btnLTC_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-
+            Form frm = this.checkExist(typeof(frmLopTinChi));
+            if (frm != null)
+                frm.Activate();
+            else
+            {
+                frmLopTinChi f = new frmLopTinChi();
+                f.MdiParent = this;
+                f.Show();
+            }
         }
 
         private void btnDSSVDK_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
