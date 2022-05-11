@@ -46,7 +46,7 @@ namespace QLDSV_TC
                 rbPKT.Visible = true;
                 rbDSDongHocPhi.Visible = true;
             }
-            else if (Program.mTenNhom.Equals("SINHVIEN"))
+            else if (Program.mTenNhom.Equals("SV"))
             {
                 rbPageNghiepVu.Visible = true;
                 rbDangKyMon.Visible = true;
@@ -106,7 +106,15 @@ namespace QLDSV_TC
 
         private void btnDangKyMon_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-
+            Form frm = this.checkExist(typeof(frmDangKyMon));
+            if (frm != null)
+                frm.Activate();
+            else
+            {
+                frmDangKyMon f = new frmDangKyMon();
+                f.MdiParent = this;
+                f.Show();
+            }
         }
 
         private void btnDSLTC_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

@@ -201,7 +201,7 @@ namespace QLDSV_TC
             {
                 saveDataWhenChangeSiteOrExitForm();
                 Program.servername = cmbKhoa.SelectedValue.ToString();
-                Program.KetNoi();
+                if (Program.KetNoi() == 0) return; // Không kết nối được thì dừng
                 try
                 {
                     taLop.Connection.ConnectionString = Program.connectionString;

@@ -32,7 +32,7 @@ namespace QLDSV_TC
             Program.servername = cmbKhoa.SelectedValue.ToString();
             Program.loginName = teTaiKhoan.Text;
             Program.password = teMatKhau.Text;
-            Program.KetNoi(); // Mở kết nối
+            if (Program.KetNoi() == 0) return; // Mở kết nối, nếu lỗi thì dừng
             // Đọc thông tin tài khoản đăng nhập
             Program.myReader = Program.ExecSqlDataReader(String.Format("EXEC SP_DANGNHAP @TENLOGIN = '{0}'", 
                                                         Program.loginName), 
