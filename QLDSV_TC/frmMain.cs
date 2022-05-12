@@ -119,7 +119,15 @@ namespace QLDSV_TC
 
         private void btnDSLTC_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-
+            Form frm = this.checkExist(typeof(frmDSLTC));
+            if (frm != null)
+                frm.Activate();
+            else
+            {
+                frmDSLTC f = new frmDSLTC();
+                f.MdiParent = this;
+                f.Show();
+            }
         }
 
         private void frmMain_Load(object sender, EventArgs e)
@@ -207,7 +215,15 @@ namespace QLDSV_TC
 
         private void btnDSSVDK_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-
+            Form frm = this.checkExist(typeof(frmDSSVDK));
+            if (frm != null)
+                frm.Activate();
+            else
+            {
+                frmDSSVDK f = new frmDSSVDK();
+                f.MdiParent = this;
+                f.Show();
+            }
         }
 
         private void btnBDLTC_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

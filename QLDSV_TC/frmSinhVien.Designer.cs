@@ -85,6 +85,7 @@
             this.colMALOP1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDANGHIHOC = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colPASSWORD = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.sửaSinhViênToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             lblMaLop = new System.Windows.Forms.Label();
             lblTenLop = new System.Windows.Forms.Label();
             lblKhoaHoc = new System.Windows.Forms.Label();
@@ -340,6 +341,7 @@
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
             this.tableAdapterManager.CT_DONGHOCPHITableAdapter = null;
             this.tableAdapterManager.DANGKYTableAdapter = null;
+            this.tableAdapterManager.GIANGVIENINFOTableAdapter = null;
             this.tableAdapterManager.GIANGVIENTableAdapter = null;
             this.tableAdapterManager.HOCPHITableAdapter = null;
             this.tableAdapterManager.KHOATableAdapter = null;
@@ -496,36 +498,37 @@
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.thêmSinhViênToolStripMenuItem,
             this.xóaSinhViênToolStripMenuItem,
+            this.sửaSinhViênToolStripMenuItem,
             this.ghiVàoCSDLToolStripMenuItem,
             this.phụcHồiToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(177, 100);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(177, 124);
             // 
             // thêmSinhViênToolStripMenuItem
             // 
             this.thêmSinhViênToolStripMenuItem.Name = "thêmSinhViênToolStripMenuItem";
-            this.thêmSinhViênToolStripMenuItem.Size = new System.Drawing.Size(176, 24);
+            this.thêmSinhViênToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
             this.thêmSinhViênToolStripMenuItem.Text = "Thêm sinh viên";
             this.thêmSinhViênToolStripMenuItem.Click += new System.EventHandler(this.thêmSinhViênToolStripMenuItem_Click);
             // 
             // xóaSinhViênToolStripMenuItem
             // 
             this.xóaSinhViênToolStripMenuItem.Name = "xóaSinhViênToolStripMenuItem";
-            this.xóaSinhViênToolStripMenuItem.Size = new System.Drawing.Size(176, 24);
+            this.xóaSinhViênToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
             this.xóaSinhViênToolStripMenuItem.Text = "Xóa sinh viên";
             this.xóaSinhViênToolStripMenuItem.Click += new System.EventHandler(this.xóaSinhViênToolStripMenuItem_Click);
             // 
             // ghiVàoCSDLToolStripMenuItem
             // 
             this.ghiVàoCSDLToolStripMenuItem.Name = "ghiVàoCSDLToolStripMenuItem";
-            this.ghiVàoCSDLToolStripMenuItem.Size = new System.Drawing.Size(176, 24);
+            this.ghiVàoCSDLToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
             this.ghiVàoCSDLToolStripMenuItem.Text = "Ghi vào CSDL";
             this.ghiVàoCSDLToolStripMenuItem.Click += new System.EventHandler(this.ghiVàoCSDLToolStripMenuItem_Click);
             // 
             // phụcHồiToolStripMenuItem
             // 
             this.phụcHồiToolStripMenuItem.Name = "phụcHồiToolStripMenuItem";
-            this.phụcHồiToolStripMenuItem.Size = new System.Drawing.Size(176, 24);
+            this.phụcHồiToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
             this.phụcHồiToolStripMenuItem.Text = "Phục hồi";
             // 
             // bdsDangKy
@@ -569,6 +572,9 @@
             this.gvSinhVienLop.OptionsBehavior.AllowDeleteRows = DevExpress.Utils.DefaultBoolean.False;
             this.gvSinhVienLop.OptionsBehavior.EditingMode = DevExpress.XtraGrid.Views.Grid.GridEditingMode.EditFormInplace;
             this.gvSinhVienLop.OptionsDetail.EnableMasterViewMode = false;
+            this.gvSinhVienLop.OptionsEditForm.ShowOnDoubleClick = DevExpress.Utils.DefaultBoolean.False;
+            this.gvSinhVienLop.OptionsEditForm.ShowOnEnterKey = DevExpress.Utils.DefaultBoolean.False;
+            this.gvSinhVienLop.OptionsEditForm.ShowOnF2Key = DevExpress.Utils.DefaultBoolean.False;
             this.gvSinhVienLop.OptionsView.ShowGroupPanel = false;
             this.gvSinhVienLop.OptionsView.ShowViewCaption = true;
             this.gvSinhVienLop.ViewCaption = "DANH SÁCH SINH VIÊN";
@@ -667,6 +673,13 @@
             this.colPASSWORD.VisibleIndex = 8;
             this.colPASSWORD.Width = 94;
             // 
+            // sửaSinhViênToolStripMenuItem
+            // 
+            this.sửaSinhViênToolStripMenuItem.Name = "sửaSinhViênToolStripMenuItem";
+            this.sửaSinhViênToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
+            this.sửaSinhViênToolStripMenuItem.Text = "Sửa sinh viên";
+            this.sửaSinhViênToolStripMenuItem.Click += new System.EventHandler(this.sửaSinhViênToolStripMenuItem_Click);
+            // 
             // frmSinhVien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 23F);
@@ -763,5 +776,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn colMALOP1;
         private DevExpress.XtraGrid.Columns.GridColumn colDANGHIHOC;
         private DevExpress.XtraGrid.Columns.GridColumn colPASSWORD;
+        private System.Windows.Forms.ToolStripMenuItem sửaSinhViênToolStripMenuItem;
     }
 }

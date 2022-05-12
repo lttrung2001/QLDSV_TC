@@ -13,6 +13,9 @@ namespace QLDSV_TC
     public partial class frmSinhVien : Form
     {
         private static String tmpMaLop;
+        private static String tmpTenLop;
+        private static String tmpKhoaHoc;
+        private static String tmpMaKhoa;
         private static String tmpMaSV;
         private static bool dangThemLop;
         private static bool dangSuaLop;
@@ -99,7 +102,7 @@ namespace QLDSV_TC
         {
             dangThemLop = true;
             // Thay đổi trạng thái các button
-            btnThemLop.Enabled = btnXoaLop.Enabled = btnSuaLop.Enabled = btnThoat.Enabled = false;
+            btnThemLop.Enabled = btnXoaLop.Enabled = btnSuaLop.Enabled = false;
             btnGhiLop.Enabled = btnHuy.Enabled = true; // Active nút ghi và nút hủy
 
             // Thay đổi trạng thái các grid
@@ -124,7 +127,7 @@ namespace QLDSV_TC
             if (flag)
             {
                 // Thay đổi trạng thái các button
-                btnThemLop.Enabled = btnXoaLop.Enabled = btnSuaLop.Enabled = btnThoat.Enabled = true;
+                btnThemLop.Enabled = btnXoaLop.Enabled = btnSuaLop.Enabled = true;
                 btnGhiLop.Enabled = btnHuy.Enabled = false; // Active nút ghi và nút hủy
 
                 // Thay đổi trạng thái các grid
@@ -175,9 +178,13 @@ namespace QLDSV_TC
         {
             // Lưu giá trị trước khi sửa vào biến tạm
             tmpMaLop = ((DataRowView)bdsLop.Current)["MALOP"].ToString();
+            tmpTenLop = ((DataRowView)bdsLop.Current)["TENLOP"].ToString();
+            tmpKhoaHoc = ((DataRowView)bdsLop.Current)["KHOAHOC"].ToString();
+            tmpMaKhoa = ((DataRowView)bdsLop.Current)["MAKHOA"].ToString();
+
             dangSuaLop = true;
             // Thay đổi trạng thái các button
-            btnThemLop.Enabled = btnXoaLop.Enabled = btnSuaLop.Enabled = btnThoat.Enabled = false;
+            btnThemLop.Enabled = btnXoaLop.Enabled = btnSuaLop.Enabled = false;
             btnGhiLop.Enabled = btnHuy.Enabled = true; // Active nút ghi và nút hủy
 
             // Thay đổi trạng thái các grid
@@ -222,6 +229,7 @@ namespace QLDSV_TC
         {
             bdsSinhVienLop.AddNew();
             dangThemSV = true;
+            gvSinhVienLop.ShowEditForm();
         }
 
         private void ghiVàoCSDLToolStripMenuItem_Click(object sender, EventArgs e)
@@ -268,12 +276,17 @@ namespace QLDSV_TC
         // Hàm này dùng để hủy thao tác hiện tại
         private void btnHuy_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            bdsLop.CancelEdit(); // Hủy thao tác hiện tại
+            if (dangThemLop) bdsLop.RemoveCurrent();
+            else if (dangSuaLop) bdsLop.CancelEdit();
+
             pnlKhoa.Enabled = gcLop.Enabled = gcSinhVienLop.Enabled = true;
             gbThongTinLop.Enabled = false;
+
             // Set trạng thái các nút chức năng
             btnThemLop.Enabled = btnXoaLop.Enabled = btnSuaLop.Enabled = true;
             btnHuy.Enabled = btnGhiLop.Enabled = false;
+
+            dangThemLop = dangSuaLop = false;
         }
 
 
@@ -329,11 +342,8 @@ namespace QLDSV_TC
                         view.SetColumnError(colTEN, "Không để trống tên!");
                     }
                     else // Không có lỗi
-                    {
                         // Cập nhật lại trạng thái đang thêm và đang sửa
-                        if (dangThemSV) dangThemSV = false;
-                        else if (dangSuaSV) dangSuaSV = false;
-                    }
+                        dangThemLop = dangSuaLop = false;
                 }
             }
         }
@@ -348,6 +358,12 @@ namespace QLDSV_TC
         private void gvSinhVienLop_EditFormShowing(object sender, EditFormShowingEventArgs e)
         {
             tmpMaSV = ((DataRowView)bdsSinhVienLop.Current)["MASV"].ToString();
+        }
+
+        private void sửaSinhViênToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            dangSuaSV = true;
+            gvSinhVienLop.ShowEditForm();
         }
     }
 }
