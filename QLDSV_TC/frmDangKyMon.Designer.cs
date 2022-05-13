@@ -33,6 +33,7 @@
             System.Windows.Forms.Label tENMHLabel;
             System.Windows.Forms.Label nHOMLabel;
             System.Windows.Forms.Label hOTENGVLabel;
+            System.Windows.Forms.Label sLDADANGKYLabel;
             this.pnlThongTinSV = new System.Windows.Forms.Panel();
             this.btnXacNhan = new System.Windows.Forms.Button();
             this.teMaLop = new System.Windows.Forms.TextBox();
@@ -53,49 +54,59 @@
             this.lblHocKy = new System.Windows.Forms.Label();
             this.cmbNienKhoa = new System.Windows.Forms.ComboBox();
             this.lblNienKhoa = new System.Windows.Forms.Label();
-            this.sP_LOCLTCBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.sP_LOCLTCTableAdapter = new QLDSV_TC.DSTableAdapters.SP_LOCLTCTableAdapter();
             this.sP_LOCLTCGridControl = new DevExpress.XtraGrid.GridControl();
+            this.sP_LOCLTCBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colMAMH2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colTENMH2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colNHOM2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colHOTENGV2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colSLDADANGKY1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.behaviorManager1 = new DevExpress.Utils.Behaviors.BehaviorManager(this.components);
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.mAMHTextEdit = new DevExpress.XtraEditors.TextEdit();
+            this.tENMHTextEdit = new DevExpress.XtraEditors.TextEdit();
+            this.nHOMSpinEdit = new DevExpress.XtraEditors.SpinEdit();
+            this.hOTENGVTextEdit = new DevExpress.XtraEditors.TextEdit();
+            this.sLDADANGKYSpinEdit = new DevExpress.XtraEditors.SpinEdit();
+            this.button1 = new System.Windows.Forms.Button();
+            this.sP_LAY_DSLTC_SVDKBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.colMAMH = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTENMH = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colNHOM = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colHOTENGV = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colSLDADANGKY = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colHUYDANGKY = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.sP_LAY_DSLTC_SVDKBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.sP_LAY_DSLTC_SVDKTableAdapter = new QLDSV_TC.DSTableAdapters.SP_LAY_DSLTC_SVDKTableAdapter();
-            this.behaviorManager1 = new DevExpress.Utils.Behaviors.BehaviorManager(this.components);
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.mAMHTextEdit = new DevExpress.XtraEditors.TextEdit();
-            this.tENMHTextEdit = new DevExpress.XtraEditors.TextEdit();
-            this.nHOMSpinEdit = new DevExpress.XtraEditors.SpinEdit();
-            this.hOTENGVTextEdit = new DevExpress.XtraEditors.TextEdit();
+            this.sP_LOCLTCTableAdapter = new QLDSV_TC.DSTableAdapters.SP_LOCLTCTableAdapter();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.sP_LAY_DSLTC_SVDKGridControl = new DevExpress.XtraGrid.GridControl();
             this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colMAMH1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTENMH1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colNHOM1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colHOTENGV1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.button2 = new System.Windows.Forms.Button();
             mAMHLabel = new System.Windows.Forms.Label();
             tENMHLabel = new System.Windows.Forms.Label();
             nHOMLabel = new System.Windows.Forms.Label();
             hOTENGVLabel = new System.Windows.Forms.Label();
+            sLDADANGKYLabel = new System.Windows.Forms.Label();
             this.pnlThongTinSV.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bdsNienKhoa)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dS)).BeginInit();
             this.pnlLocLopTinChi.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.sP_LOCLTCBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sP_LOCLTCGridControl)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sP_LOCLTCBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sP_LAY_DSLTC_SVDKBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mAMHTextEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tENMHTextEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nHOMSpinEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.hOTENGVTextEdit.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sLDADANGKYSpinEdit.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sP_LAY_DSLTC_SVDKBindingSource)).BeginInit();
+            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sP_LAY_DSLTC_SVDKGridControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
             this.SuspendLayout();
@@ -103,38 +114,47 @@
             // mAMHLabel
             // 
             mAMHLabel.AutoSize = true;
-            mAMHLabel.Location = new System.Drawing.Point(32, 61);
+            mAMHLabel.Location = new System.Drawing.Point(18, 43);
             mAMHLabel.Name = "mAMHLabel";
             mAMHLabel.Size = new System.Drawing.Size(76, 23);
-            mAMHLabel.TabIndex = 0;
+            mAMHLabel.TabIndex = 8;
             mAMHLabel.Text = "MAMH:";
             // 
             // tENMHLabel
             // 
             tENMHLabel.AutoSize = true;
-            tENMHLabel.Location = new System.Drawing.Point(32, 90);
+            tENMHLabel.Location = new System.Drawing.Point(18, 72);
             tENMHLabel.Name = "tENMHLabel";
             tENMHLabel.Size = new System.Drawing.Size(84, 23);
-            tENMHLabel.TabIndex = 2;
+            tENMHLabel.TabIndex = 10;
             tENMHLabel.Text = "TENMH:";
             // 
             // nHOMLabel
             // 
             nHOMLabel.AutoSize = true;
-            nHOMLabel.Location = new System.Drawing.Point(32, 119);
+            nHOMLabel.Location = new System.Drawing.Point(18, 101);
             nHOMLabel.Name = "nHOMLabel";
             nHOMLabel.Size = new System.Drawing.Size(75, 23);
-            nHOMLabel.TabIndex = 4;
+            nHOMLabel.TabIndex = 12;
             nHOMLabel.Text = "NHOM:";
             // 
             // hOTENGVLabel
             // 
             hOTENGVLabel.AutoSize = true;
-            hOTENGVLabel.Location = new System.Drawing.Point(32, 149);
+            hOTENGVLabel.Location = new System.Drawing.Point(18, 131);
             hOTENGVLabel.Name = "hOTENGVLabel";
             hOTENGVLabel.Size = new System.Drawing.Size(111, 23);
-            hOTENGVLabel.TabIndex = 6;
+            hOTENGVLabel.TabIndex = 14;
             hOTENGVLabel.Text = "HOTENGV:";
+            // 
+            // sLDADANGKYLabel
+            // 
+            sLDADANGKYLabel.AutoSize = true;
+            sLDADANGKYLabel.Location = new System.Drawing.Point(18, 160);
+            sLDADANGKYLabel.Name = "sLDADANGKYLabel";
+            sLDADANGKYLabel.Size = new System.Drawing.Size(149, 23);
+            sLDADANGKYLabel.TabIndex = 16;
+            sLDADANGKYLabel.Text = "SLDADANGKY:";
             // 
             // pnlThongTinSV
             // 
@@ -332,15 +352,6 @@
             this.lblNienKhoa.TabIndex = 2;
             this.lblNienKhoa.Text = "Niên khóa";
             // 
-            // sP_LOCLTCBindingSource
-            // 
-            this.sP_LOCLTCBindingSource.DataMember = "SP_LOCLTC";
-            this.sP_LOCLTCBindingSource.DataSource = this.dS;
-            // 
-            // sP_LOCLTCTableAdapter
-            // 
-            this.sP_LOCLTCTableAdapter.ClearBeforeFill = true;
-            // 
             // sP_LOCLTCGridControl
             // 
             this.sP_LOCLTCGridControl.DataSource = this.sP_LOCLTCBindingSource;
@@ -354,15 +365,19 @@
             this.sP_LOCLTCGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
             // 
+            // sP_LOCLTCBindingSource
+            // 
+            this.sP_LOCLTCBindingSource.DataMember = "SP_LOCLTC";
+            this.sP_LOCLTCBindingSource.DataSource = this.dS;
+            // 
             // gridView1
             // 
             this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.colMAMH,
-            this.colTENMH,
-            this.colNHOM,
-            this.colHOTENGV,
-            this.colSLDADANGKY,
-            this.colHUYDANGKY});
+            this.colMAMH2,
+            this.colTENMH2,
+            this.colNHOM2,
+            this.colHOTENGV2,
+            this.colSLDADANGKY1});
             this.gridView1.GridControl = this.sP_LOCLTCGridControl;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsBehavior.ReadOnly = true;
@@ -371,72 +386,53 @@
             this.gridView1.ViewCaption = "DANH SÁCH LỚP TÍN CHỈ";
             this.gridView1.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gridView1_FocusedRowChanged);
             // 
-            // colMAMH
+            // colMAMH2
             // 
-            this.colMAMH.FieldName = "MAMH";
-            this.colMAMH.MinWidth = 25;
-            this.colMAMH.Name = "colMAMH";
-            this.colMAMH.Visible = true;
-            this.colMAMH.VisibleIndex = 0;
-            this.colMAMH.Width = 94;
+            this.colMAMH2.FieldName = "MAMH";
+            this.colMAMH2.MinWidth = 25;
+            this.colMAMH2.Name = "colMAMH2";
+            this.colMAMH2.Visible = true;
+            this.colMAMH2.VisibleIndex = 0;
+            this.colMAMH2.Width = 94;
             // 
-            // colTENMH
+            // colTENMH2
             // 
-            this.colTENMH.FieldName = "TENMH";
-            this.colTENMH.MinWidth = 25;
-            this.colTENMH.Name = "colTENMH";
-            this.colTENMH.Visible = true;
-            this.colTENMH.VisibleIndex = 1;
-            this.colTENMH.Width = 94;
+            this.colTENMH2.FieldName = "TENMH";
+            this.colTENMH2.MinWidth = 25;
+            this.colTENMH2.Name = "colTENMH2";
+            this.colTENMH2.Visible = true;
+            this.colTENMH2.VisibleIndex = 1;
+            this.colTENMH2.Width = 94;
             // 
-            // colNHOM
+            // colNHOM2
             // 
-            this.colNHOM.FieldName = "NHOM";
-            this.colNHOM.MinWidth = 25;
-            this.colNHOM.Name = "colNHOM";
-            this.colNHOM.Visible = true;
-            this.colNHOM.VisibleIndex = 2;
-            this.colNHOM.Width = 94;
+            this.colNHOM2.FieldName = "NHOM";
+            this.colNHOM2.MinWidth = 25;
+            this.colNHOM2.Name = "colNHOM2";
+            this.colNHOM2.Visible = true;
+            this.colNHOM2.VisibleIndex = 2;
+            this.colNHOM2.Width = 94;
             // 
-            // colHOTENGV
+            // colHOTENGV2
             // 
-            this.colHOTENGV.FieldName = "HOTENGV";
-            this.colHOTENGV.MinWidth = 25;
-            this.colHOTENGV.Name = "colHOTENGV";
-            this.colHOTENGV.Visible = true;
-            this.colHOTENGV.VisibleIndex = 3;
-            this.colHOTENGV.Width = 94;
+            this.colHOTENGV2.FieldName = "HOTENGV";
+            this.colHOTENGV2.MinWidth = 25;
+            this.colHOTENGV2.Name = "colHOTENGV2";
+            this.colHOTENGV2.Visible = true;
+            this.colHOTENGV2.VisibleIndex = 3;
+            this.colHOTENGV2.Width = 94;
             // 
-            // colSLDADANGKY
+            // colSLDADANGKY1
             // 
-            this.colSLDADANGKY.FieldName = "SLDADANGKY";
-            this.colSLDADANGKY.MinWidth = 25;
-            this.colSLDADANGKY.Name = "colSLDADANGKY";
-            this.colSLDADANGKY.Visible = true;
-            this.colSLDADANGKY.VisibleIndex = 4;
-            this.colSLDADANGKY.Width = 94;
-            // 
-            // colHUYDANGKY
-            // 
-            this.colHUYDANGKY.FieldName = "HUYDANGKY";
-            this.colHUYDANGKY.MinWidth = 25;
-            this.colHUYDANGKY.Name = "colHUYDANGKY";
-            this.colHUYDANGKY.Visible = true;
-            this.colHUYDANGKY.VisibleIndex = 5;
-            this.colHUYDANGKY.Width = 94;
-            // 
-            // sP_LAY_DSLTC_SVDKBindingSource
-            // 
-            this.sP_LAY_DSLTC_SVDKBindingSource.DataMember = "SP_LAY_DSLTC_SVDK";
-            this.sP_LAY_DSLTC_SVDKBindingSource.DataSource = this.dS;
-            // 
-            // sP_LAY_DSLTC_SVDKTableAdapter
-            // 
-            this.sP_LAY_DSLTC_SVDKTableAdapter.ClearBeforeFill = true;
+            this.colSLDADANGKY1.FieldName = "SLDADANGKY";
+            this.colSLDADANGKY1.MinWidth = 25;
+            this.colSLDADANGKY1.Name = "colSLDADANGKY1";
+            this.colSLDADANGKY1.Visible = true;
+            this.colSLDADANGKY1.VisibleIndex = 4;
+            this.colSLDADANGKY1.Width = 94;
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(mAMHLabel);
             this.groupBox1.Controls.Add(this.mAMHTextEdit);
             this.groupBox1.Controls.Add(tENMHLabel);
@@ -445,41 +441,35 @@
             this.groupBox1.Controls.Add(this.nHOMSpinEdit);
             this.groupBox1.Controls.Add(hOTENGVLabel);
             this.groupBox1.Controls.Add(this.hOTENGVTextEdit);
+            this.groupBox1.Controls.Add(sLDADANGKYLabel);
+            this.groupBox1.Controls.Add(this.sLDADANGKYSpinEdit);
+            this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.groupBox1.Enabled = false;
             this.groupBox1.Location = new System.Drawing.Point(0, 437);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(416, 237);
+            this.groupBox1.Size = new System.Drawing.Size(431, 361);
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "THÔNG TIN LỚP TÍN CHỈ";
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(217, 174);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(159, 31);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "Đăng ký";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // mAMHTextEdit
             // 
             this.mAMHTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.sP_LOCLTCBindingSource, "MAMH", true));
-            this.mAMHTextEdit.Location = new System.Drawing.Point(149, 58);
+            this.mAMHTextEdit.Location = new System.Drawing.Point(173, 40);
             this.mAMHTextEdit.Name = "mAMHTextEdit";
             this.mAMHTextEdit.Properties.ReadOnly = true;
-            this.mAMHTextEdit.Size = new System.Drawing.Size(227, 22);
-            this.mAMHTextEdit.TabIndex = 1;
+            this.mAMHTextEdit.Size = new System.Drawing.Size(203, 22);
+            this.mAMHTextEdit.TabIndex = 9;
             // 
             // tENMHTextEdit
             // 
             this.tENMHTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.sP_LOCLTCBindingSource, "TENMH", true));
-            this.tENMHTextEdit.Location = new System.Drawing.Point(149, 87);
+            this.tENMHTextEdit.Location = new System.Drawing.Point(173, 69);
             this.tENMHTextEdit.Name = "tENMHTextEdit";
             this.tENMHTextEdit.Properties.ReadOnly = true;
-            this.tENMHTextEdit.Size = new System.Drawing.Size(227, 22);
-            this.tENMHTextEdit.TabIndex = 3;
+            this.tENMHTextEdit.Size = new System.Drawing.Size(203, 22);
+            this.tENMHTextEdit.TabIndex = 11;
             // 
             // nHOMSpinEdit
             // 
@@ -489,32 +479,116 @@
             0,
             0,
             0});
-            this.nHOMSpinEdit.Location = new System.Drawing.Point(149, 116);
+            this.nHOMSpinEdit.Location = new System.Drawing.Point(173, 98);
             this.nHOMSpinEdit.Name = "nHOMSpinEdit";
             this.nHOMSpinEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.nHOMSpinEdit.Properties.ReadOnly = true;
-            this.nHOMSpinEdit.Size = new System.Drawing.Size(227, 24);
-            this.nHOMSpinEdit.TabIndex = 5;
+            this.nHOMSpinEdit.Size = new System.Drawing.Size(203, 24);
+            this.nHOMSpinEdit.TabIndex = 13;
             // 
             // hOTENGVTextEdit
             // 
             this.hOTENGVTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.sP_LOCLTCBindingSource, "HOTENGV", true));
-            this.hOTENGVTextEdit.Location = new System.Drawing.Point(149, 146);
+            this.hOTENGVTextEdit.Location = new System.Drawing.Point(173, 128);
             this.hOTENGVTextEdit.Name = "hOTENGVTextEdit";
             this.hOTENGVTextEdit.Properties.ReadOnly = true;
-            this.hOTENGVTextEdit.Size = new System.Drawing.Size(227, 22);
-            this.hOTENGVTextEdit.TabIndex = 7;
+            this.hOTENGVTextEdit.Size = new System.Drawing.Size(203, 22);
+            this.hOTENGVTextEdit.TabIndex = 15;
+            // 
+            // sLDADANGKYSpinEdit
+            // 
+            this.sLDADANGKYSpinEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.sP_LOCLTCBindingSource, "SLDADANGKY", true));
+            this.sLDADANGKYSpinEdit.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.sLDADANGKYSpinEdit.Location = new System.Drawing.Point(173, 157);
+            this.sLDADANGKYSpinEdit.Name = "sLDADANGKYSpinEdit";
+            this.sLDADANGKYSpinEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.sLDADANGKYSpinEdit.Properties.ReadOnly = true;
+            this.sLDADANGKYSpinEdit.Size = new System.Drawing.Size(203, 24);
+            this.sLDADANGKYSpinEdit.TabIndex = 17;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(217, 187);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(159, 31);
+            this.button1.TabIndex = 8;
+            this.button1.Text = "Đăng ký";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // sP_LAY_DSLTC_SVDKBindingSource
+            // 
+            this.sP_LAY_DSLTC_SVDKBindingSource.DataMember = "SP_LAY_DSLTC_SVDK";
+            this.sP_LAY_DSLTC_SVDKBindingSource.DataSource = this.dS;
+            // 
+            // colMAMH
+            // 
+            this.colMAMH.FieldName = "MAMH";
+            this.colMAMH.MinWidth = 25;
+            this.colMAMH.Name = "colMAMH";
+            this.colMAMH.Width = 94;
+            // 
+            // colTENMH
+            // 
+            this.colTENMH.FieldName = "TENMH";
+            this.colTENMH.MinWidth = 25;
+            this.colTENMH.Name = "colTENMH";
+            this.colTENMH.Width = 94;
+            // 
+            // colNHOM
+            // 
+            this.colNHOM.FieldName = "NHOM";
+            this.colNHOM.MinWidth = 25;
+            this.colNHOM.Name = "colNHOM";
+            this.colNHOM.Width = 94;
+            // 
+            // colHOTENGV
+            // 
+            this.colHOTENGV.FieldName = "HOTENGV";
+            this.colHOTENGV.MinWidth = 25;
+            this.colHOTENGV.Name = "colHOTENGV";
+            this.colHOTENGV.Width = 94;
+            // 
+            // colSLDADANGKY
+            // 
+            this.colSLDADANGKY.FieldName = "SLDADANGKY";
+            this.colSLDADANGKY.MinWidth = 25;
+            this.colSLDADANGKY.Name = "colSLDADANGKY";
+            this.colSLDADANGKY.Width = 105;
+            // 
+            // sP_LAY_DSLTC_SVDKTableAdapter
+            // 
+            this.sP_LAY_DSLTC_SVDKTableAdapter.ClearBeforeFill = true;
+            // 
+            // sP_LOCLTCTableAdapter
+            // 
+            this.sP_LOCLTCTableAdapter.ClearBeforeFill = true;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.button2);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Enabled = false;
+            this.panel1.Location = new System.Drawing.Point(431, 437);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(884, 31);
+            this.panel1.TabIndex = 6;
             // 
             // sP_LAY_DSLTC_SVDKGridControl
             // 
             this.sP_LAY_DSLTC_SVDKGridControl.DataSource = this.sP_LAY_DSLTC_SVDKBindingSource;
             this.sP_LAY_DSLTC_SVDKGridControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.sP_LAY_DSLTC_SVDKGridControl.Location = new System.Drawing.Point(416, 437);
+            this.sP_LAY_DSLTC_SVDKGridControl.Location = new System.Drawing.Point(431, 468);
             this.sP_LAY_DSLTC_SVDKGridControl.MainView = this.gridView2;
             this.sP_LAY_DSLTC_SVDKGridControl.Name = "sP_LAY_DSLTC_SVDKGridControl";
-            this.sP_LAY_DSLTC_SVDKGridControl.Size = new System.Drawing.Size(899, 237);
-            this.sP_LAY_DSLTC_SVDKGridControl.TabIndex = 5;
+            this.sP_LAY_DSLTC_SVDKGridControl.Size = new System.Drawing.Size(884, 330);
+            this.sP_LAY_DSLTC_SVDKGridControl.TabIndex = 6;
             this.sP_LAY_DSLTC_SVDKGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
             // 
@@ -527,7 +601,6 @@
             this.colHOTENGV1});
             this.gridView2.GridControl = this.sP_LAY_DSLTC_SVDKGridControl;
             this.gridView2.Name = "gridView2";
-            this.gridView2.OptionsBehavior.ReadOnly = true;
             // 
             // colMAMH1
             // 
@@ -565,12 +638,23 @@
             this.colHOTENGV1.VisibleIndex = 3;
             this.colHOTENGV1.Width = 94;
             // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(6, 0);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(236, 31);
+            this.button2.TabIndex = 0;
+            this.button2.Text = "Ghi vào CSDL";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // frmDangKyMon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1315, 674);
+            this.ClientSize = new System.Drawing.Size(1315, 798);
             this.Controls.Add(this.sP_LAY_DSLTC_SVDKGridControl);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.sP_LOCLTCGridControl);
             this.Controls.Add(this.pnlLocLopTinChi);
@@ -586,10 +670,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.dS)).EndInit();
             this.pnlLocLopTinChi.ResumeLayout(false);
             this.pnlLocLopTinChi.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.sP_LOCLTCBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sP_LOCLTCGridControl)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sP_LOCLTCBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sP_LAY_DSLTC_SVDKBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -597,6 +680,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.tENMHTextEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nHOMSpinEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.hOTENGVTextEdit.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sLDADANGKYSpinEdit.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sP_LAY_DSLTC_SVDKBindingSource)).EndInit();
+            this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.sP_LAY_DSLTC_SVDKGridControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
             this.ResumeLayout(false);
@@ -623,32 +709,39 @@
         private System.Windows.Forms.ComboBox cmbHocKy;
         private System.Windows.Forms.Label lblHocKy;
         private System.Windows.Forms.Button btnLoc;
-        private System.Windows.Forms.BindingSource sP_LOCLTCBindingSource;
-        private DSTableAdapters.SP_LOCLTCTableAdapter sP_LOCLTCTableAdapter;
         private DevExpress.XtraGrid.GridControl sP_LOCLTCGridControl;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private System.Windows.Forms.Button btnThoatDangKy;
         private System.Windows.Forms.Button btnThoat;
-        private System.Windows.Forms.BindingSource sP_LAY_DSLTC_SVDKBindingSource;
-        private DSTableAdapters.SP_LAY_DSLTC_SVDKTableAdapter sP_LAY_DSLTC_SVDKTableAdapter;
         private DevExpress.Utils.Behaviors.BehaviorManager behaviorManager1;
         private System.Windows.Forms.GroupBox groupBox1;
-        private DevExpress.XtraGrid.GridControl sP_LAY_DSLTC_SVDKGridControl;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
-        private DevExpress.XtraGrid.Columns.GridColumn colMAMH1;
-        private DevExpress.XtraGrid.Columns.GridColumn colTENMH1;
-        private DevExpress.XtraGrid.Columns.GridColumn colNHOM1;
-        private DevExpress.XtraGrid.Columns.GridColumn colHOTENGV1;
-        private DevExpress.XtraEditors.TextEdit mAMHTextEdit;
-        private DevExpress.XtraEditors.TextEdit tENMHTextEdit;
-        private DevExpress.XtraEditors.SpinEdit nHOMSpinEdit;
-        private DevExpress.XtraEditors.TextEdit hOTENGVTextEdit;
         private System.Windows.Forms.Button button1;
         private DevExpress.XtraGrid.Columns.GridColumn colMAMH;
         private DevExpress.XtraGrid.Columns.GridColumn colTENMH;
         private DevExpress.XtraGrid.Columns.GridColumn colNHOM;
         private DevExpress.XtraGrid.Columns.GridColumn colHOTENGV;
         private DevExpress.XtraGrid.Columns.GridColumn colSLDADANGKY;
-        private DevExpress.XtraGrid.Columns.GridColumn colHUYDANGKY;
+        private System.Windows.Forms.BindingSource sP_LOCLTCBindingSource;
+        private System.Windows.Forms.BindingSource sP_LAY_DSLTC_SVDKBindingSource;
+        private DSTableAdapters.SP_LAY_DSLTC_SVDKTableAdapter sP_LAY_DSLTC_SVDKTableAdapter;
+        private DSTableAdapters.SP_LOCLTCTableAdapter sP_LOCLTCTableAdapter;
+        private DevExpress.XtraGrid.Columns.GridColumn colMAMH2;
+        private DevExpress.XtraGrid.Columns.GridColumn colTENMH2;
+        private DevExpress.XtraGrid.Columns.GridColumn colNHOM2;
+        private DevExpress.XtraGrid.Columns.GridColumn colHOTENGV2;
+        private DevExpress.XtraGrid.Columns.GridColumn colSLDADANGKY1;
+        private DevExpress.XtraEditors.TextEdit mAMHTextEdit;
+        private DevExpress.XtraEditors.TextEdit tENMHTextEdit;
+        private DevExpress.XtraEditors.SpinEdit nHOMSpinEdit;
+        private DevExpress.XtraEditors.TextEdit hOTENGVTextEdit;
+        private DevExpress.XtraEditors.SpinEdit sLDADANGKYSpinEdit;
+        private System.Windows.Forms.Panel panel1;
+        private DevExpress.XtraGrid.GridControl sP_LAY_DSLTC_SVDKGridControl;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
+        private DevExpress.XtraGrid.Columns.GridColumn colMAMH1;
+        private DevExpress.XtraGrid.Columns.GridColumn colTENMH1;
+        private DevExpress.XtraGrid.Columns.GridColumn colNHOM1;
+        private DevExpress.XtraGrid.Columns.GridColumn colHOTENGV1;
+        private System.Windows.Forms.Button button2;
     }
 }

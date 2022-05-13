@@ -70,7 +70,10 @@ namespace QLDSV_TC
                 sP_LAY_DSLTC_SVDKTableAdapter.Connection.ConnectionString = Program.connectionString;
                 sP_LAY_DSLTC_SVDKTableAdapter.Fill(dS.SP_LAY_DSLTC_SVDK, teMaSV.Text, cmbNienKhoa.Text, int.Parse(cmbHocKy.Text));
 
-                sP_LOCLTCGridControl.Enabled = sP_LAY_DSLTC_SVDKGridControl.Enabled = true;
+                sP_LOCLTCGridControl.Enabled = 
+                    sP_LAY_DSLTC_SVDKGridControl.Enabled = 
+                    groupBox1.Enabled =
+                    panel1.Enabled = true;
             }
             catch (Exception ex)
             {
@@ -81,7 +84,11 @@ namespace QLDSV_TC
         private void btnThoatDangKy_Click(object sender, EventArgs e)
         {
             pnlThongTinSV.Enabled = true;
-            pnlLocLopTinChi.Enabled = sP_LOCLTCGridControl.Enabled = sP_LAY_DSLTC_SVDKGridControl.Enabled = false;
+            pnlLocLopTinChi.Enabled = 
+                sP_LOCLTCGridControl.Enabled = 
+                sP_LAY_DSLTC_SVDKGridControl.Enabled = 
+                groupBox1.Enabled =
+                panel1.Enabled = false;
         }
 
         private void btnThoat_Click(object sender, EventArgs e)
@@ -93,8 +100,8 @@ namespace QLDSV_TC
         private void gridView1_FocusedRowChanged(object sender, FocusedRowChangedEventArgs e)
         {
             if (sP_LOCLTCBindingSource.Current == null) return;
-            String trangThai = ((DataRowView)sP_LOCLTCBindingSource.Current)["HUYDANGKY"].ToString();
-            if (trangThai.Equals("False"))
+            String huy = ((DataRowView)sP_LOCLTCBindingSource.Current)["HUYDANGKY"].ToString();
+            if (huy.Equals("False"))
                 button1.Text = "Hủy đăng ký";
             else
                 button1.Text = "Đăng ký";
@@ -103,14 +110,14 @@ namespace QLDSV_TC
         private void button1_Click(object sender, EventArgs e)
         {
             DataRowView currentRow = (DataRowView)sP_LOCLTCBindingSource.Current;
-            String trangThai = currentRow["HUYDANGKY"].ToString();
-            if (trangThai.Equals("False"))
+            String huy = currentRow["HUYDANGKY"].ToString();
+            if (huy.Equals("False")) // Ban đầu đã đăng ký
             {
-                currentRow["HUYDANGKY"] = true;
+                currentRow["HUYDANGKY"] = true; // Set lại trạng thái là Hủy
                 button1.Text = "Đăng ký";
                 sP_LAY_DSLTC_SVDKBindingSource.RemoveAt(kiemTraTrungMon(currentRow["MAMH"].ToString()));
             }
-            else // Đăng ký
+            else // Ban đầu chưa đăng ký hoặc đang hủy
             {
                 // Check đã đăng ký môn này?
                 if (kiemTraTrungMon(currentRow["MAMH"].ToString()) != -1)
@@ -121,6 +128,7 @@ namespace QLDSV_TC
                     button1.Text = "Hủy đăng ký";
                     sP_LAY_DSLTC_SVDKBindingSource.AddNew();
                     DataRowView newRow = ((DataRowView)sP_LAY_DSLTC_SVDKBindingSource.Current);
+                    newRow["MALTC"] = currentRow["MALTC"];
                     newRow["MAMH"] = currentRow["MAMH"];
                     newRow["TENMH"] = currentRow["TENMH"];
                     newRow["NHOM"] = currentRow["NHOM"];
@@ -131,21 +139,59 @@ namespace QLDSV_TC
         private int kiemTraTrungMon(String maMon)
         {
             DataRowView row;
-            sP_LAY_DSLTC_SVDKBindingSource.MoveFirst(); // Di chuyển lên dòng đầu
             for (int i = 0; i < sP_LAY_DSLTC_SVDKBindingSource.Count; i++)
             {
-                row = (DataRowView)sP_LAY_DSLTC_SVDKBindingSource.Current;
+                row = (DataRowView)sP_LAY_DSLTC_SVDKBindingSource[i];
                 if (maMon.Equals(row["MAMH"].ToString()))
                     return i; // Trung thi tra ve vi tri
-                sP_LAY_DSLTC_SVDKBindingSource.MoveNext();
             }
-
             return -1; // Khong trung
         }
 
         private void cmbHocKy_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            DataTable dt = new DataTable();
+            dt.Columns.Add("MALTC", typeof(int));
+
+            DataRowView tmp;
+            for (int i = 0; i < sP_LAY_DSLTC_SVDKBindingSource.Count; i++)
+            {
+                tmp = ((DataRowView)sP_LAY_DSLTC_SVDKBindingSource[i]);
+                dt.Rows.Add(int.Parse(tmp["MALTC"].ToString()));
+            }
+
+            SqlParameter param = new SqlParameter();
+            param.SqlDbType = SqlDbType.Structured;
+            param.TypeName = "dbo.TYPE_CAPNHATDANGKY";
+            param.ParameterName = "@DK";
+            param.Value = dt;
+
+            SqlParameter param2 = new SqlParameter();
+            param2.SqlDbType = SqlDbType.NChar;
+            param2.ParameterName = "@MASV";
+            param2.Value = teMaSV.Text;
+
+            Program.KetNoi();
+
+            SqlCommand cmd = new SqlCommand("SP_CAPNHATDANGKY", Program.conn);
+            cmd.Parameters.Clear();
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add(param);
+            cmd.Parameters.Add(param2);
+            try
+            {
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Ghi thành công!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ghi thất bại: " + ex.Message);
+            }
         }
     }
 }
