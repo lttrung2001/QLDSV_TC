@@ -604,6 +604,7 @@
             this.sP_LAY_DSLTC_SVDKGridControl.ContextMenuStrip = this.contextMenuStrip1;
             this.sP_LAY_DSLTC_SVDKGridControl.DataSource = this.sP_LAY_DSLTC_SVDKBindingSource;
             this.sP_LAY_DSLTC_SVDKGridControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.sP_LAY_DSLTC_SVDKGridControl.Enabled = false;
             this.sP_LAY_DSLTC_SVDKGridControl.Location = new System.Drawing.Point(431, 468);
             this.sP_LAY_DSLTC_SVDKGridControl.MainView = this.gridView2;
             this.sP_LAY_DSLTC_SVDKGridControl.Name = "sP_LAY_DSLTC_SVDKGridControl";

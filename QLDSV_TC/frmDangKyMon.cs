@@ -56,18 +56,39 @@ namespace QLDSV_TC
             {
                 sP_LOCLTCTableAdapter.Connection.ConnectionString = Program.connectionString;
                 sP_LOCLTCTableAdapter.Fill(dS.SP_LOCLTC, teMaSV.Text, cmbNienKhoa.Text, int.Parse(cmbHocKy.Text));
-
-                sP_LAY_DSLTC_SVDKTableAdapter.Connection.ConnectionString = Program.connectionString;
-                sP_LAY_DSLTC_SVDKTableAdapter.Fill(dS.SP_LAY_DSLTC_SVDK, teMaSV.Text, cmbNienKhoa.Text, int.Parse(cmbHocKy.Text));
-
-                sP_LOCLTCGridControl.Enabled = 
-                    sP_LAY_DSLTC_SVDKGridControl.Enabled = 
-                    groupBox1.Enabled =
-                    panel1.Enabled = true;
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Đã xảy ra lỗi khi lọc lớp tín chỉ: " + ex.Message);
+                return;
+            }
+            if (sP_LOCLTCBindingSource.Count == 0)
+            {
+                MessageBox.Show("Không có lớp tín chỉ nào được mở trong kỳ này!");
+                sP_LOCLTCGridControl.Enabled =
+                sP_LAY_DSLTC_SVDKGridControl.Enabled =
+                groupBox1.Enabled =
+                panel1.Enabled = false;
+                return;
+            }
+            else
+            {
+                try
+                {
+                    sP_LAY_DSLTC_SVDKTableAdapter.Connection.ConnectionString = Program.connectionString;
+                    sP_LAY_DSLTC_SVDKTableAdapter.Fill(dS.SP_LAY_DSLTC_SVDK, teMaSV.Text, cmbNienKhoa.Text, int.Parse(cmbHocKy.Text));
+                }
+                 catch (Exception ex)
+                {
+                    MessageBox.Show("Đã xảy ra lỗi khi lấy danh sách môn học sinh viên đăng ký: " + ex.Message);
+                    return;
+                }
+                sP_LOCLTCGridControl.Enabled =
+                sP_LAY_DSLTC_SVDKGridControl.Enabled =
+                groupBox1.Enabled =
+                panel1.Enabled = true;
+                if (sP_LAY_DSLTC_SVDKBindingSource.Count == 0) hủyĐăngKýToolStripMenuItem.Enabled = false;
+                else hủyĐăngKýToolStripMenuItem.Enabled = true;
             }
         }
 
@@ -131,6 +152,8 @@ namespace QLDSV_TC
                     }
                 }
             }
+            if (sP_LAY_DSLTC_SVDKBindingSource.Count == 0) hủyĐăngKýToolStripMenuItem.Enabled = false;
+            else hủyĐăngKýToolStripMenuItem.Enabled = true;
         }
         private int kiemTraTrungMon(String maMon)
         {
@@ -202,6 +225,8 @@ namespace QLDSV_TC
                     if (msg == DialogResult.Yes)
                         sP_LAY_DSLTC_SVDKBindingSource.RemoveCurrent();
                 }
+                if (sP_LAY_DSLTC_SVDKBindingSource.Count == 0) hủyĐăngKýToolStripMenuItem.Enabled = false;
+                else hủyĐăngKýToolStripMenuItem.Enabled = true;
             }
         }
     }
