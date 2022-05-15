@@ -70,6 +70,7 @@
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.thêmSinhViênToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.xóaSinhViênToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sửaSinhViênToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ghiVàoCSDLToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.phụcHồiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bdsDangKy = new System.Windows.Forms.BindingSource(this.components);
@@ -85,7 +86,8 @@
             this.colMALOP1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDANGHIHOC = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colPASSWORD = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.sửaSinhViênToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bdsKhoa = new System.Windows.Forms.BindingSource(this.components);
+            this.taKhoa = new QLDSV_TC.DSTableAdapters.KHOATableAdapter();
             lblMaLop = new System.Windows.Forms.Label();
             lblTenLop = new System.Windows.Forms.Label();
             lblKhoaHoc = new System.Windows.Forms.Label();
@@ -107,6 +109,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.bdsDangKy)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcSinhVienLop)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvSinhVienLop)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsKhoa)).BeginInit();
             this.SuspendLayout();
             // 
             // lblMaLop
@@ -382,6 +385,7 @@
             this.gvLop.OptionsView.ShowGroupPanel = false;
             this.gvLop.OptionsView.ShowViewCaption = true;
             this.gvLop.ViewCaption = "DANH SÁCH LỚP";
+            this.gvLop.SelectionChanged += new DevExpress.Data.SelectionChangedEventHandler(this.gvLop_SelectionChanged);
             // 
             // colMALOP
             // 
@@ -450,6 +454,7 @@
             this.teMaLop.Name = "teMaLop";
             this.teMaLop.Properties.Appearance.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.teMaLop.Properties.Appearance.Options.UseFont = true;
+            this.teMaLop.Properties.MaxLength = 10;
             this.teMaLop.Size = new System.Drawing.Size(332, 30);
             this.teMaLop.TabIndex = 1;
             // 
@@ -461,6 +466,7 @@
             this.teTenLop.Name = "teTenLop";
             this.teTenLop.Properties.Appearance.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.teTenLop.Properties.Appearance.Options.UseFont = true;
+            this.teTenLop.Properties.MaxLength = 50;
             this.teTenLop.Size = new System.Drawing.Size(332, 30);
             this.teTenLop.TabIndex = 3;
             // 
@@ -472,6 +478,7 @@
             this.teKhoaHoc.Name = "teKhoaHoc";
             this.teKhoaHoc.Properties.Appearance.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.teKhoaHoc.Properties.Appearance.Options.UseFont = true;
+            this.teKhoaHoc.Properties.MaxLength = 9;
             this.teKhoaHoc.Size = new System.Drawing.Size(332, 30);
             this.teKhoaHoc.TabIndex = 5;
             // 
@@ -484,6 +491,7 @@
             this.teMaKhoa.Name = "teMaKhoa";
             this.teMaKhoa.Properties.Appearance.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.teMaKhoa.Properties.Appearance.Options.UseFont = true;
+            this.teMaKhoa.Properties.MaxLength = 10;
             this.teMaKhoa.Size = new System.Drawing.Size(332, 30);
             this.teMaKhoa.TabIndex = 7;
             // 
@@ -507,28 +515,35 @@
             // thêmSinhViênToolStripMenuItem
             // 
             this.thêmSinhViênToolStripMenuItem.Name = "thêmSinhViênToolStripMenuItem";
-            this.thêmSinhViênToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
+            this.thêmSinhViênToolStripMenuItem.Size = new System.Drawing.Size(176, 24);
             this.thêmSinhViênToolStripMenuItem.Text = "Thêm sinh viên";
             this.thêmSinhViênToolStripMenuItem.Click += new System.EventHandler(this.thêmSinhViênToolStripMenuItem_Click);
             // 
             // xóaSinhViênToolStripMenuItem
             // 
             this.xóaSinhViênToolStripMenuItem.Name = "xóaSinhViênToolStripMenuItem";
-            this.xóaSinhViênToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
+            this.xóaSinhViênToolStripMenuItem.Size = new System.Drawing.Size(176, 24);
             this.xóaSinhViênToolStripMenuItem.Text = "Xóa sinh viên";
             this.xóaSinhViênToolStripMenuItem.Click += new System.EventHandler(this.xóaSinhViênToolStripMenuItem_Click);
+            // 
+            // sửaSinhViênToolStripMenuItem
+            // 
+            this.sửaSinhViênToolStripMenuItem.Name = "sửaSinhViênToolStripMenuItem";
+            this.sửaSinhViênToolStripMenuItem.Size = new System.Drawing.Size(176, 24);
+            this.sửaSinhViênToolStripMenuItem.Text = "Sửa sinh viên";
+            this.sửaSinhViênToolStripMenuItem.Click += new System.EventHandler(this.sửaSinhViênToolStripMenuItem_Click);
             // 
             // ghiVàoCSDLToolStripMenuItem
             // 
             this.ghiVàoCSDLToolStripMenuItem.Name = "ghiVàoCSDLToolStripMenuItem";
-            this.ghiVàoCSDLToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
+            this.ghiVàoCSDLToolStripMenuItem.Size = new System.Drawing.Size(176, 24);
             this.ghiVàoCSDLToolStripMenuItem.Text = "Ghi vào CSDL";
             this.ghiVàoCSDLToolStripMenuItem.Click += new System.EventHandler(this.ghiVàoCSDLToolStripMenuItem_Click);
             // 
             // phụcHồiToolStripMenuItem
             // 
             this.phụcHồiToolStripMenuItem.Name = "phụcHồiToolStripMenuItem";
-            this.phụcHồiToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
+            this.phụcHồiToolStripMenuItem.Size = new System.Drawing.Size(176, 24);
             this.phụcHồiToolStripMenuItem.Text = "Phục hồi";
             // 
             // bdsDangKy
@@ -579,6 +594,7 @@
             this.gvSinhVienLop.OptionsView.ShowViewCaption = true;
             this.gvSinhVienLop.ViewCaption = "DANH SÁCH SINH VIÊN";
             this.gvSinhVienLop.EditFormShowing += new DevExpress.XtraGrid.Views.Grid.EditFormShowingEventHandler(this.gvSinhVienLop_EditFormShowing);
+            this.gvSinhVienLop.EditFormPrepared += new DevExpress.XtraGrid.Views.Grid.EditFormPreparedEventHandler(this.gvSinhVienLop_PreparedEditForm);
             this.gvSinhVienLop.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.gvSinhVienLop_InitNewRow);
             this.gvSinhVienLop.InvalidRowException += new DevExpress.XtraGrid.Views.Base.InvalidRowExceptionEventHandler(this.gvSinhVienLop_InvalidRowException);
             this.gvSinhVienLop.ValidateRow += new DevExpress.XtraGrid.Views.Base.ValidateRowEventHandler(this.gvSinhVienLop_ValidateRow);
@@ -673,12 +689,14 @@
             this.colPASSWORD.VisibleIndex = 8;
             this.colPASSWORD.Width = 94;
             // 
-            // sửaSinhViênToolStripMenuItem
+            // bdsKhoa
             // 
-            this.sửaSinhViênToolStripMenuItem.Name = "sửaSinhViênToolStripMenuItem";
-            this.sửaSinhViênToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
-            this.sửaSinhViênToolStripMenuItem.Text = "Sửa sinh viên";
-            this.sửaSinhViênToolStripMenuItem.Click += new System.EventHandler(this.sửaSinhViênToolStripMenuItem_Click);
+            this.bdsKhoa.DataMember = "KHOA";
+            this.bdsKhoa.DataSource = this.dS;
+            // 
+            // taKhoa
+            // 
+            this.taKhoa.ClearBeforeFill = true;
             // 
             // frmSinhVien
             // 
@@ -717,6 +735,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.bdsDangKy)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcSinhVienLop)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvSinhVienLop)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsKhoa)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -777,5 +796,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn colDANGHIHOC;
         private DevExpress.XtraGrid.Columns.GridColumn colPASSWORD;
         private System.Windows.Forms.ToolStripMenuItem sửaSinhViênToolStripMenuItem;
+        private System.Windows.Forms.BindingSource bdsKhoa;
+        private DSTableAdapters.KHOATableAdapter taKhoa;
     }
 }

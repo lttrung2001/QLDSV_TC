@@ -243,7 +243,15 @@ namespace QLDSV_TC
 
         private void btnBDTK_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-
+            Form frm = this.checkExist(typeof(frmBangDiemTongKet));
+            if (frm != null)
+                frm.Activate();
+            else
+            {
+                frmBangDiemTongKet f = new frmBangDiemTongKet();
+                f.MdiParent = this;
+                f.Show();
+            }
         }
 
         private void cmbPhanManh_SelectedIndexChanged(object sender, EventArgs e)

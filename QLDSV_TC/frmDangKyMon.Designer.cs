@@ -79,13 +79,15 @@
             this.sP_LAY_DSLTC_SVDKTableAdapter = new QLDSV_TC.DSTableAdapters.SP_LAY_DSLTC_SVDKTableAdapter();
             this.sP_LOCLTCTableAdapter = new QLDSV_TC.DSTableAdapters.SP_LOCLTCTableAdapter();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
             this.sP_LAY_DSLTC_SVDKGridControl = new DevExpress.XtraGrid.GridControl();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.hủyĐăngKýToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colMAMH1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTENMH1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colNHOM1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colHOTENGV1 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.button2 = new System.Windows.Forms.Button();
             mAMHLabel = new System.Windows.Forms.Label();
             tENMHLabel = new System.Windows.Forms.Label();
             nHOMLabel = new System.Windows.Forms.Label();
@@ -108,6 +110,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.sP_LAY_DSLTC_SVDKBindingSource)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sP_LAY_DSLTC_SVDKGridControl)).BeginInit();
+            this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
             this.SuspendLayout();
             // 
@@ -200,6 +203,7 @@
             // teMaSV
             // 
             this.teMaSV.Location = new System.Drawing.Point(146, 21);
+            this.teMaSV.MaxLength = 10;
             this.teMaSV.Name = "teMaSV";
             this.teMaSV.Size = new System.Drawing.Size(321, 30);
             this.teMaSV.TabIndex = 3;
@@ -388,6 +392,7 @@
             // 
             // colMAMH2
             // 
+            this.colMAMH2.Caption = "Mã môn";
             this.colMAMH2.FieldName = "MAMH";
             this.colMAMH2.MinWidth = 25;
             this.colMAMH2.Name = "colMAMH2";
@@ -397,6 +402,7 @@
             // 
             // colTENMH2
             // 
+            this.colTENMH2.Caption = "Tên môn";
             this.colTENMH2.FieldName = "TENMH";
             this.colTENMH2.MinWidth = 25;
             this.colTENMH2.Name = "colTENMH2";
@@ -406,6 +412,7 @@
             // 
             // colNHOM2
             // 
+            this.colNHOM2.Caption = "Nhóm";
             this.colNHOM2.FieldName = "NHOM";
             this.colNHOM2.MinWidth = 25;
             this.colNHOM2.Name = "colNHOM2";
@@ -415,6 +422,7 @@
             // 
             // colHOTENGV2
             // 
+            this.colHOTENGV2.Caption = "Họ tên GV";
             this.colHOTENGV2.FieldName = "HOTENGV";
             this.colHOTENGV2.MinWidth = 25;
             this.colHOTENGV2.Name = "colHOTENGV2";
@@ -424,6 +432,7 @@
             // 
             // colSLDADANGKY1
             // 
+            this.colSLDADANGKY1.Caption = "Đã đăng ký";
             this.colSLDADANGKY1.FieldName = "SLDADANGKY";
             this.colSLDADANGKY1.MinWidth = 25;
             this.colSLDADANGKY1.Name = "colSLDADANGKY1";
@@ -580,8 +589,19 @@
             this.panel1.Size = new System.Drawing.Size(884, 31);
             this.panel1.TabIndex = 6;
             // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(6, 0);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(236, 31);
+            this.button2.TabIndex = 0;
+            this.button2.Text = "Ghi vào CSDL";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // sP_LAY_DSLTC_SVDKGridControl
             // 
+            this.sP_LAY_DSLTC_SVDKGridControl.ContextMenuStrip = this.contextMenuStrip1;
             this.sP_LAY_DSLTC_SVDKGridControl.DataSource = this.sP_LAY_DSLTC_SVDKBindingSource;
             this.sP_LAY_DSLTC_SVDKGridControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.sP_LAY_DSLTC_SVDKGridControl.Location = new System.Drawing.Point(431, 468);
@@ -592,6 +612,21 @@
             this.sP_LAY_DSLTC_SVDKGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.hủyĐăngKýToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(161, 28);
+            // 
+            // hủyĐăngKýToolStripMenuItem
+            // 
+            this.hủyĐăngKýToolStripMenuItem.Name = "hủyĐăngKýToolStripMenuItem";
+            this.hủyĐăngKýToolStripMenuItem.Size = new System.Drawing.Size(160, 24);
+            this.hủyĐăngKýToolStripMenuItem.Text = "Hủy đăng ký";
+            this.hủyĐăngKýToolStripMenuItem.Click += new System.EventHandler(this.hủyĐăngKýToolStripMenuItem_Click);
+            // 
             // gridView2
             // 
             this.gridView2.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
@@ -601,9 +636,11 @@
             this.colHOTENGV1});
             this.gridView2.GridControl = this.sP_LAY_DSLTC_SVDKGridControl;
             this.gridView2.Name = "gridView2";
+            this.gridView2.OptionsBehavior.ReadOnly = true;
             // 
             // colMAMH1
             // 
+            this.colMAMH1.Caption = "Mã môn";
             this.colMAMH1.FieldName = "MAMH";
             this.colMAMH1.MinWidth = 25;
             this.colMAMH1.Name = "colMAMH1";
@@ -613,6 +650,7 @@
             // 
             // colTENMH1
             // 
+            this.colTENMH1.Caption = "Tên môn";
             this.colTENMH1.FieldName = "TENMH";
             this.colTENMH1.MinWidth = 25;
             this.colTENMH1.Name = "colTENMH1";
@@ -622,6 +660,7 @@
             // 
             // colNHOM1
             // 
+            this.colNHOM1.Caption = "Nhóm";
             this.colNHOM1.FieldName = "NHOM";
             this.colNHOM1.MinWidth = 25;
             this.colNHOM1.Name = "colNHOM1";
@@ -631,22 +670,13 @@
             // 
             // colHOTENGV1
             // 
+            this.colHOTENGV1.Caption = "Họ tên GV";
             this.colHOTENGV1.FieldName = "HOTENGV";
             this.colHOTENGV1.MinWidth = 25;
             this.colHOTENGV1.Name = "colHOTENGV1";
             this.colHOTENGV1.Visible = true;
             this.colHOTENGV1.VisibleIndex = 3;
             this.colHOTENGV1.Width = 94;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(6, 0);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(236, 31);
-            this.button2.TabIndex = 0;
-            this.button2.Text = "Ghi vào CSDL";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // frmDangKyMon
             // 
@@ -684,6 +714,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.sP_LAY_DSLTC_SVDKBindingSource)).EndInit();
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.sP_LAY_DSLTC_SVDKGridControl)).EndInit();
+            this.contextMenuStrip1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
             this.ResumeLayout(false);
 
@@ -743,5 +774,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn colNHOM1;
         private DevExpress.XtraGrid.Columns.GridColumn colHOTENGV1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem hủyĐăngKýToolStripMenuItem;
     }
 }

@@ -67,38 +67,42 @@
             // nIENKHOALabel
             // 
             nIENKHOALabel.AutoSize = true;
+            nIENKHOALabel.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             nIENKHOALabel.Location = new System.Drawing.Point(10, 81);
             nIENKHOALabel.Name = "nIENKHOALabel";
-            nIENKHOALabel.Size = new System.Drawing.Size(79, 16);
+            nIENKHOALabel.Size = new System.Drawing.Size(96, 23);
             nIENKHOALabel.TabIndex = 1;
-            nIENKHOALabel.Text = "NIENKHOA:";
+            nIENKHOALabel.Text = "Niên khóa";
             // 
             // nIENKHOALabel1
             // 
             nIENKHOALabel1.AutoSize = true;
-            nIENKHOALabel1.Location = new System.Drawing.Point(10, 111);
+            nIENKHOALabel1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            nIENKHOALabel1.Location = new System.Drawing.Point(10, 118);
             nIENKHOALabel1.Name = "nIENKHOALabel1";
-            nIENKHOALabel1.Size = new System.Drawing.Size(56, 16);
+            nIENKHOALabel1.Size = new System.Drawing.Size(70, 23);
             nIENKHOALabel1.TabIndex = 2;
-            nIENKHOALabel1.Text = "HOCKY:";
+            nIENKHOALabel1.Text = "Học kỳ";
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new System.Drawing.Point(10, 141);
+            label1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label1.Location = new System.Drawing.Point(10, 155);
             label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(51, 16);
+            label1.Size = new System.Drawing.Size(60, 23);
             label1.TabIndex = 4;
-            label1.Text = "NHOM:";
+            label1.Text = "Nhóm";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new System.Drawing.Point(10, 169);
+            label2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label2.Location = new System.Drawing.Point(10, 192);
             label2.Name = "label2";
-            label2.Size = new System.Drawing.Size(70, 16);
+            label2.Size = new System.Drawing.Size(85, 23);
             label2.TabIndex = 6;
-            label2.Text = "MONHOC:";
+            label2.Text = "Môn học";
             // 
             // dS
             // 
@@ -140,10 +144,11 @@
             this.nIENKHOAComboBox.DataSource = this.nIENKHOABindingSource;
             this.nIENKHOAComboBox.DisplayMember = "NIENKHOA";
             this.nIENKHOAComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.nIENKHOAComboBox.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nIENKHOAComboBox.FormattingEnabled = true;
-            this.nIENKHOAComboBox.Location = new System.Drawing.Point(95, 78);
+            this.nIENKHOAComboBox.Location = new System.Drawing.Point(134, 78);
             this.nIENKHOAComboBox.Name = "nIENKHOAComboBox";
-            this.nIENKHOAComboBox.Size = new System.Drawing.Size(121, 24);
+            this.nIENKHOAComboBox.Size = new System.Drawing.Size(181, 31);
             this.nIENKHOAComboBox.TabIndex = 2;
             this.nIENKHOAComboBox.ValueMember = "NIENKHOA";
             // 
@@ -151,14 +156,15 @@
             // 
             this.hocKyComboBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.nIENKHOABindingSource, "NIENKHOA", true));
             this.hocKyComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.hocKyComboBox1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.hocKyComboBox1.FormattingEnabled = true;
             this.hocKyComboBox1.Items.AddRange(new object[] {
             "1",
             "2",
             "3"});
-            this.hocKyComboBox1.Location = new System.Drawing.Point(95, 108);
+            this.hocKyComboBox1.Location = new System.Drawing.Point(134, 115);
             this.hocKyComboBox1.Name = "hocKyComboBox1";
-            this.hocKyComboBox1.Size = new System.Drawing.Size(121, 24);
+            this.hocKyComboBox1.Size = new System.Drawing.Size(181, 31);
             this.hocKyComboBox1.TabIndex = 3;
             // 
             // comboBox1
@@ -167,10 +173,11 @@
             this.comboBox1.DataSource = this.mONHOCBindingSource;
             this.comboBox1.DisplayMember = "TENMH";
             this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(95, 166);
+            this.comboBox1.Location = new System.Drawing.Point(134, 188);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(334, 24);
+            this.comboBox1.Size = new System.Drawing.Size(334, 31);
             this.comboBox1.TabIndex = 7;
             this.comboBox1.ValueMember = "MAMH";
             // 
@@ -182,17 +189,20 @@
             // textEdit2
             // 
             this.textEdit2.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.mONHOCBindingSource, "MAMH", true));
-            this.textEdit2.Location = new System.Drawing.Point(435, 168);
+            this.textEdit2.Location = new System.Drawing.Point(474, 189);
             this.textEdit2.Name = "textEdit2";
+            this.textEdit2.Properties.Appearance.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textEdit2.Properties.Appearance.Options.UseFont = true;
             this.textEdit2.Properties.ReadOnly = true;
-            this.textEdit2.Size = new System.Drawing.Size(118, 22);
+            this.textEdit2.Size = new System.Drawing.Size(118, 30);
             this.textEdit2.TabIndex = 8;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(12, 196);
+            this.button1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(134, 225);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(109, 23);
+            this.button1.Size = new System.Drawing.Size(190, 37);
             this.button1.TabIndex = 9;
             this.button1.Text = "Xem báo cáo";
             this.button1.UseVisualStyleBackColor = true;
@@ -205,8 +215,10 @@
             0,
             0,
             0});
-            this.textEdit1.Location = new System.Drawing.Point(95, 138);
+            this.textEdit1.Location = new System.Drawing.Point(134, 152);
             this.textEdit1.Name = "textEdit1";
+            this.textEdit1.Properties.Appearance.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textEdit1.Properties.Appearance.Options.UseFont = true;
             this.textEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.textEdit1.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Default;
@@ -222,7 +234,7 @@
             0,
             0,
             0});
-            this.textEdit1.Size = new System.Drawing.Size(121, 24);
+            this.textEdit1.Size = new System.Drawing.Size(181, 30);
             this.textEdit1.TabIndex = 5;
             // 
             // kHOABindingSource

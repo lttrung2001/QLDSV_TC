@@ -55,20 +55,22 @@
             // nIENKHOALabel
             // 
             nIENKHOALabel.AutoSize = true;
+            nIENKHOALabel.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             nIENKHOALabel.Location = new System.Drawing.Point(18, 77);
             nIENKHOALabel.Name = "nIENKHOALabel";
-            nIENKHOALabel.Size = new System.Drawing.Size(79, 16);
+            nIENKHOALabel.Size = new System.Drawing.Size(96, 23);
             nIENKHOALabel.TabIndex = 1;
-            nIENKHOALabel.Text = "NIENKHOA:";
+            nIENKHOALabel.Text = "Niên khóa";
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new System.Drawing.Point(18, 107);
+            label1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label1.Location = new System.Drawing.Point(18, 114);
             label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(56, 16);
+            label1.Size = new System.Drawing.Size(70, 23);
             label1.TabIndex = 3;
-            label1.Text = "HOCKY:";
+            label1.Text = "Học kỳ";
             // 
             // dS
             // 
@@ -110,31 +112,34 @@
             this.nIENKHOAComboBox.DataSource = this.nIENKHOABindingSource;
             this.nIENKHOAComboBox.DisplayMember = "NIENKHOA";
             this.nIENKHOAComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.nIENKHOAComboBox.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nIENKHOAComboBox.FormattingEnabled = true;
-            this.nIENKHOAComboBox.Location = new System.Drawing.Point(103, 74);
+            this.nIENKHOAComboBox.Location = new System.Drawing.Point(140, 74);
             this.nIENKHOAComboBox.Name = "nIENKHOAComboBox";
-            this.nIENKHOAComboBox.Size = new System.Drawing.Size(121, 24);
+            this.nIENKHOAComboBox.Size = new System.Drawing.Size(121, 31);
             this.nIENKHOAComboBox.TabIndex = 2;
             this.nIENKHOAComboBox.ValueMember = "NIENKHOA";
             // 
             // comboBox1
             // 
             this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Items.AddRange(new object[] {
             "1",
             "2",
             "3"});
-            this.comboBox1.Location = new System.Drawing.Point(103, 104);
+            this.comboBox1.Location = new System.Drawing.Point(140, 111);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 24);
+            this.comboBox1.Size = new System.Drawing.Size(121, 31);
             this.comboBox1.TabIndex = 4;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(21, 134);
+            this.button1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(22, 148);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(124, 23);
+            this.button1.Size = new System.Drawing.Size(239, 41);
             this.button1.TabIndex = 5;
             this.button1.Text = "Xem báo cáo";
             this.button1.UseVisualStyleBackColor = true;

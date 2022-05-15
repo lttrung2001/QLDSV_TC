@@ -5,42 +5,27 @@ using System.Windows.Forms;
 
 namespace QLDSV_TC
 {
-    public partial class frmDSLTC : Form
+    public partial class frmBangDiemTongKet : Form
     {
-        public frmDSLTC()
+        public frmBangDiemTongKet()
         {
             InitializeComponent();
         }
 
-        private void frmDSLTC_Load(object sender, EventArgs e)
+        private void frmBangDiemTongKet_Load(object sender, EventArgs e)
         {
+            this.kHOATableAdapter.Connection.ConnectionString = Program.connectionString;
+            this.kHOATableAdapter.Fill(this.dS.KHOA);
+            this.lOPTableAdapter.Connection.ConnectionString = Program.connectionString;
+            this.lOPTableAdapter.Fill(this.dS.LOP);
             // Đưa danh sách khoa vào combobox Khoa
             cmbKhoa.DataSource = Program.bdsDSPM;
             cmbKhoa.DisplayMember = "TENCN";
             cmbKhoa.ValueMember = "TENSERVER";
 
-            this.kHOATableAdapter.Connection.ConnectionString = Program.connectionString;
-            this.kHOATableAdapter.Fill(this.dS.KHOA);
-            this.nIENKHOATableAdapter.Connection.ConnectionString = Program.connectionString;
-            this.nIENKHOATableAdapter.Fill(this.dS.NIENKHOA);
-
-            nIENKHOAComboBox.SelectedIndex = 0;
             comboBox1.SelectedIndex = 0;
 
             if (Program.mTenNhom.Equals("PGV")) pnlKhoa.Enabled = true;
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            String nienKhoa = nIENKHOAComboBox.Text;
-            String hocKy = comboBox1.Text;
-            kHOABindingSource.MoveFirst();
-            String tenKhoa = ((DataRowView)kHOABindingSource.Current)["TENKHOA"].ToString().ToUpper();
-            XrptDSLTC rpt = new XrptDSLTC(nienKhoa, hocKy);
-            rpt.label1.Text = "KHOA " + tenKhoa;
-            rpt.label2.Text = String.Format("Niên khóa: {0} Học kỳ: {1}", nienKhoa, hocKy);
-            ReportPrintTool print = new ReportPrintTool(rpt);
-            print.ShowPreviewDialog();
         }
 
         private void cmbKhoa_SelectedIndexChanged(object sender, EventArgs e)
@@ -54,13 +39,24 @@ namespace QLDSV_TC
                 if (Program.KetNoi() == 0) return; // Không kết nối được thì dừng
                 try
                 {
-                    frmDSLTC_Load(sender,e);
+                    frmBangDiemTongKet_Load(sender, e);
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show("Đã xảy ra lỗi: " + ex.Message);
                 }
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            String maLop = comboBox1.Text;
+            String tenKhoa = ((DataRowView)kHOABindingSource[0])["TENKHOA"].ToString().ToUpper();
+            XrptBangDiemTongKet rpt = new XrptBangDiemTongKet(maLop);
+            rpt.xrLabel1.Text = String.Format("LỚP: {0} - KHÓA HỌC: {1}", maLop, comboBox1.SelectedValue.ToString());
+            rpt.xrLabel2.Text = String.Format("KHOA: " + tenKhoa);
+            ReportPrintTool print = new ReportPrintTool(rpt);
+            print.ShowPreviewDialog();
         }
     }
 }

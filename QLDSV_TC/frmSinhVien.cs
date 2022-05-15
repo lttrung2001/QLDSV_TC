@@ -1,11 +1,8 @@
 ﻿using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Controls;
-using DevExpress.XtraGrid.Columns;
 using DevExpress.XtraGrid.Views.Grid;
 using System;
-using System.ComponentModel;
 using System.Data;
-using System.Data.SqlClient;
 using System.Windows.Forms;
 
 namespace QLDSV_TC
@@ -13,14 +10,7 @@ namespace QLDSV_TC
     public partial class frmSinhVien : Form
     {
         private static String tmpMaLop;
-        private static String tmpTenLop;
-        private static String tmpKhoaHoc;
-        private static String tmpMaKhoa;
         private static String tmpMaSV;
-        private static bool dangThemLop;
-        private static bool dangSuaLop;
-        private static bool dangThemSV;
-        private static bool dangSuaSV;
 
         private void saveDataWhenChangeSiteOrExitForm()
         {
@@ -31,14 +21,12 @@ namespace QLDSV_TC
                 {
                     try
                     {
-                        bdsLop.EndEdit();
                         bdsSinhVienLop.EndEdit();
-                        taLop.Update(dS);
                         taSinhVienLop.Update(dS);
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("Đã xảy ra lỗi: " + ex.Message);
+                        MessageBox.Show("Đã xảy ra lỗi khi ghi vào CSDL: " + ex.Message);
                     }
                 }
             }
@@ -83,10 +71,14 @@ namespace QLDSV_TC
 
         private void frmSinhVien_Load(object sender, EventArgs e)
         {
+
             // Đưa danh sách khoa vào combobox Khoa
             cmbKhoa.DataSource = Program.bdsDSPM;
             cmbKhoa.DisplayMember = "TENCN";
             cmbKhoa.ValueMember = "TENSERVER";
+
+            taKhoa.Connection.ConnectionString = Program.connectionString;
+            taKhoa.Fill(this.dS.KHOA);
 
             taLop.Connection.ConnectionString = Program.connectionString;
             taLop.Fill(dS.LOP);
@@ -100,7 +92,6 @@ namespace QLDSV_TC
 
         private void btnThemLop_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            dangThemLop = true;
             // Thay đổi trạng thái các button
             btnThemLop.Enabled = btnXoaLop.Enabled = btnSuaLop.Enabled = false;
             btnGhiLop.Enabled = btnHuy.Enabled = true; // Active nút ghi và nút hủy
@@ -110,7 +101,7 @@ namespace QLDSV_TC
             gbThongTinLop.Enabled = true;
 
             // Lưu mã khoa vào biến
-            String maKhoa = ((DataRowView)bdsLop.Current)["MAKHOA"].ToString();
+            String maKhoa = ((DataRowView)bdsKhoa[0])["MAKHOA"].ToString();
             bdsLop.AddNew(); // Thêm dòng mới vào bảng
             teMaKhoa.Text = maKhoa;
 
@@ -120,11 +111,11 @@ namespace QLDSV_TC
         private void btnGhiLop_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             // Kiểm tra input
-            bool flag;
+            bool flag = true;
+            bool isNewRow = gvLop.IsNewItemRow(gvLop.FocusedRowHandle);
             // Nếu đang thêm lớp hoặc đang sửa mà sửa mã lớp thì check lại
-            if (dangThemLop || (dangSuaLop && !teMaLop.Text.Equals(tmpMaLop))) flag = kiemTraInputLop();
-            else flag = true;
-            if (flag)
+            if (isNewRow || (!isNewRow && !teMaLop.Text.Equals(tmpMaLop))) flag = kiemTraInputLop();
+            if (flag) // Cho phép update về DB
             {
                 // Thay đổi trạng thái các button
                 btnThemLop.Enabled = btnXoaLop.Enabled = btnSuaLop.Enabled = true;
@@ -141,12 +132,10 @@ namespace QLDSV_TC
                     if (!teMaLop.Text.Equals(tmpMaLop))
                         taSinhVienLop.Fill(dS.SINHVIEN);
                     // Reset trạng thái biến
-                    if (dangThemLop) dangThemLop = false;
-                    else if (dangSuaLop) dangSuaLop = false;
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Đã xảy ra lỗi: " + ex.Message);
+                    MessageBox.Show("Đã xảy ra lỗi khi ghi vào CSDL: " + ex.Message);
                 }
             }
         }
@@ -168,7 +157,7 @@ namespace QLDSV_TC
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("Đã xảy ra lỗi: " + ex.Message);
+                        MessageBox.Show("Đã xảy ra lỗi khi xóa lớp: " + ex.Message);
                     }
                 }
             }
@@ -178,11 +167,7 @@ namespace QLDSV_TC
         {
             // Lưu giá trị trước khi sửa vào biến tạm
             tmpMaLop = ((DataRowView)bdsLop.Current)["MALOP"].ToString();
-            tmpTenLop = ((DataRowView)bdsLop.Current)["TENLOP"].ToString();
-            tmpKhoaHoc = ((DataRowView)bdsLop.Current)["KHOAHOC"].ToString();
-            tmpMaKhoa = ((DataRowView)bdsLop.Current)["MAKHOA"].ToString();
 
-            dangSuaLop = true;
             // Thay đổi trạng thái các button
             btnThemLop.Enabled = btnXoaLop.Enabled = btnSuaLop.Enabled = false;
             btnGhiLop.Enabled = btnHuy.Enabled = true; // Active nút ghi và nút hủy
@@ -211,16 +196,11 @@ namespace QLDSV_TC
                 if (Program.KetNoi() == 0) return; // Không kết nối được thì dừng
                 try
                 {
-                    taLop.Connection.ConnectionString = Program.connectionString;
-                    taLop.Fill(dS.LOP);
-                    taSinhVienLop.Connection.ConnectionString = Program.connectionString;
-                    taSinhVienLop.Fill(dS.SINHVIEN);
-                    taDangKy.Connection.ConnectionString = Program.connectionString;
-                    taDangKy.Fill(dS.DANGKY);
+                    frmSinhVien_Load(sender,e);
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Đã xảy ra lỗi: " + ex.Message);
+                    MessageBox.Show("Đã xảy ra lỗi khi kết nối: " + ex.Message);
                 }
             }
         }
@@ -228,7 +208,6 @@ namespace QLDSV_TC
         private void thêmSinhViênToolStripMenuItem_Click(object sender, EventArgs e)
         {
             bdsSinhVienLop.AddNew();
-            dangThemSV = true;
             gvSinhVienLop.ShowEditForm();
         }
 
@@ -241,17 +220,18 @@ namespace QLDSV_TC
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Đã xảy ra lỗi: " + ex.Message);
+                MessageBox.Show("Đã xảy ra lỗi khi ghi vào CSDL: " + ex.Message);
             }
         }
 
         private void xóaSinhViênToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (bdsDangKy.Count != 0) // Sinh viên đã đăng ký lớp tín chỉ
-            {
-                MessageBox.Show("Sinh viên đã học. Không thể xóa!");
-                return;
-            }
+            // Lấy mã để chạy SP
+            String masv = ((DataRowView)bdsSinhVienLop.Current)["MASV"].ToString();
+            // Kiểm tra sinh viên đóng học phí
+            if (Program.ExecSqlNonQuery(String.Format("EXEC SP_KIEMTRAHOCPHISV {0}", masv), Program.connectionString) == 0) return;
+            else if (bdsDangKy.Count != 0) // Sinh viên đã đăng ký lớp tín chỉ
+                MessageBox.Show("Sinh viên đã đăng ký lớp tín chỉ. Không thể xóa!");
             else
             {
                 DialogResult msg = MessageBox.Show("Bạn có chắc chắn muốn xóa sinh viên này?", "", MessageBoxButtons.YesNo);
@@ -263,7 +243,7 @@ namespace QLDSV_TC
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("Đã xảy ra lỗi: " + ex.Message);
+                        MessageBox.Show("Đã xảy ra lỗi khi xóa sinh viên: " + ex.Message);
                     }
                 }
             }
@@ -276,8 +256,7 @@ namespace QLDSV_TC
         // Hàm này dùng để hủy thao tác hiện tại
         private void btnHuy_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            if (dangThemLop) bdsLop.RemoveCurrent();
-            else if (dangSuaLop) bdsLop.CancelEdit();
+            bdsLop.CancelEdit();
 
             pnlKhoa.Enabled = gcLop.Enabled = gcSinhVienLop.Enabled = true;
             gbThongTinLop.Enabled = false;
@@ -285,8 +264,6 @@ namespace QLDSV_TC
             // Set trạng thái các nút chức năng
             btnThemLop.Enabled = btnXoaLop.Enabled = btnSuaLop.Enabled = true;
             btnHuy.Enabled = btnGhiLop.Enabled = false;
-
-            dangThemLop = dangSuaLop = false;
         }
 
 
@@ -319,8 +296,10 @@ namespace QLDSV_TC
             else // Mã sinh viên không rỗng
             {
                 int res = 1;
+                bool isNewRow = gvSinhVienLop.IsNewItemRow(gvSinhVienLop.FocusedRowHandle);
+
                 // Nếu thêm mới hoặc sửa mã sinh viên thì phải kiểm tra mã
-                if (dangThemSV || (dangSuaSV && !masv.Equals(tmpMaSV))) // Thêm hoặc sửa mã sinh viên thì kiểm tra
+                if (isNewRow || (!isNewRow && !masv.Equals(tmpMaSV))) // Thêm hoặc sửa mã sinh viên thì kiểm tra
                     res = Program.ExecSqlNonQuery(String.Format("EXEC SP_KIEMTRAMASV '{0}'", masv), Program.connectionString);
                 if (res == 0) // Mã sinh viên bị trùng
                 {
@@ -341,9 +320,6 @@ namespace QLDSV_TC
                         e.Valid = false;
                         view.SetColumnError(colTEN, "Không để trống tên!");
                     }
-                    else // Không có lỗi
-                        // Cập nhật lại trạng thái đang thêm và đang sửa
-                        dangThemLop = dangSuaLop = false;
                 }
             }
         }
@@ -360,10 +336,33 @@ namespace QLDSV_TC
             tmpMaSV = ((DataRowView)bdsSinhVienLop.Current)["MASV"].ToString();
         }
 
+        private void gvSinhVienLop_PreparedEditForm(object sender, EditFormPreparedEventArgs e)
+        {
+            (e.BindableControls["MASV"] as TextEdit).Properties.MaxLength = 10;
+            (e.BindableControls["HO"] as TextEdit).Properties.MaxLength = 50;
+            (e.BindableControls["TEN"] as TextEdit).Properties.MaxLength = 10;
+            (e.BindableControls["DIACHI"] as TextEdit).Properties.MaxLength = 100;
+            (e.BindableControls["MALOP"] as TextEdit).Properties.MaxLength = 10;
+            (e.BindableControls["PASSWORD"] as TextEdit).Properties.MaxLength = 40;
+        }
+
         private void sửaSinhViênToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            dangSuaSV = true;
             gvSinhVienLop.ShowEditForm();
+        }
+
+        private void gvLop_SelectionChanged(object sender, DevExpress.Data.SelectionChangedEventArgs e)
+        {
+            if (bdsSinhVienLop.Count == 0)
+            {
+                sửaSinhViênToolStripMenuItem.Enabled = false;
+                xóaSinhViênToolStripMenuItem.Enabled = false;
+            }
+            else
+            {
+                sửaSinhViênToolStripMenuItem.Enabled = true;
+                xóaSinhViênToolStripMenuItem.Enabled = true;
+            }
         }
     }
 }

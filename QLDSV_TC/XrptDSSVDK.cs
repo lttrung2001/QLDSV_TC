@@ -17,7 +17,7 @@ namespace QLDSV_TC
         public XrptDSSVDK(String nienKhoa, String hocKy, String maMon, String nhom)
         {
             InitializeComponent();
-            sqlDataSource1.Connection.ConnectionString = Program.connectionString;
+            sqlDataSource1.Connection.ConnectionString = "XpoProvider=MSSqlServer;" + Program.connectionString;
             sqlDataSource1.Queries[0].Parameters[0].Value = nienKhoa;
             sqlDataSource1.Queries[0].Parameters[1].Value = int.Parse(hocKy);
             sqlDataSource1.Queries[0].Parameters[2].Value = maMon;

@@ -175,7 +175,7 @@
             this.tableCell1.Name = "tableCell1";
             this.tableCell1.StyleName = "DetailCaption1";
             this.tableCell1.StylePriority.UseBorders = false;
-            this.tableCell1.Text = "TENMH";
+            this.tableCell1.Text = "Tên môn";
             this.tableCell1.Weight = 0.38270443310651769D;
             // 
             // tableCell2
@@ -183,7 +183,7 @@
             this.tableCell2.Name = "tableCell2";
             this.tableCell2.StyleName = "DetailCaption1";
             this.tableCell2.StylePriority.UseTextAlignment = false;
-            this.tableCell2.Text = "NHOM";
+            this.tableCell2.Text = "Nhóm";
             this.tableCell2.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
             this.tableCell2.Weight = 0.10043821302991413D;
             // 
@@ -191,7 +191,7 @@
             // 
             this.tableCell3.Name = "tableCell3";
             this.tableCell3.StyleName = "DetailCaption1";
-            this.tableCell3.Text = "HOTENGV";
+            this.tableCell3.Text = "Họ tên GV";
             this.tableCell3.Weight = 0.31700820334907703D;
             // 
             // tableCell4
@@ -199,7 +199,7 @@
             this.tableCell4.Name = "tableCell4";
             this.tableCell4.StyleName = "DetailCaption1";
             this.tableCell4.StylePriority.UseTextAlignment = false;
-            this.tableCell4.Text = "SOSVTOITHIEU";
+            this.tableCell4.Text = "SV tối thiểu";
             this.tableCell4.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
             this.tableCell4.Weight = 0.13400011641258386D;
             // 
@@ -208,7 +208,7 @@
             this.tableCell5.Name = "tableCell5";
             this.tableCell5.StyleName = "DetailCaption1";
             this.tableCell5.StylePriority.UseTextAlignment = false;
-            this.tableCell5.Text = "SLDADANGKY";
+            this.tableCell5.Text = "SV đã đăng ký";
             this.tableCell5.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
             this.tableCell5.Weight = 0.12327769250558171D;
             // 
@@ -294,9 +294,8 @@
             // 
             // tableCell10
             // 
-            this.tableCell10.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "Iif(IsNull([SLDADANGKY]),0,[SLDADANGKY])")});
             this.tableCell10.Name = "tableCell10";
+            this.tableCell10.NullValueText = "0";
             this.tableCell10.StyleName = "DetailData1";
             this.tableCell10.StylePriority.UseTextAlignment = false;
             this.tableCell10.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;

@@ -1,43 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace QLDSV_TC
 {
     public partial class frmLopTinChi : Form
     {
-        private static bool dangThemLTC;
-        private static bool dangSuaLTC;
         private static String tmpNienKhoa;
-        private static decimal tmpHocKy;
-        private static decimal tmpNhom;
+        private static int tmpHocKy;
+        private static int tmpNhom;
         private static String tmpMaMon;
-
-        private void saveDataWhenChangeSiteOrExitForm()
-        {
-            if (dS.HasChanges())
-            {
-                DialogResult msgThoat = MessageBox.Show("Bạn chưa ghi dữ liệu vào CSDL. Bạn có muốn lưu?", "", MessageBoxButtons.YesNo);
-                if (msgThoat == DialogResult.Yes)
-                {
-                    try
-                    {
-                        bdsLTC.EndEdit();
-                        taLTC.Update(dS.LOPTINCHI);
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Đã xảy ra lỗi: " + ex.Message);
-                    }
-                }
-            }
-        }
 
         public frmLopTinChi()
         {
@@ -92,11 +64,12 @@ namespace QLDSV_TC
             // Kiểm tra trùng lớp tín chỉ trong database ở cả 2 phân mảnh
             // Code here
             int res = 1;
-            if (dangThemLTC ||
-                (dangSuaLTC && teNienKhoa.Text.Equals(tmpNienKhoa) &&
-                    seHocKy.Value == tmpHocKy &&
-                    seNhom.Value == tmpNhom &&
-                    cmbMaMH.SelectedValue.ToString().Equals(tmpMaMon)))
+            bool isNewRow = gvLTC.IsNewItemRow(gvLTC.FocusedRowHandle);
+            if (isNewRow ||
+                (!isNewRow && (!teNienKhoa.Text.Equals(tmpNienKhoa) || 
+                    !(seHocKy.Value == tmpHocKy) ||
+                    !(seNhom.Value == tmpNhom) ||
+                    !cmbMaMH.SelectedValue.ToString().Equals(tmpMaMon))))
             {
                 res = Program.ExecSqlNonQuery(String.Format("EXEC SP_KIEMTRAMALTC '{0}', {1}, {2}, '{3}'",
                                                             teNienKhoa.Text,
@@ -119,6 +92,9 @@ namespace QLDSV_TC
             cmbKhoa.DisplayMember = "TENCN";
             cmbKhoa.ValueMember = "TENSERVER";
 
+            this.taKhoa.Connection.ConnectionString = Program.connectionString;
+            this.taKhoa.Fill(this.dS.KHOA);
+
             this.taMonHoc.Connection.ConnectionString = Program.connectionString;
             this.taMonHoc.Fill(this.dS.MONHOC);
 
@@ -134,7 +110,6 @@ namespace QLDSV_TC
 
         private void btnThemLTC_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            dangThemLTC = true; // Thể hiện user đang thêm lớp tín chỉ
             // Thay đổi trạng thái các button
             btnThemLTC.Enabled = btnXoaLTC.Enabled = btnSuaLTC.Enabled = btnThoatLTC.Enabled = false;
             btnGhiLTC.Enabled = btnHuyLTC.Enabled = true; // Active nút ghi và nút hủy
@@ -144,7 +119,7 @@ namespace QLDSV_TC
             gbLTC.Enabled = true;
 
             // Lưu mã khoa vào biến
-            String maKhoa = ((DataRowView)bdsLTC.Current)["MAKHOA"].ToString();
+            String maKhoa = ((DataRowView)bdsKhoa[0])["MAKHOA"].ToString();
             bdsLTC.AddNew(); // Thêm dòng mới vào bảng
             lblMaLTC.Visible = seMaLTC.Visible = false; // Ẩn mã lớp tín chỉ khi thêm
             teMaKhoa.Text = maKhoa; // Tự động mã khoa cho dòng mới
@@ -166,13 +141,11 @@ namespace QLDSV_TC
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Đã xảy ra lỗi: " + ex.Message);
+                    MessageBox.Show("Đã xảy ra lỗi khi ghi vào CSDL: " + ex.Message);
                     return;
                 }
                 // Hiện lại box mã lớp tín chỉ
                 lblMaLTC.Visible = seMaLTC.Visible = true;
-                // Reset trạng thái thêm, sửa
-                dangThemLTC = dangSuaLTC = false;
                 // Thay đổi trạng thái các button
                 btnThemLTC.Enabled = btnXoaLTC.Enabled = btnSuaLTC.Enabled = btnThoatLTC.Enabled = true;
                 btnGhiLTC.Enabled = btnHuyLTC.Enabled = false; // Active nút ghi và nút hủy
@@ -184,7 +157,6 @@ namespace QLDSV_TC
 
         private void btnSuaLTC_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            dangSuaLTC = true; // Thể hiện user đang sửa lớp tín chỉ
             // Thay đổi trạng thái các button
             btnThemLTC.Enabled = btnXoaLTC.Enabled = btnSuaLTC.Enabled = btnThoatLTC.Enabled = false;
             btnGhiLTC.Enabled = btnHuyLTC.Enabled = true; // Active nút ghi và nút hủy
@@ -192,6 +164,12 @@ namespace QLDSV_TC
             // Thay đổi trạng thái các grid
             pnlKhoa.Enabled = gcLTC.Enabled = false;
             gbLTC.Enabled = true;
+
+            int pos = gvLTC.FocusedRowHandle;
+            tmpNienKhoa = gvLTC.GetRowCellValue(pos, "NIENKHOA").ToString();
+            tmpHocKy = int.Parse(gvLTC.GetRowCellValue(pos, "HOCKY").ToString());
+            tmpNhom = int.Parse(gvLTC.GetRowCellValue(pos, "NHOM").ToString());
+            tmpMaMon = gvLTC.GetRowCellValue(pos, "MAMH").ToString();
         }
 
         private void btnXoaLTC_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -211,7 +189,7 @@ namespace QLDSV_TC
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Đã xảy ra lỗi: " + ex.Message);
+                    MessageBox.Show("Đã xảy ra lỗi khi xóa lớp tín chỉ: " + ex.Message);
                 }
             }
         }
@@ -221,8 +199,6 @@ namespace QLDSV_TC
             bdsLTC.CancelEdit();
             // Hiện lại box mã lớp tín chỉ
             lblMaLTC.Visible = seMaLTC.Visible = true;
-            // Reset trạng thái thêm, sửa
-            dangThemLTC = dangSuaLTC = false;
             // Thay đổi trạng thái các button
             btnThemLTC.Enabled = btnXoaLTC.Enabled = btnSuaLTC.Enabled = btnThoatLTC.Enabled = true;
             btnGhiLTC.Enabled = btnHuyLTC.Enabled = false; // Active nút ghi và nút hủy
@@ -233,7 +209,6 @@ namespace QLDSV_TC
 
         private void btnThoatLTC_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            saveDataWhenChangeSiteOrExitForm();
             Close();
         }
 
@@ -243,19 +218,15 @@ namespace QLDSV_TC
             if (cmbKhoa.SelectedValue.ToString().Equals(Program.servername)) return; // Chọn lại khoa hiện tại thì return
             else // Khoa được chọn khác với khoa hiện tại
             {
-                saveDataWhenChangeSiteOrExitForm();
                 Program.servername = cmbKhoa.SelectedValue.ToString();
                 if (Program.KetNoi() == 0) return; // Không kết nối được thì dừng
                 try
                 {
-                    taLTC.Connection.ConnectionString = Program.connectionString;
-                    taLTC.Fill(dS.LOPTINCHI);
-                    taDangKyLTC.Connection.ConnectionString = Program.connectionString;
-                    taDangKyLTC.Fill(dS.DANGKY);
+                    frmLopTinChi_Load(sender, e);
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Đã xảy ra lỗi: " + ex.Message);
+                    MessageBox.Show("Đã xảy ra lỗi khi kết nối: " + ex.Message);
                 }
             }
         }

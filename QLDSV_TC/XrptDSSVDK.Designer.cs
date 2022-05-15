@@ -209,21 +209,21 @@
             this.tableCell1.Name = "tableCell1";
             this.tableCell1.StyleName = "DetailCaption1";
             this.tableCell1.StylePriority.UseBorders = false;
-            this.tableCell1.Text = "MASV";
+            this.tableCell1.Text = "Mã sinh viên";
             this.tableCell1.Weight = 0.2221924062875601D;
             // 
             // tableCell2
             // 
             this.tableCell2.Name = "tableCell2";
             this.tableCell2.StyleName = "DetailCaption1";
-            this.tableCell2.Text = "HO";
+            this.tableCell2.Text = "Họ";
             this.tableCell2.Weight = 0.14724293635441707D;
             // 
             // tableCell3
             // 
             this.tableCell3.Name = "tableCell3";
             this.tableCell3.StyleName = "DetailCaption1";
-            this.tableCell3.Text = "TEN";
+            this.tableCell3.Text = "Tên";
             this.tableCell3.Weight = 0.17421947772686297D;
             // 
             // tableCell4
@@ -231,7 +231,7 @@
             this.tableCell4.Name = "tableCell4";
             this.tableCell4.StyleName = "DetailCaption1";
             this.tableCell4.StylePriority.UseTextAlignment = false;
-            this.tableCell4.Text = "PHAI";
+            this.tableCell4.Text = "Phái";
             this.tableCell4.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             this.tableCell4.Weight = 0.1952158649151142D;
             // 
@@ -239,7 +239,7 @@
             // 
             this.tableCell5.Name = "tableCell5";
             this.tableCell5.StyleName = "DetailCaption1";
-            this.tableCell5.Text = "MALOP";
+            this.tableCell5.Text = "Mã lớp";
             this.tableCell5.Weight = 0.26112929124098555D;
             // 
             // Detail

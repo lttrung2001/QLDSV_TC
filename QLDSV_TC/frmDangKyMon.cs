@@ -1,18 +1,8 @@
-﻿using DevExpress.Data;
-using DevExpress.XtraGrid.Views.Base;
-using DevExpress.XtraGrid.Views.Grid;
+﻿using DevExpress.XtraGrid.Views.Base;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Web.UI.WebControls;
 using System.Windows.Forms;
-using GridView = DevExpress.XtraGrid.Views.Grid.GridView;
 
 namespace QLDSV_TC
 {
@@ -56,7 +46,7 @@ namespace QLDSV_TC
             }
             else
             {
-                MessageBox.Show("Mã sinh viên không tồn tại!");
+                MessageBox.Show("Sinh viên đã nghỉ học hoặc không tồn tại!");
             }
         }
 
@@ -113,9 +103,12 @@ namespace QLDSV_TC
             String huy = currentRow["HUYDANGKY"].ToString();
             if (huy.Equals("False")) // Ban đầu đã đăng ký
             {
-                currentRow["HUYDANGKY"] = true; // Set lại trạng thái là Hủy
-                button1.Text = "Đăng ký";
-                sP_LAY_DSLTC_SVDKBindingSource.RemoveAt(kiemTraTrungMon(currentRow["MAMH"].ToString()));
+                if (Program.ExecSqlNonQuery("EXEC SP_KIEMTRALTCDANHAPDIEM " + currentRow["MALTC"].ToString(), Program.connectionString) == 1)
+                {
+                    currentRow["HUYDANGKY"] = true; // Set lại trạng thái là Hủy
+                    button1.Text = "Đăng ký";
+                    sP_LAY_DSLTC_SVDKBindingSource.RemoveAt(kiemTraTrungMon(currentRow["MAMH"].ToString()));
+                }
             }
             else // Ban đầu chưa đăng ký hoặc đang hủy
             {
@@ -124,15 +117,18 @@ namespace QLDSV_TC
                     MessageBox.Show("Bạn đã đăng ký môn này rồi!");
                 else // Không trùng
                 {
-                    currentRow["HUYDANGKY"] = false;
-                    button1.Text = "Hủy đăng ký";
-                    sP_LAY_DSLTC_SVDKBindingSource.AddNew();
-                    DataRowView newRow = ((DataRowView)sP_LAY_DSLTC_SVDKBindingSource.Current);
-                    newRow["MALTC"] = currentRow["MALTC"];
-                    newRow["MAMH"] = currentRow["MAMH"];
-                    newRow["TENMH"] = currentRow["TENMH"];
-                    newRow["NHOM"] = currentRow["NHOM"];
-                    newRow["HOTENGV"] = currentRow["HOTENGV"];
+                    if (Program.ExecSqlNonQuery("EXEC SP_KIEMTRALTCDANHAPDIEM " + currentRow["MALTC"].ToString(), Program.connectionString) == 1)
+                    {
+                        currentRow["HUYDANGKY"] = false;
+                        button1.Text = "Hủy đăng ký";
+                        sP_LAY_DSLTC_SVDKBindingSource.AddNew();
+                        DataRowView newRow = ((DataRowView)sP_LAY_DSLTC_SVDKBindingSource.Current);
+                        newRow["MALTC"] = currentRow["MALTC"];
+                        newRow["MAMH"] = currentRow["MAMH"];
+                        newRow["TENMH"] = currentRow["TENMH"];
+                        newRow["NHOM"] = currentRow["NHOM"];
+                        newRow["HOTENGV"] = currentRow["HOTENGV"];
+                    }
                 }
             }
         }
@@ -191,6 +187,21 @@ namespace QLDSV_TC
             catch (Exception ex)
             {
                 MessageBox.Show("Ghi thất bại: " + ex.Message);
+            }
+        }
+
+        private void hủyĐăngKýToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DataRowView currentRow = ((DataRowView)sP_LAY_DSLTC_SVDKBindingSource.Current);
+            if (currentRow["HUYLOP"].ToString().Equals("True")) MessageBox.Show("Lớp này đã hủy. Không thể hủy đăng ký!");
+            else
+            {
+                if (Program.ExecSqlNonQuery("EXEC SP_KIEMTRALTCDANHAPDIEM " + currentRow["MALTC"].ToString(), Program.connectionString) == 1)
+                {
+                    DialogResult msg = MessageBox.Show("Bạn có chắc chắn muốn hủy đăng ký?", "", MessageBoxButtons.YesNo);
+                    if (msg == DialogResult.Yes)
+                        sP_LAY_DSLTC_SVDKBindingSource.RemoveCurrent();
+                }
             }
         }
     }

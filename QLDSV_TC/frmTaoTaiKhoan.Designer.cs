@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmTaoTaiKhoan));
             this.cmbGiangVien = new System.Windows.Forms.ComboBox();
             this.lblGiangVien = new System.Windows.Forms.Label();
@@ -108,6 +107,7 @@
             this.teTaiKhoan.Name = "teTaiKhoan";
             this.teTaiKhoan.Properties.Appearance.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.teTaiKhoan.Properties.Appearance.Options.UseFont = true;
+            this.teTaiKhoan.Properties.MaxLength = 50;
             this.teTaiKhoan.Size = new System.Drawing.Size(537, 30);
             this.teTaiKhoan.TabIndex = 6;
             // 
@@ -118,6 +118,7 @@
             this.teMatKhau.Name = "teMatKhau";
             this.teMatKhau.Properties.Appearance.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.teMatKhau.Properties.Appearance.Options.UseFont = true;
+            this.teMatKhau.Properties.MaxLength = 50;
             this.teMatKhau.Properties.PasswordChar = '*';
             this.teMatKhau.Size = new System.Drawing.Size(537, 30);
             this.teMatKhau.TabIndex = 7;
@@ -147,6 +148,7 @@
             // dS
             // 
             this.dS.DataSetName = "DS";
+            this.dS.EnforceConstraints = false;
             this.dS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // frmTaoTaiKhoan

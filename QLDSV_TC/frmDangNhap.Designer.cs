@@ -108,6 +108,7 @@
             // dS
             // 
             this.dS.DataSetName = "DS";
+            this.dS.EnforceConstraints = false;
             this.dS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // teTaiKhoan
@@ -117,6 +118,7 @@
             this.teTaiKhoan.Name = "teTaiKhoan";
             this.teTaiKhoan.Properties.Appearance.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.teTaiKhoan.Properties.Appearance.Options.UseFont = true;
+            this.teTaiKhoan.Properties.MaxLength = 50;
             this.teTaiKhoan.Size = new System.Drawing.Size(532, 30);
             this.teTaiKhoan.TabIndex = 5;
             // 
