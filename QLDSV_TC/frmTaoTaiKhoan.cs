@@ -38,13 +38,60 @@ namespace QLDSV_TC
         {
             // Note: Đã xử lý tạo tài khoản trên site đang đăng nhập
             // Mở kết nối
-            if (Program.KetNoi() == 0) return; // Không kết nối được ==> dừng
-            // Tạo login ở site hiện tại. res lưu trạng thái execute thành công hay thất bại
-            int res = Program.ExecSqlNonQuery(String.Format("EXEC SP_TAOLOGIN '{0}','{1}','{2}','{3}'",
-                                                            teTaiKhoan.Text,teMatKhau.Text,
-                                                            cmbGiangVien.SelectedValue.ToString(),
-                                                            cmbTenNhom.SelectedValue.ToString()),
-                                            Program.connectionString);
+            String currentSite = Program.servername.ToString();
+            DataRowView row;
+            int res = 1;
+            int i = 0;
+            if (cmbTenNhom.SelectedValue.ToString().Equals("PGV"))
+            {
+                for (i = 0; i < Program.bdsDSPM.Count; i++)
+                {
+                    row = Program.bdsDSPM[i] as DataRowView;
+                    Program.servername = row["TENSERVER"].ToString();
+                    if (Program.KetNoi() == 0) return; // Không kết nối được ==> dừng
+                    // Tạo login ở site hiện tại. res lưu trạng thái execute thành công hay thất bại
+                    res = Program.ExecSqlNonQuery(String.Format("EXEC SP_TAOLOGIN '{0}','{1}','{2}','{3}'",
+                                                                    teTaiKhoan.Text,teMatKhau.Text,
+                                                                    cmbGiangVien.SelectedValue.ToString(),
+                                                                    cmbTenNhom.SelectedValue.ToString()),
+                                                    Program.connectionString);
+                    if (res == 0) break;
+                }
+            }
+            else
+            {
+                if (Program.KetNoi() == 0) return; // Không kết nối được ==> dừng
+                                                   // Tạo login ở site hiện tại. res lưu trạng thái execute thành công hay thất bại
+                res = Program.ExecSqlNonQuery(String.Format("EXEC SP_TAOLOGIN '{0}','{1}','{2}','{3}'",
+                                                                teTaiKhoan.Text, teMatKhau.Text,
+                                                                cmbGiangVien.SelectedValue.ToString(),
+                                                                cmbTenNhom.SelectedValue.ToString()),
+                                                Program.connectionString);
+            }
+            if (res == 1)
+            {
+                MessageBox.Show("Tạo tài khoản thành công!");
+            }
+            else
+            {
+                if (i == Program.bdsDSPM.Count - 1)
+                {
+                    for (int j = 0; j < i; j++)
+                    {
+                        row = Program.bdsDSPM[j] as DataRowView;
+                        Program.servername = row["TENSERVER"].ToString();
+                        if (Program.KetNoi() == 0) return; // Không kết nối được ==> dừng
+                                                           // Tạo login ở site hiện tại. res lưu trạng thái execute thành công hay thất bại
+                        Program.ExecSqlNonQuery(String.Format("EXEC SP_XOALOGIN '{0}','{1}'",
+                                                                        teTaiKhoan.Text,
+                                                                        cmbGiangVien.SelectedValue.ToString()),
+                                                        Program.connectionString);
+                    }
+                }
+                MessageBox.Show("Tạo tài khoản thất bại!");
+            }
+            Program.servername = currentSite;
+            Program.KetNoi();
         }
     }
 }

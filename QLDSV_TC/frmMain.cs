@@ -68,6 +68,8 @@ namespace QLDSV_TC
             rbDSDongHocPhi.Visible = false;
             rbBDTK.Visible = false;
 
+            btnTaoTaiKhoan.Visibility = DevExpress.XtraBars.BarItemVisibility.Always;
+
             // Reset status bar
             barMa.Caption = "Mã";
             barHoTen.Caption = "Họ tên";
@@ -128,6 +130,12 @@ namespace QLDSV_TC
                 f.MdiParent = this;
                 f.Show();
             }
+        }
+
+        public void updateBtnTaoTaiKhoan()
+        {
+            if (Program.mTenNhom.Equals("SV"))
+                btnTaoTaiKhoan.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
         }
 
         private void frmMain_Load(object sender, EventArgs e)
