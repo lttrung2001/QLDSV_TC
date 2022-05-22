@@ -15,6 +15,7 @@ namespace QLDSV_TC
 {
     public partial class frmMonHoc : DevExpress.XtraEditors.XtraForm
     {
+        int vitri = 0;
         private static String option;
         private static String tmpMaMon;
         private static String tmpTenMon;
@@ -101,18 +102,6 @@ namespace QLDSV_TC
             lOPTINCHITableAdapter.Connection.ConnectionString = Program.connStrSiteChu;
             lOPTINCHITableAdapter.Fill(DS.LOPTINCHI);
         }
-        private void btnThem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            option = "INSERT";
-            // Thay đổi trạng thái các button
-            btnGhi.Enabled = btnPhucHoi.Enabled = true;
-            MONHOCGridControl.Enabled = false;
-            btnThem.Enabled = btnXoa.Enabled = btnSua.Enabled = false;
-            btnGhi.Enabled = btnHuy.Enabled = true; // Active nút ghi và nút hủy
-            panelControl1.Enabled = true;
-            bdsMonHoc.AddNew(); // Thêm dòng mới vào bảng
-            txbMaMonHoc.Focus();
-        }
 
         private void frmMonHoc_Load(object sender, EventArgs e)
         {
@@ -122,6 +111,18 @@ namespace QLDSV_TC
             lOPTINCHITableAdapter.Connection.ConnectionString = Program.connStrSiteChu;
             lOPTINCHITableAdapter.Fill(DS.LOPTINCHI);
         }
+        private void btnThem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            vitri = bdsMonHoc.Position;
+            option = "INSERT";
+            // Thay đổi trạng thái các button
+            MONHOCGridControl.Enabled = false;
+            btnThem.Enabled = btnXoa.Enabled = btnSua.Enabled = false;
+            btnGhi.Enabled = btnHuy.Enabled = true; // Active nút ghi và nút hủy
+            panelControl1.Enabled = true;
+            bdsMonHoc.AddNew(); // Thêm dòng mới vào bảng
+            txbMaMonHoc.Focus();
+        }
 
         private void btnThoat_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
@@ -129,28 +130,9 @@ namespace QLDSV_TC
             Close();
         }
 
-        private void btnPhucHoi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-
-            bdsMonHoc.CancelEdit();
-            //if (btnThem.Enabled == false) bdsMonHoc.Position = vitri;
-            MONHOCGridControl.Enabled = true;
-            panelControl1.Enabled = false;
-            btnThem.Enabled = btnSua.Enabled = btnXoa.Enabled = true;
-            btnGhi.Enabled = btnPhucHoi.Enabled = false;
-            frmMonHoc_Load(sender, e);
-
-            // load lại cả form...
-
-
-            //if (vitri > 0)
-            //{
-            //    bdsMonHoc.Position = vitri;
-            //}
-        }
-
         private void btnXoa_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            string mamh = "";
             if (bdsLopTinChi.Count > 0)
             {
                 MessageBox.Show("Không thể xóa môn học này vì đã có trong lớp học", "", MessageBoxButtons.OK);
@@ -158,11 +140,24 @@ namespace QLDSV_TC
             }
             else
             {
-                if (MessageBox.Show("Bạn có thật sự muốn xóa môn học này ?", "", MessageBoxButtons.OKCancel) == DialogResult.OK)
+                DialogResult dr = XtraMessageBox.Show("Bạn có chắc muốn xóa môn học này?", "Thông báo",
+                    MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                if (dr == DialogResult.OK)
                 {
-                    bdsMonHoc.RemoveCurrent(); // Xóa dòng hiện tại
-                    bdsMonHoc.EndEdit(); // Lưu dữ liệu về DS
-                    MONHOCTableAdapter.Update(DS);
+                    mamh = ((DataRowView)bdsMonHoc[bdsMonHoc.Position])["MAMH"].ToString();
+                    try
+                    {
+                        bdsMonHoc.RemoveCurrent(); // Xóa dòng hiện tại
+                        bdsMonHoc.EndEdit(); // Lưu dữ liệu về DS
+                        MONHOCTableAdapter.Update(DS.MONHOC);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Xóa môn học thất bại, bạn hãy xóa lại!" + ex.Message, "", MessageBoxButtons.OK);
+                        MONHOCTableAdapter.Fill(DS.MONHOC);
+                        bdsMonHoc.Position = bdsMonHoc.Find("MALOP", mamh);
+                        return;
+                    }
                 }
                 else return;
             }
@@ -171,12 +166,12 @@ namespace QLDSV_TC
 
         private void btnSua_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            
+            vitri = bdsMonHoc.Position;
             tmpMaMon = ((DataRowView)bdsMonHoc.Current)["MAMH"].ToString();
             tmpTenMon = ((DataRowView)bdsMonHoc.Current)["TENMH"].ToString();
             tmpStLT = int.Parse(((DataRowView)bdsMonHoc.Current)["SOTIET_LT"].ToString());
             tmpStTH = int.Parse(((DataRowView)bdsMonHoc.Current)["SOTIET_TH"].ToString());
-            
+
             option = "UPDATE";
             btnThem.Enabled = btnXoa.Enabled = btnSua.Enabled = false;
             btnGhi.Enabled = btnHuy.Enabled = true; // Active nút ghi và nút hủy
@@ -213,10 +208,10 @@ namespace QLDSV_TC
                 {
                     if (option.ToString().Equals("INSERT"))
                         bdsMonHoc.RemoveCurrent();
-                }    
+                }
                 MONHOCGridControl.Enabled = true;
                 btnThem.Enabled = btnSua.Enabled = btnXoa.Enabled = true;
-                btnGhi.Enabled = btnPhucHoi.Enabled = false;
+                btnGhi.Enabled = btnHuy.Enabled = false;
                 panelControl1.Enabled = false;
             }
             else if (flag == -1)
@@ -229,21 +224,31 @@ namespace QLDSV_TC
 
         private void btnHuy_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            if (option.Equals("INSERT"))
-                bdsMonHoc.RemoveCurrent();
-            // Nếu là update, khi hủy set lại giá trị cũ
-            else if (option.Equals("UPDATE"))
-            {
-                txbMaMonHoc.Text = tmpMaMon;
-                txbTenMonHoc.Text = tmpTenMon;
-                speSoTietLT.Value = tmpStLT;
-                speSoTietTH.Value = tmpStTH;
-            }
+            bdsMonHoc.CancelEdit();
+            if (btnThem.Enabled == false) bdsMonHoc.Position = vitri;
             panelControl1.Enabled = false;
             MONHOCGridControl.Enabled = true;
             // Set trạng thái các nút chức năng
             btnThem.Enabled = btnXoa.Enabled = btnSua.Enabled = true;
             btnHuy.Enabled = btnGhi.Enabled = false;
+            frmMonHoc_Load(sender, e);
+            if (vitri > 0)
+            {
+                bdsMonHoc.Position = vitri;
+            }
+        }
+
+        private void btnLamMoi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            try
+            {
+                this.MONHOCTableAdapter.Fill(this.DS.MONHOC);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi Reload: " + ex.Message, "", MessageBoxButtons.OK);
+                return;
+            }
         }
     }
 }

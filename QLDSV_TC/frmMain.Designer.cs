@@ -68,6 +68,7 @@
             this.barThongTin = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.xtraTabbedMdiManager1 = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
             this.dS = new QLDSV_TC.DS();
+            this.btnDiem = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabbedMdiManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dS)).BeginInit();
@@ -101,9 +102,10 @@
             this.btnDangNhap,
             this.barButtonItem2,
             this.btnShowDangNhap,
-            this.btnBDTK});
+            this.btnBDTK,
+            this.btnDiem});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl1.MaxItemId = 25;
+            this.ribbonControl1.MaxItemId = 26;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rbPageTaiKhoan,
@@ -332,6 +334,7 @@
             this.rbPGV.ItemLinks.Add(this.btnSV);
             this.rbPGV.ItemLinks.Add(this.btnMonHoc);
             this.rbPGV.ItemLinks.Add(this.btnLTC);
+            this.rbPGV.ItemLinks.Add(this.btnDiem);
             this.rbPGV.Name = "rbPGV";
             this.rbPGV.Visible = false;
             // 
@@ -406,7 +409,17 @@
             // dS
             // 
             this.dS.DataSetName = "DS";
+            this.dS.EnforceConstraints = false;
             this.dS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // btnDiem
+            // 
+            this.btnDiem.Caption = "NHẬP ĐIỂM";
+            this.btnDiem.Id = 25;
+            this.btnDiem.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnDiem.ImageOptions.Image")));
+            this.btnDiem.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnDiem.ImageOptions.LargeImage")));
+            this.btnDiem.Name = "btnDiem";
+            this.btnDiem.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDiem_ItemClick);
             // 
             // frmMain
             // 
@@ -444,9 +457,7 @@
         private DevExpress.XtraBars.Ribbon.RibbonPage rbPageBaoCao;
         private DevExpress.XtraBars.BarButtonItem barButtonItem5;
         private DevExpress.XtraBars.BarButtonItem btnLop;
-        private DevExpress.XtraBars.BarButtonItem btnTaoTaiKhoan;
         private DevExpress.XtraBars.Ribbon.RibbonPage rbPageTaiKhoan;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup rbTaiKhoan;
         private DevExpress.XtraBars.BarButtonItem btnDangXuat;
         private DevExpress.XtraBars.BarButtonItem btnDangKyMon;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rbDangKyMon;
@@ -471,5 +482,8 @@
         private DevExpress.XtraBars.BarButtonItem btnBDTK;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rbBDTK;
         private DS dS;
+        private DevExpress.XtraBars.BarButtonItem btnTaoTaiKhoan;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup rbTaiKhoan;
+        private DevExpress.XtraBars.BarButtonItem btnDiem;
     }
 }

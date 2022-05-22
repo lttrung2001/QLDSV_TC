@@ -85,7 +85,15 @@ namespace QLDSV_TC
 
         private void btnDongHocPhi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-
+            Form frm = this.checkExist(typeof(frmHocPhi));
+            if (frm != null)
+                frm.Activate();
+            else
+            {
+                frmHocPhi f = new frmHocPhi();
+                f.MdiParent = this;
+                f.Show();
+            }
         }
 
         private void btnTaoTaiKhoan_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -236,17 +244,41 @@ namespace QLDSV_TC
 
         private void btnBDLTC_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-
+            Form frm = this.checkExist(typeof(frmXrptBDHM));
+            if (frm != null)
+                frm.Activate();
+            else
+            {
+                frmXrptBDHM f = new frmXrptBDHM();
+                f.MdiParent = this;
+                f.Show();
+            }
         }
 
         private void btnPhieuDiem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-
+            Form frm = this.checkExist(typeof(frmXrptBDHM));
+            if (frm != null)
+                frm.Activate();
+            else
+            {
+                frmXrptBDHM f = new frmXrptBDHM();
+                f.MdiParent = this;
+                f.Show();
+            }
         }
 
         private void btnDSDongHocPhi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-
+            Form frm = this.checkExist(typeof(frmXrptHP));
+            if (frm != null)
+                frm.Activate();
+            else
+            {
+                frmXrptHP f = new frmXrptHP();
+                f.MdiParent = this;
+                f.Show();
+            }
         }
 
         private void btnBDTK_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -265,6 +297,19 @@ namespace QLDSV_TC
         private void cmbPhanManh_SelectedIndexChanged(object sender, EventArgs e)
         {
             
+        }
+
+        private void btnDiem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form frm = this.checkExist(typeof(frmDiem));
+            if (frm != null)
+                frm.Activate();
+            else
+            {
+                frmDiem f = new frmDiem();
+                f.MdiParent = this;
+                f.Show();
+            }
         }
     }
 }
