@@ -201,6 +201,15 @@ namespace QLDSV_TC
                     view.SetColumnError(colHOCKY, "Đã tồn tại học kì, xem lại...");
                     return;
                 }
+                int hocphi = Int32.Parse(hocPhi);
+                int sotiendadong = Int32.Parse(gvDSHP.GetRowCellValue(position, "colDADONGHP").ToString());
+                if (hocphi < sotiendadong)
+                {
+                    MessageBox.Show("Học phí sửa không được nhỏ hơn số tiền đã đóng", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    e.Valid = false;
+                    view.SetColumnError(colHOCPHI, "xem lại...");
+                    return;
+                }
                 else // Không trùng thì
                 {
                     btnGhi.Enabled = true;
@@ -249,8 +258,8 @@ namespace QLDSV_TC
 
         private void btnHuy_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            bdsHocPhi.CancelEdit(); // Hủy thao tác hiện tại
             bdsHocPhi.RemoveCurrent();
+            bdsHocPhi.CancelEdit(); // Hủy thao tác hiện tại
             btnThem.Enabled = btnXoa.Enabled = btnGhi.Enabled = btnHuy.Enabled  = false;
             btnThoat.Enabled = true;
         }
@@ -306,14 +315,24 @@ namespace QLDSV_TC
         private void gvCTDHP_ValidateRow(object sender, ValidateRowEventArgs e)
         {
             GridView view = sender as GridView;
-            int position = view.FocusedRowHandle;
-            String money = gvCTDHP.GetRowCellValue(position, "SOTIENDONG").ToString();
+            GridView view1 = gvDSHP;
+            int position = view1.FocusedRowHandle;
+            int position1 = view.FocusedRowHandle;
+            String money = gvCTDHP.GetRowCellValue(position1, "SOTIENDONG").ToString();
             btnGhi.Enabled = false;
             if (String.IsNullOrWhiteSpace(money))
             {
                 MessageBox.Show("Không để trống học phí!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 e.Valid = false;
                 view.SetColumnError(colSOTIENDONG, "Không để trống số tiền đóng học phí!");
+                return;
+            }
+            int sotienCandong = int.Parse(gvDSHP.GetRowCellValue(position, "colCONTHIEU").ToString());
+            if (sotienCandong < 0)
+            {
+                MessageBox.Show("Số tiền đóng lớn hơn số tiền " + money + " còn lại phải đóng!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                e.Valid = false;
+                view.SetColumnError(colSOTIENDONG, "Số tiền đóng lớn hơn số tiền còn lại phải đóng,vui lòng xem lại...!");
                 return;
             }
 
