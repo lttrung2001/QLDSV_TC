@@ -82,7 +82,7 @@ namespace QLDSV_TC
             loadHP();
             contextMenuStrip1.Enabled = true;
             btnThem.Enabled = btnXoa.Enabled = true;
-            btnThoat.Enabled = false;
+    
 
         }
 
@@ -258,10 +258,12 @@ namespace QLDSV_TC
 
         private void btnHuy_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            bdsHocPhi.RemoveCurrent();
+   
             bdsHocPhi.CancelEdit(); // Hủy thao tác hiện tại
-            btnThem.Enabled = btnXoa.Enabled = btnGhi.Enabled = btnHuy.Enabled  = false;
-            btnThoat.Enabled = true;
+            loadHP();
+            contextMenuStrip1.Enabled = true;
+            btnThem.Enabled = btnXoa.Enabled = true;
+            btnGhi.Enabled = false;
         }
 
         private void thêmSinhViênToolStripMenuItem_Click(object sender, EventArgs e)
