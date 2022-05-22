@@ -275,8 +275,11 @@ namespace QLDSV_TC
             gcDSHP.Enabled = false;
 
             // Lưu mã khoa vào biến
-            bdsCTHocPhi.AddNew(); // Thêm dòng mới vào bảng
+            bdsCTHocPhi.AddNew(); // Thêm dòng mới vào bảngGridView view1 = gvDSHP;
+            position = view1.FocusedRowHandle;
+            int money = int.Parse(gvDSHP.GetRowCellValue(position, "colCONTHIEU").ToString());
             ((DataRowView)bdsCTHocPhi.Current)["NGAYDONG"] = DateTime.Now.ToString();
+            ((DataRowView)bdsCTHocPhi.Current)["SOTIENDONG"] = money;
         }
 
         private void xóaSinhViênToolStripMenuItem_Click(object sender, EventArgs e)
