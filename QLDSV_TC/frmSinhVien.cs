@@ -343,6 +343,7 @@ namespace QLDSV_TC
             (e.BindableControls["TEN"] as TextEdit).Properties.MaxLength = 10;
             (e.BindableControls["DIACHI"] as TextEdit).Properties.MaxLength = 100;
             (e.BindableControls["MALOP"] as TextEdit).Properties.MaxLength = 10;
+            (e.BindableControls["MALOP"] as TextEdit).Properties.ReadOnly = true;
             (e.BindableControls["PASSWORD"] as TextEdit).Properties.MaxLength = 40;
         }
 
