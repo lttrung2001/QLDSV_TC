@@ -96,15 +96,12 @@ namespace QLDSV_TC
         public frmMonHoc()
         {
             InitializeComponent();
-            DS.EnforceConstraints = false;
-            MONHOCTableAdapter.Connection.ConnectionString = Program.connectionString;
-            MONHOCTableAdapter.Fill(DS.MONHOC);
-            lOPTINCHITableAdapter.Connection.ConnectionString = Program.connStrSiteChu;
-            lOPTINCHITableAdapter.Fill(DS.LOPTINCHI);
+           
         }
 
         private void frmMonHoc_Load(object sender, EventArgs e)
         {
+		InitializeComponent();
             DS.EnforceConstraints = false;
             MONHOCTableAdapter.Connection.ConnectionString = Program.connectionString;
             MONHOCTableAdapter.Fill(DS.MONHOC);

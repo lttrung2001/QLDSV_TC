@@ -16,11 +16,11 @@ namespace QLDSV_TC
 {
     public partial class frmHocPhi : DevExpress.XtraEditors.XtraForm
     {
-        private static String tmpMaSV;
-        private static bool dangThemHP;
-        private static bool dangSuaHP;
-        private static bool dangThemCTHP;
-        private static bool dangSuaCTHP;
+        //private static String tmpMaSV;
+        //private static bool dangThemHP;
+        //private static bool dangSuaHP;
+        //private static bool dangThemCTHP;
+        //private static bool dangSuaCTHP;
         public frmHocPhi()
         {
             InitializeComponent();
@@ -34,7 +34,7 @@ namespace QLDSV_TC
             {
                 // Kết nối site hiện tại
                 if (Program.KetNoi() == 0) return; // Nếu không mở kết nối được thì dừng
-                //CT_DONGHOCPHITableAdapter.Connection.ConnectionString = Program.connectionString
+                CT_DONGHOCPHITableAdapter.Connection.ConnectionString = Program.connectionString
                 this.CT_DONGHOCPHITableAdapter.Fill(this.DS.CT_DONGHOCPHI);
             }
             catch (Exception ex)
