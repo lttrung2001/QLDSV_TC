@@ -22,10 +22,13 @@ namespace QLDSV_TC
         private void frmXrptHP_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'dS.KHOA' table. You can move, or remove it, as needed.
+	    this.kHOATableAdapter.Connection.ConnectionString = Program.connectionString;
             this.kHOATableAdapter.Fill(this.dS.KHOA);
             // TODO: This line of code loads data into the 'dS.LOP' table. You can move, or remove it, as needed.
+	    this.lOPTableAdapter.Connection.ConnectionString = Program.connectionString;  
             this.lOPTableAdapter.Fill(this.dS.LOP);
             // TODO: This line of code loads data into the 'dS.NIENKHOA' table. You can move, or remove it, as needed.
+	    this.nIENKHOATableAdapter.Connection.ConnectionString = Program.connectionString;  
             this.nIENKHOATableAdapter.Fill(this.dS.NIENKHOA);
             hocKyComboBox1.SelectedIndex = 0;
 
