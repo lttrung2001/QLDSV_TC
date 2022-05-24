@@ -100,7 +100,7 @@
             this.barDockControlTop.Location = new System.Drawing.Point(0, 51);
             this.barDockControlTop.Manager = null;
             this.barDockControlTop.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.barDockControlTop.Size = new System.Drawing.Size(1453, 0);
+            this.barDockControlTop.Size = new System.Drawing.Size(1724, 0);
             // 
             // barDockControl1
             // 
@@ -109,7 +109,7 @@
             this.barDockControl1.Location = new System.Drawing.Point(0, 51);
             this.barDockControl1.Manager = null;
             this.barDockControl1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.barDockControl1.Size = new System.Drawing.Size(1453, 0);
+            this.barDockControl1.Size = new System.Drawing.Size(1724, 0);
             // 
             // barManager1
             // 
@@ -224,7 +224,7 @@
             this.barDockControl2.Location = new System.Drawing.Point(0, 0);
             this.barDockControl2.Manager = this.barManager1;
             this.barDockControl2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.barDockControl2.Size = new System.Drawing.Size(1453, 51);
+            this.barDockControl2.Size = new System.Drawing.Size(1724, 51);
             // 
             // barDockControlBottom
             // 
@@ -233,7 +233,7 @@
             this.barDockControlBottom.Location = new System.Drawing.Point(0, 820);
             this.barDockControlBottom.Manager = this.barManager1;
             this.barDockControlBottom.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.barDockControlBottom.Size = new System.Drawing.Size(1453, 20);
+            this.barDockControlBottom.Size = new System.Drawing.Size(1724, 20);
             // 
             // barDockControlLeft
             // 
@@ -248,7 +248,7 @@
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(1453, 51);
+            this.barDockControlRight.Location = new System.Drawing.Point(1724, 51);
             this.barDockControlRight.Manager = this.barManager1;
             this.barDockControlRight.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.barDockControlRight.Size = new System.Drawing.Size(0, 769);
@@ -264,14 +264,22 @@
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
             this.tableAdapterManager.Connection = null;
             this.tableAdapterManager.CT_DONGHOCPHITableAdapter = null;
+            this.tableAdapterManager.DANGKYTableAdapter = null;
+            this.tableAdapterManager.GIANGVIENINFOTableAdapter = null;
+            this.tableAdapterManager.GIANGVIENTableAdapter = null;
             this.tableAdapterManager.HOCPHITableAdapter = null;
+            this.tableAdapterManager.KHOATableAdapter = null;
+            this.tableAdapterManager.LOPTableAdapter = null;
+            this.tableAdapterManager.LOPTINCHITableAdapter = null;
+            this.tableAdapterManager.MONHOCTableAdapter = null;
+            this.tableAdapterManager.SINHVIENTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = QLDSV_TC.DSTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(29, 40);
+            this.label1.Location = new System.Drawing.Point(32, 42);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(154, 23);
             this.label1.TabIndex = 2;
@@ -280,7 +288,7 @@
             // lblTenMon
             // 
             this.lblTenMon.AutoSize = true;
-            this.lblTenMon.Location = new System.Drawing.Point(467, 55);
+            this.lblTenMon.Location = new System.Drawing.Point(604, 55);
             this.lblTenMon.Name = "lblTenMon";
             this.lblTenMon.Size = new System.Drawing.Size(95, 23);
             this.lblTenMon.TabIndex = 22;
@@ -289,7 +297,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(1004, 55);
+            this.label2.Location = new System.Drawing.Point(1113, 59);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(63, 23);
             this.label2.TabIndex = 24;
@@ -302,7 +310,7 @@
             this.btnTim.AppearanceHovered.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.btnTim.AppearanceHovered.Options.UseBackColor = true;
             this.btnTim.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnTim.ImageOptions.Image")));
-            this.btnTim.Location = new System.Drawing.Point(1335, 42);
+            this.btnTim.Location = new System.Drawing.Point(1499, 42);
             this.btnTim.Name = "btnTim";
             this.btnTim.Size = new System.Drawing.Size(118, 59);
             this.btnTim.TabIndex = 26;
@@ -311,18 +319,18 @@
             // 
             // teHoTen
             // 
-            this.teHoTen.Location = new System.Drawing.Point(564, 52);
+            this.teHoTen.Location = new System.Drawing.Point(748, 52);
             this.teHoTen.Margin = new System.Windows.Forms.Padding(5);
             this.teHoTen.Name = "teHoTen";
             this.teHoTen.Properties.Appearance.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.teHoTen.Properties.Appearance.Options.UseFont = true;
             this.teHoTen.Properties.ReadOnly = true;
-            this.teHoTen.Size = new System.Drawing.Size(407, 30);
+            this.teHoTen.Size = new System.Drawing.Size(280, 30);
             this.teHoTen.TabIndex = 27;
             // 
             // teLop
             // 
-            this.teLop.Location = new System.Drawing.Point(1073, 52);
+            this.teLop.Location = new System.Drawing.Point(1222, 56);
             this.teLop.Margin = new System.Windows.Forms.Padding(5);
             this.teLop.Name = "teLop";
             this.teLop.Properties.Appearance.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -343,14 +351,14 @@
             this.gbox.Dock = System.Windows.Forms.DockStyle.Top;
             this.gbox.Location = new System.Drawing.Point(0, 51);
             this.gbox.Name = "gbox";
-            this.gbox.Size = new System.Drawing.Size(1453, 101);
+            this.gbox.Size = new System.Drawing.Size(1724, 101);
             this.gbox.TabIndex = 6;
             this.gbox.TabStop = false;
             this.gbox.Text = "THÔNG TIN SINH VIÊN";
             // 
             // teMaSV
             // 
-            this.teMaSV.Location = new System.Drawing.Point(211, 52);
+            this.teMaSV.Location = new System.Drawing.Point(296, 56);
             this.teMaSV.Margin = new System.Windows.Forms.Padding(5);
             this.teMaSV.Name = "teMaSV";
             this.teMaSV.Properties.Appearance.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -421,7 +429,7 @@
             this.gcDSHP.MainView = this.gvDSHP;
             this.gcDSHP.MenuManager = this.barManager1;
             this.gcDSHP.Name = "gcDSHP";
-            this.gcDSHP.Size = new System.Drawing.Size(1453, 282);
+            this.gcDSHP.Size = new System.Drawing.Size(1724, 282);
             this.gcDSHP.TabIndex = 21;
             this.gcDSHP.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvDSHP});
@@ -528,7 +536,7 @@
             this.gcCTDHP.MainView = this.gvCTDHP;
             this.gcCTDHP.MenuManager = this.barManager1;
             this.gcCTDHP.Name = "gcCTDHP";
-            this.gcCTDHP.Size = new System.Drawing.Size(1453, 386);
+            this.gcCTDHP.Size = new System.Drawing.Size(1724, 386);
             this.gcCTDHP.TabIndex = 21;
             this.gcCTDHP.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvCTDHP});
@@ -574,7 +582,7 @@
             this.Appearance.Options.UseFont = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1453, 840);
+            this.ClientSize = new System.Drawing.Size(1724, 840);
             this.Controls.Add(this.gcCTDHP);
             this.Controls.Add(this.gcDSHP);
             this.Controls.Add(this.gbox);

@@ -4,6 +4,10 @@
 
     partial class DS
     {
+        partial class NIENKHOADataTable
+        {
+        }
+
         partial class KHOAHOCDataTable
         {
         }

@@ -31,21 +31,21 @@
             this.components = new System.ComponentModel.Container();
             this.hocKyComboBox1 = new System.Windows.Forms.ComboBox();
             this.nIENKHOAComboBox = new System.Windows.Forms.ComboBox();
+            this.nIENKHOABindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dS = new QLDSV_TC.DS();
             this.nIENKHOALabel1 = new System.Windows.Forms.Label();
             this.nIENKHOALabel = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.lOPBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label1 = new System.Windows.Forms.Label();
-            this.dS = new QLDSV_TC.DS();
-            this.nIENKHOABindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.nIENKHOATableAdapter = new QLDSV_TC.DSTableAdapters.NIENKHOATableAdapter();
             this.tableAdapterManager = new QLDSV_TC.DSTableAdapters.TableAdapterManager();
-            this.lOPBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.kHOATableAdapter = new QLDSV_TC.DSTableAdapters.KHOATableAdapter();
             this.lOPTableAdapter = new QLDSV_TC.DSTableAdapters.LOPTableAdapter();
             this.button1 = new System.Windows.Forms.Button();
             this.kHOABindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.kHOATableAdapter = new QLDSV_TC.DSTableAdapters.KHOATableAdapter();
-            ((System.ComponentModel.ISupportInitialize)(this.dS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nIENKHOABindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lOPBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kHOABindingSource)).BeginInit();
             this.SuspendLayout();
@@ -76,6 +76,17 @@
             this.nIENKHOAComboBox.Size = new System.Drawing.Size(159, 31);
             this.nIENKHOAComboBox.TabIndex = 4;
             this.nIENKHOAComboBox.ValueMember = "NIENKHOA";
+            // 
+            // nIENKHOABindingSource
+            // 
+            this.nIENKHOABindingSource.DataMember = "NIENKHOA";
+            this.nIENKHOABindingSource.DataSource = this.dS;
+            // 
+            // dS
+            // 
+            this.dS.DataSetName = "DS";
+            this.dS.EnforceConstraints = false;
+            this.dS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // nIENKHOALabel1
             // 
@@ -108,7 +119,12 @@
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(351, 31);
             this.comboBox1.TabIndex = 8;
-            this.comboBox1.ValueMember = "MALOP";
+            this.comboBox1.ValueMember = "MAKHOA";
+            // 
+            // lOPBindingSource
+            // 
+            this.lOPBindingSource.DataMember = "LOP";
+            this.lOPBindingSource.DataSource = this.dS;
             // 
             // label1
             // 
@@ -119,17 +135,6 @@
             this.label1.Size = new System.Drawing.Size(72, 23);
             this.label1.TabIndex = 9;
             this.label1.Text = "Mã lớp";
-            // 
-            // dS
-            // 
-            this.dS.DataSetName = "DS";
-            this.dS.EnforceConstraints = false;
-            this.dS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // nIENKHOABindingSource
-            // 
-            this.nIENKHOABindingSource.DataMember = "NIENKHOA";
-            this.nIENKHOABindingSource.DataSource = this.dS;
             // 
             // nIENKHOATableAdapter
             // 
@@ -150,10 +155,9 @@
             this.tableAdapterManager.SINHVIENTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = QLDSV_TC.DSTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
-            // lOPBindingSource
+            // kHOATableAdapter
             // 
-            this.lOPBindingSource.DataMember = "LOP";
-            this.lOPBindingSource.DataSource = this.dS;
+            this.kHOATableAdapter.ClearBeforeFill = true;
             // 
             // lOPTableAdapter
             // 
@@ -175,10 +179,6 @@
             this.kHOABindingSource.DataMember = "KHOA";
             this.kHOABindingSource.DataSource = this.dS;
             // 
-            // kHOATableAdapter
-            // 
-            this.kHOATableAdapter.ClearBeforeFill = true;
-            // 
             // frmXrptHP
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -194,8 +194,8 @@
             this.Name = "frmXrptHP";
             this.Text = "frmXrptHP";
             this.Load += new System.EventHandler(this.frmXrptHP_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nIENKHOABindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lOPBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.kHOABindingSource)).EndInit();
             this.ResumeLayout(false);

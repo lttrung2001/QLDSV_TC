@@ -1,5 +1,4 @@
 ﻿using DevExpress.XtraEditors;
-using DevExpress.XtraGrid.Views.Grid;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,12 +8,25 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using DevExpress.Utils;
 
 namespace QLDSV_TC
 {
     public partial class frmMonHoc : DevExpress.XtraEditors.XtraForm
     {
+        public frmMonHoc()
+        {
+            InitializeComponent();
+        }
+
+        private void frmMonHoc_Load(object sender, EventArgs e)
+        {
+            DS.EnforceConstraints = false;
+            // TODO: This line of code loads data into the 'dS.MONHOC' table. You can move, or remove it, as needed.
+            MONHOCTableAdapter.Connection.ConnectionString = Program.connectionString;
+            this.MONHOCTableAdapter.Fill(this.DS.MONHOC);
+
+        }
+
         int vitri = 0;
         private static String option;
         private static String tmpMaMon;
@@ -93,21 +105,7 @@ namespace QLDSV_TC
             }
             return 1;
         }
-        public frmMonHoc()
-        {
-            InitializeComponent();
-           
-        }
 
-        private void frmMonHoc_Load(object sender, EventArgs e)
-        {
-		InitializeComponent();
-            DS.EnforceConstraints = false;
-            MONHOCTableAdapter.Connection.ConnectionString = Program.connectionString;
-            MONHOCTableAdapter.Fill(DS.MONHOC);
-            lOPTINCHITableAdapter.Connection.ConnectionString = Program.connStrSiteChu;
-            lOPTINCHITableAdapter.Fill(DS.LOPTINCHI);
-        }
         private void btnThem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             vitri = bdsMonHoc.Position;
@@ -121,42 +119,37 @@ namespace QLDSV_TC
             txbMaMonHoc.Focus();
         }
 
-        private void btnThoat_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            saveDataWhenChangeSiteOrExitForm();
-            Close();
-        }
-
         private void btnXoa_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            string mamh = "";
-            if (bdsLopTinChi.Count > 0)
+            string mamh = (string)gvMonHoc.GetRowCellValue(gvMonHoc.FocusedRowHandle, "MAMH");
+            try
             {
-                MessageBox.Show("Không thể xóa môn học này vì đã có trong lớp học", "", MessageBoxButtons.OK);
-                return;
-            }
-            else
-            {
-                DialogResult dr = XtraMessageBox.Show("Bạn có chắc muốn xóa môn học này?", "Thông báo",
-                    MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-                if (dr == DialogResult.OK)
+                int res = Program.ExecSqlNonQuery(String.Format("EXEC SP_CheckMaMonInLopTC '{0}'", mamh), Program.connectionString);
+                if (res != 1) return;
+                else
                 {
-                    mamh = ((DataRowView)bdsMonHoc[bdsMonHoc.Position])["MAMH"].ToString();
-                    try
+                    DialogResult dr = XtraMessageBox.Show("Bạn có chắc muốn xóa môn học này?", "Thông báo",
+                        MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                    if (dr == DialogResult.OK)
                     {
-                        bdsMonHoc.RemoveCurrent(); // Xóa dòng hiện tại
-                        bdsMonHoc.EndEdit(); // Lưu dữ liệu về DS
-                        MONHOCTableAdapter.Update(DS.MONHOC);
+                        try
+                        {
+                            bdsMonHoc.RemoveCurrent(); // Xóa dòng hiện tại
+                            bdsMonHoc.EndEdit(); // Lưu dữ liệu về DS
+                            MONHOCTableAdapter.Update(DS.MONHOC);
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Xóa môn học thất bại, bạn hãy xóa lại!" + ex.Message, "", MessageBoxButtons.OK);
+                            return;
+                        }
                     }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Xóa môn học thất bại, bạn hãy xóa lại!" + ex.Message, "", MessageBoxButtons.OK);
-                        MONHOCTableAdapter.Fill(DS.MONHOC);
-                        bdsMonHoc.Position = bdsMonHoc.Find("MALOP", mamh);
-                        return;
-                    }
+                    else return;
                 }
-                else return;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Đã xảy ra lỗi khi xóa môn học: " + ex.Message);
             }
             if (bdsMonHoc.Count == 0) btnXoa.Enabled = false;
         }
@@ -246,6 +239,12 @@ namespace QLDSV_TC
                 MessageBox.Show("Lỗi Reload: " + ex.Message, "", MessageBoxButtons.OK);
                 return;
             }
+        }
+
+        private void btnThoat_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            saveDataWhenChangeSiteOrExitForm();
+            Close();
         }
     }
 }

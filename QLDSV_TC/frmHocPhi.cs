@@ -21,6 +21,7 @@ namespace QLDSV_TC
         //private static bool dangSuaHP;
         //private static bool dangThemCTHP;
         //private static bool dangSuaCTHP;
+        Boolean status = false;
         public frmHocPhi()
         {
             InitializeComponent();
@@ -34,7 +35,7 @@ namespace QLDSV_TC
             {
                 // Kết nối site hiện tại
                 if (Program.KetNoi() == 0) return; // Nếu không mở kết nối được thì dừng
-                CT_DONGHOCPHITableAdapter.Connection.ConnectionString = Program.connectionString
+                CT_DONGHOCPHITableAdapter.Connection.ConnectionString = Program.connectionString;
                 this.CT_DONGHOCPHITableAdapter.Fill(this.DS.CT_DONGHOCPHI);
             }
             catch (Exception ex)
@@ -88,7 +89,6 @@ namespace QLDSV_TC
 
         private void btnThem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            dangThemHP = true;
             // Thay đổi trạng thái các button
             btnThem.Enabled = btnXoa.Enabled = btnThoat.Enabled = false;
             btnGhi.Enabled = btnHuy.Enabled = true; // Active nút ghi và nút hủy
@@ -258,25 +258,25 @@ namespace QLDSV_TC
 
         private void btnHuy_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-   
             bdsHocPhi.CancelEdit(); // Hủy thao tác hiện tại
             loadHP();
-            contextMenuStrip1.Enabled = true;
+            contextMenuStrip1.Enabled =  gcCTDHP.Enabled =true;
             btnThem.Enabled = btnXoa.Enabled = true;
-            btnGhi.Enabled = false;
+            btnGhi.Enabled =  btnHuy.Enabled = false;
         }
 
         private void thêmSinhViênToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            status = true;
             // Thay đổi trạng thái các button
             btnThem.Enabled = btnXoa.Enabled = btnThoat.Enabled = false;
             btnGhi.Enabled = btnHuy.Enabled = false; // Active nút ghi và nút hủy
             // Thay đổi trạng thái các grid
             gcDSHP.Enabled = false;
-
+            GridView view1 = gvDSHP;
             // Lưu mã khoa vào biến
             bdsCTHocPhi.AddNew(); // Thêm dòng mới vào bảngGridView view1 = gvDSHP;
-            position = view1.FocusedRowHandle;
+            int position = view1.FocusedRowHandle;
             int money = int.Parse(gvDSHP.GetRowCellValue(position, "colCONTHIEU").ToString());
             ((DataRowView)bdsCTHocPhi.Current)["NGAYDONG"] = DateTime.Now.ToString();
             ((DataRowView)bdsCTHocPhi.Current)["SOTIENDONG"] = money;
@@ -349,10 +349,11 @@ namespace QLDSV_TC
 
         private void phụcHồiToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (status == true) bdsCTHocPhi.RemoveCurrent();
             bdsCTHocPhi.CancelEdit(); // Hủy thao tác hiện tại
             gcDSHP.Enabled = true;
             btnThem.Enabled = btnXoa.Enabled = true;
-
+            status = false;
         }
 
         private void btnThoat_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

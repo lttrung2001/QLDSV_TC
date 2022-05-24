@@ -310,7 +310,7 @@
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 734);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 635);
             this.barDockControlBottom.Manager = this.barChucNangLop;
             this.barDockControlBottom.Size = new System.Drawing.Size(1447, 20);
             // 
@@ -320,7 +320,7 @@
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.barDockControlLeft.Location = new System.Drawing.Point(0, 25);
             this.barDockControlLeft.Manager = this.barChucNangLop;
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 709);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 610);
             // 
             // barDockControlRight
             // 
@@ -328,7 +328,7 @@
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
             this.barDockControlRight.Location = new System.Drawing.Point(1447, 25);
             this.barDockControlRight.Manager = this.barChucNangLop;
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 709);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 610);
             // 
             // bdsLop
             // 
@@ -441,7 +441,7 @@
             this.gbThongTinLop.Enabled = false;
             this.gbThongTinLop.Location = new System.Drawing.Point(0, 345);
             this.gbThongTinLop.Name = "gbThongTinLop";
-            this.gbThongTinLop.Size = new System.Drawing.Size(510, 389);
+            this.gbThongTinLop.Size = new System.Drawing.Size(510, 290);
             this.gbThongTinLop.TabIndex = 6;
             this.gbThongTinLop.TabStop = false;
             this.gbThongTinLop.Text = "THÔNG TIN LỚP";
@@ -564,7 +564,7 @@
             this.gcSinhVienLop.MainView = this.gvSinhVienLop;
             this.gcSinhVienLop.MenuManager = this.barChucNangLop;
             this.gcSinhVienLop.Name = "gcSinhVienLop";
-            this.gcSinhVienLop.Size = new System.Drawing.Size(937, 389);
+            this.gcSinhVienLop.Size = new System.Drawing.Size(937, 290);
             this.gcSinhVienLop.TabIndex = 16;
             this.gcSinhVienLop.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvSinhVienLop});
@@ -702,7 +702,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1447, 754);
+            this.ClientSize = new System.Drawing.Size(1447, 655);
             this.Controls.Add(this.gcSinhVienLop);
             this.Controls.Add(this.gbThongTinLop);
             this.Controls.Add(this.gcLop);

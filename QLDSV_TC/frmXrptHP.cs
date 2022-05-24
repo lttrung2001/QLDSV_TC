@@ -29,13 +29,22 @@ namespace QLDSV_TC
             this.lOPTableAdapter.Fill(this.dS.LOP);
             // TODO: This line of code loads data into the 'dS.NIENKHOA' table. You can move, or remove it, as needed.
 	    this.nIENKHOATableAdapter.Connection.ConnectionString = Program.connectionString;  
-            this.nIENKHOATableAdapter.Fill(this.dS.NIENKHOA);
+            this.nIENKHOATableAdapter.FillBy(this.dS.NIENKHOA);
             hocKyComboBox1.SelectedIndex = 0;
 
         }
         private void button1_Click_1(object sender, EventArgs e)
         {
-            String tenKhoa = ((DataRowView)kHOABindingSource.Current)["TENKHOA"].ToString();
+            String tenKhoa = "";
+            DataRowView row;
+            for (int i = 0; i < kHOABindingSource.Count; i++)
+            {
+                row = ((DataRowView)kHOABindingSource[i]);
+                if (comboBox1.SelectedValue.ToString().Equals(row["MAKHOA"].ToString())) {
+                    tenKhoa = row["TENKHOA"].ToString();
+                    break;
+                }
+            }
             string malop = comboBox1.Text;
             String nienKhoa = nIENKHOAComboBox.Text;
             String hocKy = hocKyComboBox1.Text;

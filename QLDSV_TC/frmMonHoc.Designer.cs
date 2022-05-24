@@ -19,6 +19,7 @@
             }
             base.Dispose(disposing);
         }
+
         #region Windows Form Designer generated code
 
         /// <summary>
@@ -28,11 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.Label mAMHLabel;
+            System.Windows.Forms.Label tENMHLabel;
+            System.Windows.Forms.Label sOTIET_LTLabel;
+            System.Windows.Forms.Label sOTIET_THLabel;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMonHoc));
-            this.mAMHLabel = new System.Windows.Forms.Label();
-            this.tENMHLabel = new System.Windows.Forms.Label();
-            this.sOTIET_LTLabel = new System.Windows.Forms.Label();
-            this.sOTIET_THLabel = new System.Windows.Forms.Label();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar1 = new DevExpress.XtraBars.Bar();
             this.bar2 = new DevExpress.XtraBars.Bar();
@@ -59,15 +60,16 @@
             this.colSOTIET_LT = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colSOTIET_TH = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
-            this.label1 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.speSoTietTH = new DevExpress.XtraEditors.SpinEdit();
-            this.speSoTietLT = new DevExpress.XtraEditors.SpinEdit();
-            this.txbTenMonHoc = new DevExpress.XtraEditors.TextEdit();
+            this.svgImageBox1 = new DevExpress.XtraEditors.SvgImageBox();
             this.txbMaMonHoc = new DevExpress.XtraEditors.TextEdit();
-            this.bdsLopTinChi = new System.Windows.Forms.BindingSource(this.components);
-            this.lOPTINCHITableAdapter = new QLDSV_TC.DSTableAdapters.LOPTINCHITableAdapter();
-            this.behaviorManager1 = new DevExpress.Utils.Behaviors.BehaviorManager(this.components);
+            this.txbTenMonHoc = new DevExpress.XtraEditors.TextEdit();
+            this.speSoTietLT = new DevExpress.XtraEditors.SpinEdit();
+            this.speSoTietTH = new DevExpress.XtraEditors.SpinEdit();
+            this.label1 = new System.Windows.Forms.Label();
+            mAMHLabel = new System.Windows.Forms.Label();
+            tENMHLabel = new System.Windows.Forms.Label();
+            sOTIET_LTLabel = new System.Windows.Forms.Label();
+            sOTIET_THLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsMonHoc)).BeginInit();
@@ -75,54 +77,52 @@
             ((System.ComponentModel.ISupportInitialize)(this.gvMonHoc)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.speSoTietTH.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.speSoTietLT.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txbTenMonHoc.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.svgImageBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txbMaMonHoc.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdsLopTinChi)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txbTenMonHoc.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.speSoTietLT.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.speSoTietTH.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // mAMHLabel
             // 
-            this.mAMHLabel.AutoSize = true;
-            this.mAMHLabel.Location = new System.Drawing.Point(364, 90);
-            this.mAMHLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.mAMHLabel.Name = "mAMHLabel";
-            this.mAMHLabel.Size = new System.Drawing.Size(77, 16);
-            this.mAMHLabel.TabIndex = 0;
-            this.mAMHLabel.Text = "Mã môn học";
+            mAMHLabel.AutoSize = true;
+            mAMHLabel.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            mAMHLabel.Location = new System.Drawing.Point(532, 87);
+            mAMHLabel.Name = "mAMHLabel";
+            mAMHLabel.Size = new System.Drawing.Size(76, 23);
+            mAMHLabel.TabIndex = 1;
+            mAMHLabel.Text = "MAMH:";
             // 
             // tENMHLabel
             // 
-            this.tENMHLabel.AutoSize = true;
-            this.tENMHLabel.Location = new System.Drawing.Point(364, 133);
-            this.tENMHLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.tENMHLabel.Name = "tENMHLabel";
-            this.tENMHLabel.Size = new System.Drawing.Size(82, 16);
-            this.tENMHLabel.TabIndex = 2;
-            this.tENMHLabel.Text = "Tên môn học";
+            tENMHLabel.AutoSize = true;
+            tENMHLabel.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            tENMHLabel.Location = new System.Drawing.Point(524, 134);
+            tENMHLabel.Name = "tENMHLabel";
+            tENMHLabel.Size = new System.Drawing.Size(84, 23);
+            tENMHLabel.TabIndex = 3;
+            tENMHLabel.Text = "TENMH:";
             // 
             // sOTIET_LTLabel
             // 
-            this.sOTIET_LTLabel.AutoSize = true;
-            this.sOTIET_LTLabel.Location = new System.Drawing.Point(364, 176);
-            this.sOTIET_LTLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.sOTIET_LTLabel.Name = "sOTIET_LTLabel";
-            this.sOTIET_LTLabel.Size = new System.Drawing.Size(62, 16);
-            this.sOTIET_LTLabel.TabIndex = 4;
-            this.sOTIET_LTLabel.Text = "Số tiết LT";
+            sOTIET_LTLabel.AutoSize = true;
+            sOTIET_LTLabel.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            sOTIET_LTLabel.Location = new System.Drawing.Point(517, 178);
+            sOTIET_LTLabel.Name = "sOTIET_LTLabel";
+            sOTIET_LTLabel.Size = new System.Drawing.Size(114, 23);
+            sOTIET_LTLabel.TabIndex = 5;
+            sOTIET_LTLabel.Text = "SOTIET LT:";
             // 
             // sOTIET_THLabel
             // 
-            this.sOTIET_THLabel.AutoSize = true;
-            this.sOTIET_THLabel.Location = new System.Drawing.Point(364, 224);
-            this.sOTIET_THLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.sOTIET_THLabel.Name = "sOTIET_THLabel";
-            this.sOTIET_THLabel.Size = new System.Drawing.Size(64, 16);
-            this.sOTIET_THLabel.TabIndex = 6;
-            this.sOTIET_THLabel.Text = "Số tiết TH";
+            sOTIET_THLabel.AutoSize = true;
+            sOTIET_THLabel.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            sOTIET_THLabel.Location = new System.Drawing.Point(512, 227);
+            sOTIET_THLabel.Name = "sOTIET_THLabel";
+            sOTIET_THLabel.Size = new System.Drawing.Size(119, 23);
+            sOTIET_THLabel.TabIndex = 7;
+            sOTIET_THLabel.Text = "SOTIET TH:";
             // 
             // barManager1
             // 
@@ -141,10 +141,10 @@
             this.btnSua,
             this.btnGhi,
             this.btnHuy,
-            this.btnThoat,
-            this.btnLamMoi});
+            this.btnLamMoi,
+            this.btnThoat});
             this.barManager1.MainMenu = this.bar2;
-            this.barManager1.MaxItemId = 11;
+            this.barManager1.MaxItemId = 7;
             this.barManager1.StatusBar = this.bar3;
             // 
             // bar1
@@ -204,7 +204,7 @@
             // 
             this.btnGhi.Caption = "Ghi";
             this.btnGhi.Enabled = false;
-            this.btnGhi.Id = 4;
+            this.btnGhi.Id = 3;
             this.btnGhi.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnGhi.ImageOptions.Image")));
             this.btnGhi.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnGhi.ImageOptions.LargeImage")));
             this.btnGhi.Name = "btnGhi";
@@ -214,7 +214,7 @@
             // 
             this.btnHuy.Caption = "Hủy";
             this.btnHuy.Enabled = false;
-            this.btnHuy.Id = 5;
+            this.btnHuy.Id = 4;
             this.btnHuy.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnHuy.ImageOptions.Image")));
             this.btnHuy.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnHuy.ImageOptions.LargeImage")));
             this.btnHuy.Name = "btnHuy";
@@ -223,7 +223,7 @@
             // btnLamMoi
             // 
             this.btnLamMoi.Caption = "Làm mới";
-            this.btnLamMoi.Id = 10;
+            this.btnLamMoi.Id = 5;
             this.btnLamMoi.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnLamMoi.ImageOptions.Image")));
             this.btnLamMoi.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnLamMoi.ImageOptions.LargeImage")));
             this.btnLamMoi.Name = "btnLamMoi";
@@ -232,7 +232,7 @@
             // btnThoat
             // 
             this.btnThoat.Caption = "Thoát";
-            this.btnThoat.Id = 7;
+            this.btnThoat.Id = 6;
             this.btnThoat.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnThoat.ImageOptions.Image")));
             this.btnThoat.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnThoat.ImageOptions.LargeImage")));
             this.btnThoat.Name = "btnThoat";
@@ -256,17 +256,15 @@
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
             this.barDockControlTop.Manager = this.barManager1;
-            this.barDockControlTop.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.barDockControlTop.Size = new System.Drawing.Size(1624, 51);
+            this.barDockControlTop.Size = new System.Drawing.Size(1283, 51);
             // 
             // barDockControlBottom
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 765);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 669);
             this.barDockControlBottom.Manager = this.barManager1;
-            this.barDockControlBottom.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.barDockControlBottom.Size = new System.Drawing.Size(1624, 20);
+            this.barDockControlBottom.Size = new System.Drawing.Size(1283, 20);
             // 
             // barDockControlLeft
             // 
@@ -274,17 +272,15 @@
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.barDockControlLeft.Location = new System.Drawing.Point(0, 51);
             this.barDockControlLeft.Manager = this.barManager1;
-            this.barDockControlLeft.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 714);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 618);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(1624, 51);
+            this.barDockControlRight.Location = new System.Drawing.Point(1283, 51);
             this.barDockControlRight.Manager = this.barManager1;
-            this.barDockControlRight.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 714);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 618);
             // 
             // DS
             // 
@@ -304,8 +300,16 @@
             // tableAdapterManager
             // 
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.CT_DONGHOCPHITableAdapter = null;
+            this.tableAdapterManager.DANGKYTableAdapter = null;
+            this.tableAdapterManager.GIANGVIENINFOTableAdapter = null;
+            this.tableAdapterManager.GIANGVIENTableAdapter = null;
+            this.tableAdapterManager.HOCPHITableAdapter = null;
+            this.tableAdapterManager.KHOATableAdapter = null;
+            this.tableAdapterManager.LOPTableAdapter = null;
             this.tableAdapterManager.LOPTINCHITableAdapter = null;
             this.tableAdapterManager.MONHOCTableAdapter = this.MONHOCTableAdapter;
+            this.tableAdapterManager.SINHVIENTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = QLDSV_TC.DSTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
             // MONHOCGridControl
@@ -315,10 +319,9 @@
             this.MONHOCGridControl.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(1);
             this.MONHOCGridControl.Location = new System.Drawing.Point(0, 51);
             this.MONHOCGridControl.MainView = this.gvMonHoc;
-            this.MONHOCGridControl.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.MONHOCGridControl.MenuManager = this.barManager1;
             this.MONHOCGridControl.Name = "MONHOCGridControl";
-            this.MONHOCGridControl.Size = new System.Drawing.Size(1624, 396);
+            this.MONHOCGridControl.Size = new System.Drawing.Size(1283, 378);
             this.MONHOCGridControl.TabIndex = 5;
             this.MONHOCGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvMonHoc});
@@ -330,119 +333,100 @@
             this.colTENMH,
             this.colSOTIET_LT,
             this.colSOTIET_TH});
-            this.gvMonHoc.DetailHeight = 393;
             this.gvMonHoc.GridControl = this.MONHOCGridControl;
             this.gvMonHoc.Name = "gvMonHoc";
             this.gvMonHoc.OptionsBehavior.ReadOnly = true;
-            this.gvMonHoc.OptionsDetail.EnableMasterViewMode = false;
             // 
             // colMAMH
             // 
-            this.colMAMH.AppearanceHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.colMAMH.AppearanceHeader.Options.UseBackColor = true;
-            this.colMAMH.Caption = "Mã môn học";
+            this.colMAMH.Caption = "MÃ MÔN HỌC";
             this.colMAMH.FieldName = "MAMH";
-            this.colMAMH.MinWidth = 31;
+            this.colMAMH.MinWidth = 25;
             this.colMAMH.Name = "colMAMH";
             this.colMAMH.Visible = true;
             this.colMAMH.VisibleIndex = 0;
-            this.colMAMH.Width = 121;
+            this.colMAMH.Width = 94;
             // 
             // colTENMH
             // 
-            this.colTENMH.AppearanceHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.colTENMH.AppearanceHeader.Options.UseBackColor = true;
-            this.colTENMH.Caption = "Tên môn học";
+            this.colTENMH.Caption = "TÊN MÔN HỌC";
             this.colTENMH.FieldName = "TENMH";
-            this.colTENMH.MinWidth = 31;
+            this.colTENMH.MinWidth = 25;
             this.colTENMH.Name = "colTENMH";
             this.colTENMH.Visible = true;
             this.colTENMH.VisibleIndex = 1;
-            this.colTENMH.Width = 121;
+            this.colTENMH.Width = 94;
             // 
             // colSOTIET_LT
             // 
-            this.colSOTIET_LT.AppearanceHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.colSOTIET_LT.AppearanceHeader.Options.UseBackColor = true;
-            this.colSOTIET_LT.Caption = "Số tiết lý thuyết";
+            this.colSOTIET_LT.Caption = "SỐ TIẾT LÝ THUYẾT";
             this.colSOTIET_LT.FieldName = "SOTIET_LT";
-            this.colSOTIET_LT.MinWidth = 31;
+            this.colSOTIET_LT.MinWidth = 25;
             this.colSOTIET_LT.Name = "colSOTIET_LT";
             this.colSOTIET_LT.Visible = true;
             this.colSOTIET_LT.VisibleIndex = 2;
-            this.colSOTIET_LT.Width = 121;
+            this.colSOTIET_LT.Width = 94;
             // 
             // colSOTIET_TH
             // 
-            this.colSOTIET_TH.AppearanceHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.colSOTIET_TH.AppearanceHeader.Options.UseBackColor = true;
-            this.colSOTIET_TH.Caption = "Số tiết thực hành";
+            this.colSOTIET_TH.Caption = "SỐ TIẾT THỰC HÀNH";
             this.colSOTIET_TH.FieldName = "SOTIET_TH";
-            this.colSOTIET_TH.MinWidth = 31;
+            this.colSOTIET_TH.MinWidth = 25;
             this.colSOTIET_TH.Name = "colSOTIET_TH";
             this.colSOTIET_TH.Visible = true;
             this.colSOTIET_TH.VisibleIndex = 3;
-            this.colSOTIET_TH.Width = 121;
+            this.colSOTIET_TH.Width = 94;
             // 
             // panelControl1
             // 
-            this.panelControl1.Controls.Add(this.label1);
-            this.panelControl1.Controls.Add(this.pictureBox1);
-            this.panelControl1.Controls.Add(this.sOTIET_THLabel);
-            this.panelControl1.Controls.Add(this.speSoTietTH);
-            this.panelControl1.Controls.Add(this.sOTIET_LTLabel);
-            this.panelControl1.Controls.Add(this.speSoTietLT);
-            this.panelControl1.Controls.Add(this.tENMHLabel);
-            this.panelControl1.Controls.Add(this.txbTenMonHoc);
-            this.panelControl1.Controls.Add(this.mAMHLabel);
+            this.panelControl1.Controls.Add(this.svgImageBox1);
+            this.panelControl1.Controls.Add(mAMHLabel);
             this.panelControl1.Controls.Add(this.txbMaMonHoc);
+            this.panelControl1.Controls.Add(tENMHLabel);
+            this.panelControl1.Controls.Add(this.txbTenMonHoc);
+            this.panelControl1.Controls.Add(sOTIET_LTLabel);
+            this.panelControl1.Controls.Add(this.speSoTietLT);
+            this.panelControl1.Controls.Add(sOTIET_THLabel);
+            this.panelControl1.Controls.Add(this.speSoTietTH);
+            this.panelControl1.Controls.Add(this.label1);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl1.Enabled = false;
-            this.panelControl1.Location = new System.Drawing.Point(0, 447);
-            this.panelControl1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.panelControl1.Location = new System.Drawing.Point(0, 429);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(1624, 318);
+            this.panelControl1.Size = new System.Drawing.Size(1283, 240);
             this.panelControl1.TabIndex = 6;
             // 
-            // label1
+            // svgImageBox1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(147, 37);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(243, 18);
-            this.label1.TabIndex = 9;
-            this.label1.Text = "Nhập thông tin chi tiết môn học";
+            this.svgImageBox1.Location = new System.Drawing.Point(245, 87);
+            this.svgImageBox1.Name = "svgImageBox1";
+            this.svgImageBox1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.svgImageBox1.Size = new System.Drawing.Size(211, 184);
+            this.svgImageBox1.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("svgImageBox1.SvgImage")));
+            this.svgImageBox1.TabIndex = 9;
+            this.svgImageBox1.Text = "svgImageBox1";
             // 
-            // pictureBox1
+            // txbMaMonHoc
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(148, 90);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(194, 158);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 8;
-            this.pictureBox1.TabStop = false;
+            this.txbMaMonHoc.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsMonHoc, "MAMH", true));
+            this.txbMaMonHoc.Location = new System.Drawing.Point(647, 80);
+            this.txbMaMonHoc.MenuManager = this.barManager1;
+            this.txbMaMonHoc.Name = "txbMaMonHoc";
+            this.txbMaMonHoc.Properties.Appearance.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txbMaMonHoc.Properties.Appearance.Options.UseFont = true;
+            this.txbMaMonHoc.Size = new System.Drawing.Size(282, 30);
+            this.txbMaMonHoc.TabIndex = 2;
             // 
-            // speSoTietTH
+            // txbTenMonHoc
             // 
-            this.speSoTietTH.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsMonHoc, "SOTIET_TH", true));
-            this.speSoTietTH.EditValue = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-            this.speSoTietTH.Location = new System.Drawing.Point(519, 220);
-            this.speSoTietTH.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.speSoTietTH.MenuManager = this.barManager1;
-            this.speSoTietTH.Name = "speSoTietTH";
-            this.speSoTietTH.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.speSoTietTH.Properties.IsFloatValue = false;
-            this.speSoTietTH.Properties.MaskSettings.Set("mask", "N00");
-            this.speSoTietTH.Size = new System.Drawing.Size(328, 24);
-            this.speSoTietTH.TabIndex = 7;
+            this.txbTenMonHoc.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsMonHoc, "TENMH", true));
+            this.txbTenMonHoc.Location = new System.Drawing.Point(647, 131);
+            this.txbTenMonHoc.MenuManager = this.barManager1;
+            this.txbTenMonHoc.Name = "txbTenMonHoc";
+            this.txbTenMonHoc.Properties.Appearance.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txbTenMonHoc.Properties.Appearance.Options.UseFont = true;
+            this.txbTenMonHoc.Size = new System.Drawing.Size(282, 30);
+            this.txbTenMonHoc.TabIndex = 4;
             // 
             // speSoTietLT
             // 
@@ -452,52 +436,50 @@
             0,
             0,
             0});
-            this.speSoTietLT.Location = new System.Drawing.Point(519, 168);
-            this.speSoTietLT.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.speSoTietLT.Location = new System.Drawing.Point(647, 175);
             this.speSoTietLT.MenuManager = this.barManager1;
             this.speSoTietLT.Name = "speSoTietLT";
+            this.speSoTietLT.Properties.Appearance.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.speSoTietLT.Properties.Appearance.Options.UseFont = true;
             this.speSoTietLT.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.speSoTietLT.Properties.IsFloatValue = false;
-            this.speSoTietLT.Properties.MaskSettings.Set("mask", "N00");
-            this.speSoTietLT.Size = new System.Drawing.Size(328, 24);
-            this.speSoTietLT.TabIndex = 5;
+            this.speSoTietLT.Size = new System.Drawing.Size(282, 30);
+            this.speSoTietLT.TabIndex = 6;
             // 
-            // txbTenMonHoc
+            // speSoTietTH
             // 
-            this.txbTenMonHoc.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsMonHoc, "TENMH", true));
-            this.txbTenMonHoc.Location = new System.Drawing.Point(519, 127);
-            this.txbTenMonHoc.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.txbTenMonHoc.MenuManager = this.barManager1;
-            this.txbTenMonHoc.Name = "txbTenMonHoc";
-            this.txbTenMonHoc.Size = new System.Drawing.Size(328, 22);
-            this.txbTenMonHoc.TabIndex = 3;
+            this.speSoTietTH.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsMonHoc, "SOTIET_TH", true));
+            this.speSoTietTH.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.speSoTietTH.Location = new System.Drawing.Point(647, 220);
+            this.speSoTietTH.MenuManager = this.barManager1;
+            this.speSoTietTH.Name = "speSoTietTH";
+            this.speSoTietTH.Properties.Appearance.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.speSoTietTH.Properties.Appearance.Options.UseFont = true;
+            this.speSoTietTH.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.speSoTietTH.Size = new System.Drawing.Size(282, 30);
+            this.speSoTietTH.TabIndex = 8;
             // 
-            // txbMaMonHoc
+            // label1
             // 
-            this.txbMaMonHoc.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsMonHoc, "MAMH", true));
-            this.txbMaMonHoc.Location = new System.Drawing.Point(519, 87);
-            this.txbMaMonHoc.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.txbMaMonHoc.MenuManager = this.barManager1;
-            this.txbMaMonHoc.Name = "txbMaMonHoc";
-            this.txbMaMonHoc.Size = new System.Drawing.Size(328, 22);
-            this.txbMaMonHoc.TabIndex = 1;
-            // 
-            // bdsLopTinChi
-            // 
-            this.bdsLopTinChi.DataMember = "FK_LOPTINCHI_MONHOC";
-            this.bdsLopTinChi.DataSource = this.bdsMonHoc;
-            // 
-            // lOPTINCHITableAdapter
-            // 
-            this.lOPTINCHITableAdapter.ClearBeforeFill = true;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(218, 40);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(278, 23);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Nhập thông tin chi tiết môn học";
             // 
             // frmMonHoc
             // 
             this.Appearance.Options.UseFont = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1624, 785);
+            this.ClientSize = new System.Drawing.Size(1283, 689);
             this.Controls.Add(this.panelControl1);
             this.Controls.Add(this.MONHOCGridControl);
             this.Controls.Add(this.barDockControlLeft);
@@ -505,9 +487,9 @@
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
             this.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.Name = "frmMonHoc";
-            this.Text = "MÔN HỌC";
+            this.Text = "frmMonHoc";
             this.Load += new System.EventHandler(this.frmMonHoc_Load);
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DS)).EndInit();
@@ -517,57 +499,49 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             this.panelControl1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.speSoTietTH.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.speSoTietLT.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txbTenMonHoc.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.svgImageBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txbMaMonHoc.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdsLopTinChi)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txbTenMonHoc.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.speSoTietLT.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.speSoTietTH.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
+
         private DevExpress.XtraBars.BarManager barManager1;
         private DevExpress.XtraBars.Bar bar1;
         private DevExpress.XtraBars.Bar bar2;
-        private DevExpress.XtraBars.BarButtonItem btnThem;
-        private DevExpress.XtraBars.BarButtonItem btnXoa;
-        private DevExpress.XtraBars.BarButtonItem btnSua;
-        private DevExpress.XtraBars.BarButtonItem btnGhi;
-        private DevExpress.XtraBars.BarButtonItem btnHuy;
-        private DevExpress.XtraBars.BarButtonItem btnThoat;
         private DevExpress.XtraBars.Bar bar3;
         private DevExpress.XtraBars.BarDockControl barDockControlTop;
         private DevExpress.XtraBars.BarDockControl barDockControlBottom;
         private DevExpress.XtraBars.BarDockControl barDockControlLeft;
         private DevExpress.XtraBars.BarDockControl barDockControlRight;
-        private DS DS;
+        private DevExpress.XtraBars.BarButtonItem btnThem;
+        private DevExpress.XtraBars.BarButtonItem btnXoa;
+        private DevExpress.XtraBars.BarButtonItem btnSua;
+        private DevExpress.XtraBars.BarButtonItem btnGhi;
+        private DevExpress.XtraBars.BarButtonItem btnHuy;
+        private DevExpress.XtraBars.BarButtonItem btnLamMoi;
+        private DevExpress.XtraBars.BarButtonItem btnThoat;
         private System.Windows.Forms.BindingSource bdsMonHoc;
+        private DS DS;
         private DSTableAdapters.MONHOCTableAdapter MONHOCTableAdapter;
         private DSTableAdapters.TableAdapterManager tableAdapterManager;
-        private DevExpress.XtraGrid.GridControl MONHOCGridControl;
         private DevExpress.XtraEditors.PanelControl panelControl1;
-        private DevExpress.XtraEditors.SpinEdit speSoTietTH;
-        private DevExpress.XtraEditors.SpinEdit speSoTietLT;
-        private DevExpress.XtraEditors.TextEdit txbTenMonHoc;
-        private DevExpress.XtraEditors.TextEdit txbMaMonHoc;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.BindingSource bdsLopTinChi;
-        private DSTableAdapters.LOPTINCHITableAdapter lOPTINCHITableAdapter;
-        private System.Windows.Forms.Label mAMHLabel;
-        private System.Windows.Forms.Label tENMHLabel;
-        private System.Windows.Forms.Label sOTIET_LTLabel;
-        private System.Windows.Forms.Label sOTIET_THLabel;
+        private DevExpress.XtraGrid.GridControl MONHOCGridControl;
         private DevExpress.XtraGrid.Views.Grid.GridView gvMonHoc;
         private DevExpress.XtraGrid.Columns.GridColumn colMAMH;
         private DevExpress.XtraGrid.Columns.GridColumn colTENMH;
         private DevExpress.XtraGrid.Columns.GridColumn colSOTIET_LT;
         private DevExpress.XtraGrid.Columns.GridColumn colSOTIET_TH;
-        private DevExpress.Utils.Behaviors.BehaviorManager behaviorManager1;
-        private DevExpress.XtraBars.BarButtonItem btnLamMoi;
+        private DevExpress.XtraEditors.SvgImageBox svgImageBox1;
+        private DevExpress.XtraEditors.TextEdit txbMaMonHoc;
+        private DevExpress.XtraEditors.TextEdit txbTenMonHoc;
+        private DevExpress.XtraEditors.SpinEdit speSoTietLT;
+        private DevExpress.XtraEditors.SpinEdit speSoTietTH;
     }
 }
